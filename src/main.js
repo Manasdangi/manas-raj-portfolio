@@ -121,25 +121,27 @@ document.querySelector('#app').innerHTML = `
           </ul>
         </section>
 
-        <aside class="hero-card" aria-label="Quick profile">
-          <p class="card-label">Current Focus</p>
-          <ul class="metric-list">
-            <li>
-              <strong>Frontend systems</strong>
-              <span>React, Vite, Webview, performance tuning</span>
-            </li>
-            <li>
-              <strong>Product impact</strong>
-              <span>Checkout, support, calculators, booking flows</span>
-            </li>
-            <li>
-              <strong>Scale</strong>
-              <span>Experiences used by millions and optimized for measurable growth</span>
-            </li>
-          </ul>
-          <div class="availability">
-            <span class="availability-dot"></span>
-            Open to strong product engineering opportunities
+        <aside class="hero-side" aria-label="Quick profile">
+          <div class="hero-card">
+            <p class="card-label">Current Focus</p>
+            <ul class="metric-list">
+              <li>
+                <strong>Frontend systems</strong>
+                <span>React, Vite, Webview, performance tuning</span>
+              </li>
+              <li>
+                <strong>Product impact</strong>
+                <span>Checkout, support, calculators, booking flows</span>
+              </li>
+              <li>
+                <strong>Scale</strong>
+                <span>Experiences used by millions and optimized for measurable growth</span>
+              </li>
+            </ul>
+            <div class="availability">
+              <span class="availability-dot"></span>
+              Open to strong product engineering opportunities
+            </div>
           </div>
         </aside>
       </div>
@@ -268,6 +270,14 @@ document.querySelector('#app').innerHTML = `
             </div>
             <p>CBSE Intermediate (PCM)</p>
             <p>Score: 90.4%</p>
+          </article>
+          <article class="education-card">
+            <div class="education-topline">
+              <h3>School Education</h3>
+              <span>Class 10</span>
+            </div>
+            <p>CBSE Secondary Education</p>
+            <p>CGPA: 10 / 10</p>
           </article>
         </div>
       </section>
