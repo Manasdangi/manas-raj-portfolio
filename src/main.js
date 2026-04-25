@@ -120,6 +120,7 @@ document.querySelector('#app').innerHTML = `
           <div class="hero-actions">
             <a class="button button-primary" href="mailto:manasraj9669@gmail.com">Contact Me</a>
             <a class="button button-secondary" href="#projects">View Projects</a>
+            <a class="button button-secondary" href="/resume.pdf" target="_blank" rel="noreferrer">View Resume</a>
           </div>
           <ul class="contact-list" aria-label="Contact details">
             <li>
@@ -312,4 +313,20 @@ document.querySelector('#app').innerHTML = `
       </section>
     </main>
   </div>
+  <button class="scroll-top" id="scroll-top" type="button" aria-label="Move to top">Move to top</button>
 `
+
+const scrollTopButton = document.querySelector('#scroll-top')
+
+const toggleScrollTopButton = () => {
+  if (!scrollTopButton) return
+  scrollTopButton.classList.toggle('is-visible', window.scrollY > 320)
+}
+
+toggleScrollTopButton()
+
+window.addEventListener('scroll', toggleScrollTopButton, { passive: true })
+
+scrollTopButton?.addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' })
+})

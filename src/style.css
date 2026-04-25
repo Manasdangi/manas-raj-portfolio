@@ -56,6 +56,40 @@ h3 {
   min-height: 100vh;
 }
 
+.scroll-top {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 50;
+  min-height: 46px;
+  padding: 0 18px;
+  border: 1px solid rgba(124, 45, 18, 0.12);
+  border-radius: 999px;
+  background: rgba(124, 45, 18, 0.92);
+  color: #fff7ed;
+  font: inherit;
+  font-weight: 800;
+  box-shadow: 0 16px 28px rgba(72, 43, 19, 0.18);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(12px);
+  transition:
+    opacity 180ms ease,
+    transform 180ms ease,
+    background 180ms ease;
+}
+
+.scroll-top.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.scroll-top:hover,
+.scroll-top:focus-visible {
+  background: rgba(96, 33, 13, 0.96);
+}
+
 .page-shell {
   width: min(1180px, calc(100% - 32px));
   margin: 20px auto;
@@ -555,6 +589,11 @@ h3 {
 @media (max-width: 640px) {
   :root {
     font-size: 16px;
+  }
+
+  .scroll-top {
+    right: 16px;
+    bottom: 16px;
   }
 
   .topbar {
