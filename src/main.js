@@ -13,8 +13,10 @@ const experienceItems = [
       'Built an SEO-optimized Car Service Cost Calculator that improved transparency and discoverability and ranked on the first page of Google search.',
       'Created the Help & Support journey for Spinny Care with query and sub-query selection, improving issue segregation and reducing resolution TAT.',
       'Developed the Catalogue Page from scratch for refurbishment spare-parts availability using TanStack Query, improving load performance, API response time, and usability.',
-      'Refactored the React codebase by reducing unnecessary re-renders with memoization, dynamic imports, and virtualization, improving CLS, FPS, and LCP and increasing page speed by around 50%.',
+      'Improved Web Vitals and overall frontend performance through React optimization, memoization, dynamic imports, virtualization, and hands-on work with SSR, Webpack, and caching strategies.',
+      'Contributed to CI/CD and production deployment workflows while building scalable features with stronger system-design awareness.',
       'Built key refurbishment dashboard modules including address change, slot change, and workshop change flows for workshop-level operations.',
+      'Transitioned into the Spinny app team and contributed to end-to-end app release processes, React Native upgrades from 0.73 to 0.80, and smoother WebView-based user experiences.',
     ],
   },
   {
@@ -54,6 +56,7 @@ const projects = [
     name: 'TalentLens',
     stack: 'React, Vite, TypeScript, Firebase, Groq LLM',
     period: 'Dec 2025 - Present',
+    link: 'https://talentlens-gamma.vercel.app/',
     summary:
       'An AI-powered hiring platform for both candidates and recruiters, focused on resume scoring, job matching, and application tracking.',
     points: [
@@ -67,6 +70,7 @@ const projects = [
     name: 'Multiplayer Chess Platform',
     stack: 'React, Socket.IO, Firebase, JavaScript',
     period: 'Personal Project',
+    link: 'https://chess-gamma-five.vercel.app/',
     summary:
       'A real-time multiplayer chess experience where players can create rooms, join friends, manage profiles, and review match history.',
     points: [
@@ -87,37 +91,61 @@ const skills = {
 
 document.querySelector('#app').innerHTML = `
   <div class="page-shell">
-    <header class="hero">
-      <nav class="topbar" aria-label="Primary">
-        <div class="brand">
-          <span class="brand-mark">MR</span>
-          <span class="brand-name">Manas Raj</span>
-        </div>
-        <div class="topbar-links">
-          <a href="#experience">Experience</a>
-          <a href="#projects">Projects</a>
-          <a href="#skills">Skills</a>
-          <a href="#education">Education</a>
-        </div>
-      </nav>
+    <nav class="topbar" aria-label="Primary">
+      <div class="brand">
+        <span class="brand-mark">MR</span>
+        <span class="brand-name">Manas Raj</span>
+      </div>
+      <div class="topbar-links">
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#education">Education</a>
+      </div>
+    </nav>
 
+    <header class="hero">
       <div class="hero-grid">
         <section class="hero-copy">
           <p class="eyebrow">Software Engineer • Frontend & Product Engineering</p>
-          <h1>Building fast, conversion-focused products with clean UX and measurable impact.</h1>
+          <h1 class="hero-title">Frontend engineer who ships fast, scales thoughtfully, and builds products that users actually feel.</h1>
           <p class="summary">
-            I’m a software engineer with experience shipping payment systems, service journeys,
-            internal tools, and high-performance web experiences at Spinny and Airtel.
+            I build high-performance product experiences with strong engineering fundamentals across frontend architecture, performance optimization, system design, and delivery. At Spinny, Airtel, and Niyo, I’ve shipped revenue-impacting journeys, payment systems, support flows, and internal platforms used at real scale.
           </p>
+          <div class="hero-proof" aria-label="Key strengths">
+            <span class="proof-chip">Built from 0 to 1</span>
+            <span class="proof-chip">Frontend + system design</span>
+            <span class="proof-chip">AI-native workflow</span>
+          </div>
           <div class="hero-actions">
             <a class="button button-primary" href="mailto:manasraj9669@gmail.com">Contact Me</a>
             <a class="button button-secondary" href="#projects">View Projects</a>
           </div>
           <ul class="contact-list" aria-label="Contact details">
-            <li><a href="tel:+919128826817">Phone: 9128826817</a></li>
-            <li><a href="mailto:manasraj9669@gmail.com">Email: manasraj9669@gmail.com</a></li>
-            <li><a href="https://www.linkedin.com/in/manas-raj-mnit/" target="_blank" rel="noreferrer">LinkedIn: /in/manas-raj-mnit</a></li>
-            <li><a href="https://github.com/Manasdangi" target="_blank" rel="noreferrer">GitHub: /Manasdangi</a></li>
+            <li>
+              <a href="tel:+919128826817">
+                <span class="contact-icon" aria-hidden="true">☎</span>
+                <span>Phone: 9128826817</span>
+              </a>
+            </li>
+            <li>
+              <a href="mailto:manasraj9669@gmail.com">
+                <span class="contact-icon" aria-hidden="true">✉</span>
+                <span>Email: manasraj9669@gmail.com</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.linkedin.com/in/manas-raj-mnit/" target="_blank" rel="noreferrer">
+                <span class="contact-icon" aria-hidden="true">in</span>
+                <span>LinkedIn: /in/manas-raj-mnit</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://github.com/Manasdangi" target="_blank" rel="noreferrer">
+                <span class="contact-icon" aria-hidden="true">◎</span>
+                <span>GitHub: /Manasdangi</span>
+              </a>
+            </li>
           </ul>
         </section>
 
@@ -127,15 +155,15 @@ document.querySelector('#app').innerHTML = `
             <ul class="metric-list">
               <li>
                 <strong>Frontend systems</strong>
-                <span>React, Vite, Webview, performance tuning</span>
+                <span>Strong in React, TypeScript, Vite, WebView integrations, performance tuning, and production-grade UI architecture.</span>
               </li>
               <li>
                 <strong>Product impact</strong>
-                <span>Checkout, support, calculators, booking flows</span>
+                <span>Delivered meaningful user-facing impact across Spinny Care, Spinny consumer, Airtel payments, and internal platforms with faster flows, better UX, and measurable business outcomes.</span>
               </li>
               <li>
-                <strong>Scale</strong>
-                <span>Experiences used by millions and optimized for measurable growth</span>
+                <strong>Build from scratch</strong>
+                <span>Comfortable taking products from scratch to production with strong system-design thinking and hands-on experience using modern AI tools like Cursor, Claude, and Antigravity.</span>
               </li>
             </ul>
             <div class="availability">
@@ -214,6 +242,7 @@ document.querySelector('#app').innerHTML = `
                   </div>
                   <p class="project-stack">${project.stack}</p>
                   <p class="project-summary">${project.summary}</p>
+                  <a class="project-link" href="${project.link}" target="_blank" rel="noreferrer">Live Project</a>
                   <ul class="detail-list">
                     ${project.points.map((point) => `<li>${point}</li>`).join('')}
                   </ul>
