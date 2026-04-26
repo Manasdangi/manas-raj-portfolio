@@ -98,6 +98,7 @@ const skills = {
   frontend: [
     "React",
     "Vite",
+    "Next JS",
     "Redux",
     "Webpack",
     "GraphQL",
