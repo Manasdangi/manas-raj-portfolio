@@ -1,106 +1,122 @@
-import './style.css'
+import "./style.css";
 
 const experienceItems = [
   {
-    company: 'Spinny',
-    location: 'Gurugram, Haryana',
-    role: 'Software Engineer',
-    period: 'Jan 2025 - Present',
+    company: "Spinny",
+    location: "Gurugram, Haryana",
+    role: "Software Engineer",
+    period: "Jan 2025 - Present",
     highlights: [
-      'Developed the Spinny Care desktop website single-handedly, enabling seamless service booking and management and increasing traffic by 10%.',
-      'Built the Adhoc Approval Flow in Spinny Care so technicians could send car-parts issue approvals to users through the app, cutting turnaround time by 50% and reducing manual intervention.',
-      'Constructed payment checkout for the Spinny Care website, reducing cash transactions and enabling complete digital record-keeping and refund processes.',
-      'Built an SEO-optimized Car Service Cost Calculator that improved transparency and discoverability and ranked on the first page of Google search.',
-      'Created the Help & Support journey for Spinny Care with query and sub-query selection, improving issue segregation and reducing resolution TAT.',
-      'Developed the Catalogue Page from scratch for refurbishment spare-parts availability using TanStack Query, improving load performance, API response time, and usability.',
-      'Improved Web Vitals and overall frontend performance through React optimization, memoization, dynamic imports, virtualization, and hands-on work with SSR, Webpack, and caching strategies.',
-      'Contributed to CI/CD and production deployment workflows while building scalable features with stronger system-design awareness.',
-      'Built key refurbishment dashboard modules including address change, slot change, and workshop change flows for workshop-level operations.',
-      'Transitioned into the Spinny app team and contributed to end-to-end app release processes, React Native upgrades from 0.73 to 0.80, and smoother WebView-based user experiences.',
+      "Developed the Spinny Care desktop website single-handedly, enabling seamless service booking and management and increasing traffic by 10%.",
+      "Built the Adhoc Approval Flow in Spinny Care so technicians could send car-parts issue approvals to users through the app, cutting turnaround time by 50% and reducing manual intervention.",
+      "Constructed payment checkout for the Spinny Care website, reducing cash transactions and enabling complete digital record-keeping and refund processes.",
+      "Built an SEO-optimized Car Service Cost Calculator that improved transparency and discoverability and ranked on the first page of Google search.",
+      "Created the Help & Support journey for Spinny Care with query and sub-query selection, improving issue segregation and reducing resolution TAT.",
+      "Developed the Catalogue Page from scratch for refurbishment spare-parts availability using TanStack Query, improving load performance, API response time, and usability.",
+      "Improved Web Vitals and overall frontend performance through React optimization, memoization, dynamic imports, virtualization, and hands-on work with SSR, Webpack, and caching strategies.",
+      "Contributed to CI/CD and production deployment workflows while building scalable features with stronger system-design awareness.",
+      "Built key refurbishment dashboard modules including address change, slot change, and workshop change flows for workshop-level operations.",
+      "Transitioned into the Spinny app team and contributed to end-to-end app release processes, React Native upgrades from 0.73 to 0.80, and smoother WebView-based user experiences.",
     ],
   },
   {
-    company: 'Airtel Digital',
-    location: 'Gurugram, Haryana',
-    role: 'Software Engineer',
-    period: 'Oct 2023 - Jan 2025',
+    company: "Airtel Digital",
+    location: "Gurugram, Haryana",
+    role: "Software Engineer",
+    period: "Oct 2023 - Jan 2025",
     highlights: [
-      'Worked on the Thanks App checkout team across full checkout, pre-checkout, and quick-checkout flows, continuously shipping features to improve user experience.',
-      'Built backend-driven widgets for APB wallet and saved-card payment modes, including encryption for card transactions and better checkout security.',
-      'Improved Airtel UPI onboarding success rate by 2% and added health callouts for down banks, delivering an additional 1.5% success-rate lift.',
-      'Developed a new quick checkout flow for React Native and iOS, increasing success rate by 2% and improving checkout reliability.',
-      'Resolved a large volume of SWAT bugs, cleaned up UI inconsistencies, and supported SANITY testing for major releases.',
-      'Analyzed clickstream data to identify onboarding and transaction analytics gaps and refine success-rate calculations on Growth Book.',
-      'Architected a scalable, high-performance checkout flow for millions of monthly users and migrated the full checkout page from native iOS to React Native using backend-driven widgets and SOLID principles.',
-      'Implemented an order-creation and polling flow for broadband recharge journeys, reducing order-service API calls by 3x to 4x and lowering database load.',
-      'Integrated SIM binding checks for APB wallet transactions, reducing wallet fraud and improving account security.',
+      "Worked on the Thanks App checkout team across full checkout, pre-checkout, and quick-checkout flows, continuously shipping features to improve user experience.",
+      "Built backend-driven widgets for APB wallet and saved-card payment modes, including encryption for card transactions and better checkout security.",
+      "Improved Airtel UPI onboarding success rate by 2% and added health callouts for down banks, delivering an additional 1.5% success-rate lift.",
+      "Developed a new quick checkout flow for React Native and iOS, increasing success rate by 2% and improving checkout reliability.",
+      "Resolved a large volume of SWAT bugs, cleaned up UI inconsistencies, and supported SANITY testing for major releases.",
+      "Analyzed clickstream data to identify onboarding and transaction analytics gaps and refine success-rate calculations on Growth Book.",
+      "Architected a scalable, high-performance checkout flow for millions of monthly users and migrated the full checkout page from native iOS to React Native using backend-driven widgets and SOLID principles.",
+      "Implemented an order-creation and polling flow for broadband recharge journeys, reducing order-service API calls by 3x to 4x and lowering database load.",
+      "Integrated SIM binding checks for APB wallet transactions, reducing wallet fraud and improving account security.",
     ],
   },
   {
-    company: 'Niyo Solutions Inc.',
-    location: 'Bangalore Urban, Karnataka',
-    role: 'Software Developer Intern',
-    period: 'Jun 2022 - Dec 2022',
+    company: "Niyo Solutions Inc.",
+    location: "Bangalore Urban, Karnataka",
+    role: "Software Developer Intern",
+    period: "Jun 2022 - Dec 2022",
     highlights: [
-      'Enhanced internal search and support tooling by fixing bugs and shipping new workflow improvements.',
-      'Built features to display customer live photo, liveness score, and face match score by integrating backend APIs with AWS S3-backed data.',
-      'Optimized the biometric KYC enable and disable flow by reducing three backend calls to one, saving about 600 ms and making the process roughly 300% faster.',
-      'Added KYC mode and status details on customer profile pages, improving support efficiency and customer experience.',
-      'Worked on PAN Verification API and Wealth API migrations, helping strengthen onboarding and account creation flows.',
+      "Enhanced internal search and support tooling by fixing bugs and shipping new workflow improvements.",
+      "Built features to display customer live photo, liveness score, and face match score by integrating backend APIs with AWS S3-backed data.",
+      "Optimized the biometric KYC enable and disable flow by reducing three backend calls to one, saving about 600 ms and making the process roughly 300% faster.",
+      "Added KYC mode and status details on customer profile pages, improving support efficiency and customer experience.",
+      "Worked on PAN Verification API and Wealth API migrations, helping strengthen onboarding and account creation flows.",
     ],
   },
-]
+];
 
 const projects = [
   {
-    name: 'TalentLens',
-    stack: 'React, Vite, TypeScript, Firebase, Groq LLM',
-    period: 'Dec 2025 - Present',
-    link: 'https://talentlens-gamma.vercel.app/',
+    name: "TalentLens",
+    stack: "React, Vite, TypeScript, Firebase, Groq LLM",
+    period: "Dec 2025 - Present",
+    link: "https://talentlens-gamma.vercel.app/",
     summary:
-      'An AI-powered hiring platform for both candidates and recruiters, focused on resume scoring, job matching, and application tracking.',
+      "An AI-powered hiring platform for both candidates and recruiters, focused on resume scoring, job matching, and application tracking.",
     points: [
-      'Built a resume scoring workflow where candidates upload resumes, choose role and experience level, add a job description, and receive AI scoring with summaries, strengths, improvements, and keyword match or miss analysis.',
-      'Allowed candidates to save up to four role-specific resumes and apply to openings with the best-matched resume in one click.',
-      'Designed a recruiter dashboard to post jobs, review applicants, and rank candidates using AI on top of resume data stored in Firestore.',
-      'Implemented job recommendations, compatibility scoring, OAuth-based application tracking, and a modular TypeScript architecture with clear separation of UI, services, and state.',
+      "Built a resume scoring workflow where candidates upload resumes, choose role and experience level, add a job description, and receive AI scoring with summaries, strengths, improvements, and keyword match or miss analysis.",
+      "Allowed candidates to save up to four role-specific resumes and apply to openings with the best-matched resume in one click.",
+      "Designed a recruiter dashboard to post jobs, review applicants, and rank candidates using AI on top of resume data stored in Firestore.",
+      "Implemented job recommendations, compatibility scoring, OAuth-based application tracking, and a modular TypeScript architecture with clear separation of UI, services, and state.",
     ],
   },
   {
-    name: 'Multiplayer Chess Platform',
-    stack: 'React, Socket.IO, Firebase, JavaScript',
-    period: 'Personal Project',
-    link: 'https://chess-gamma-five.vercel.app/',
+    name: "Multiplayer Chess Platform",
+    stack: "React, Socket.IO, Firebase, JavaScript",
+    period: "Personal Project",
+    link: "https://chess-gamma-five.vercel.app/",
     summary:
-      'A real-time multiplayer chess experience where players can create rooms, join friends, manage profiles, and review match history.',
+      "A real-time multiplayer chess experience where players can create rooms, join friends, manage profiles, and review match history.",
     points: [
-      'Built private room creation and join flows so users can easily start live matches with friends.',
-      'Implemented real-time gameplay using Socket.IO along with backend support for live game state synchronization.',
-      'Wrote the core move logic for chess pieces from scratch, including queen, rook, bishop, knight, and pawn movement handling.',
-      'Designed the chessboard UI myself and later revisited the product to improve login plus create and join room flows.',
+      "Built private room creation and join flows so users can easily start live matches with friends.",
+      "Implemented real-time gameplay using Socket.IO along with backend support for live game state synchronization.",
+      "Wrote the core move logic for chess pieces from scratch, including queen, rook, bishop, knight, and pawn movement handling.",
+      "Designed the chessboard UI myself and later revisited the product to improve login plus create and join room flows.",
     ],
   },
   {
-    name: 'Pulse Fit Gym',
-    stack: 'Next.js',
-    period: '2 days',
-    link: 'https://gym-landing-page-next-js.vercel.app/',
-    summary: 'A minimalist gym landing page',
+    name: "Pulse Fit Gym",
+    stack: "Next.js",
+    period: "2 days",
+    link: "https://gym-landing-page-next-js.vercel.app/",
+    summary: "A minimalist gym landing page",
     points: [
-      'Developed a clean and responsive gym landing page using Next.js.',
-      'Focused on minimalist design to highlight gym services and features.',
+      "Developed a clean and responsive gym landing page using Next.js.",
+      "Focused on minimalist design to highlight gym services and features.",
     ],
   },
-]
+];
 
 const skills = {
-  languages: ['JavaScript', 'TypeScript', 'HTML', 'CSS', 'Basic C++'],
-  frontend: ['React', 'Vite', 'Redux', 'Webpack', 'GraphQL', 'SSR', 'Socket.IO', 'Webview'],
-  engineering: ['Performance Profiling', 'Component-driven Architecture', 'Chrome DevTools', 'Debugging', 'Git', 'Agile'],
-  core: ['Data Structures', 'Algorithms', 'OOPs', 'Ownership', 'Collaboration'],
-}
+  languages: ["JavaScript", "TypeScript", "HTML", "CSS", "Basic C++"],
+  frontend: [
+    "React",
+    "Vite",
+    "Redux",
+    "Webpack",
+    "GraphQL",
+    "SSR",
+    "Socket.IO",
+    "Webview",
+  ],
+  engineering: [
+    "Performance Profiling",
+    "Component-driven Architecture",
+    "Chrome DevTools",
+    "Debugging",
+    "Git",
+    "Agile",
+  ],
+  core: ["Data Structures", "Algorithms", "OOPs", "Ownership", "Collaboration"],
+};
 
-document.querySelector('#app').innerHTML = `
+document.querySelector("#app").innerHTML = `
   <div class="page-shell">
     <nav class="topbar" aria-label="Primary">
       <div class="brand">
@@ -228,13 +244,13 @@ document.querySelector('#app').innerHTML = `
                   <div class="timeline-content">
                     <h3>${item.role} at ${item.company}</h3>
                     <ul class="detail-list">
-                      ${item.highlights.map((point) => `<li>${point}</li>`).join('')}
+                      ${item.highlights.map((point) => `<li>${point}</li>`).join("")}
                     </ul>
                   </div>
                 </article>
               `,
             )
-            .join('')}
+            .join("")}
         </div>
       </section>
 
@@ -256,12 +272,12 @@ document.querySelector('#app').innerHTML = `
                   <p class="project-summary">${project.summary}</p>
                   <a class="project-link" href="${project.link}" target="_blank" rel="noreferrer">Live Project</a>
                   <ul class="detail-list">
-                    ${project.points.map((point) => `<li>${point}</li>`).join('')}
+                    ${project.points.map((point) => `<li>${point}</li>`).join("")}
                   </ul>
                 </article>
               `,
             )
-            .join('')}
+            .join("")}
         </div>
       </section>
 
@@ -273,19 +289,19 @@ document.querySelector('#app').innerHTML = `
         <div class="skills-grid">
           <article class="skill-card">
             <h3>Languages</h3>
-            <div class="chip-row">${skills.languages.map((skill) => `<span class="chip">${skill}</span>`).join('')}</div>
+            <div class="chip-row">${skills.languages.map((skill) => `<span class="chip">${skill}</span>`).join("")}</div>
           </article>
           <article class="skill-card">
             <h3>Frontend</h3>
-            <div class="chip-row">${skills.frontend.map((skill) => `<span class="chip">${skill}</span>`).join('')}</div>
+            <div class="chip-row">${skills.frontend.map((skill) => `<span class="chip">${skill}</span>`).join("")}</div>
           </article>
           <article class="skill-card">
             <h3>Engineering</h3>
-            <div class="chip-row">${skills.engineering.map((skill) => `<span class="chip">${skill}</span>`).join('')}</div>
+            <div class="chip-row">${skills.engineering.map((skill) => `<span class="chip">${skill}</span>`).join("")}</div>
           </article>
           <article class="skill-card">
             <h3>Core strengths</h3>
-            <div class="chip-row">${skills.core.map((skill) => `<span class="chip">${skill}</span>`).join('')}</div>
+            <div class="chip-row">${skills.core.map((skill) => `<span class="chip">${skill}</span>`).join("")}</div>
           </article>
         </div>
       </section>
@@ -325,19 +341,19 @@ document.querySelector('#app').innerHTML = `
     </main>
   </div>
   <button class="scroll-top" id="scroll-top" type="button" aria-label="Move to top">Move to top</button>
-`
+`;
 
-const scrollTopButton = document.querySelector('#scroll-top')
+const scrollTopButton = document.querySelector("#scroll-top");
 
 const toggleScrollTopButton = () => {
-  if (!scrollTopButton) return
-  scrollTopButton.classList.toggle('is-visible', window.scrollY > 320)
-}
+  if (!scrollTopButton) return;
+  scrollTopButton.classList.toggle("is-visible", window.scrollY > 320);
+};
 
-toggleScrollTopButton()
+toggleScrollTopButton();
 
-window.addEventListener('scroll', toggleScrollTopButton, { passive: true })
+window.addEventListener("scroll", toggleScrollTopButton, { passive: true });
 
-scrollTopButton?.addEventListener('click', () => {
-  window.scrollTo({ top: 0, behavior: 'smooth' })
-})
+scrollTopButton?.addEventListener("click", () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
