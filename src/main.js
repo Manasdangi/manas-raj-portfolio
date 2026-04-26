@@ -80,6 +80,17 @@ const projects = [
       'Designed the chessboard UI myself and later revisited the product to improve login plus create and join room flows.',
     ],
   },
+  {
+    name: 'Pulse Fit Gym',
+    stack: 'Next.js',
+    period: '2 days',
+    link: 'https://gym-landing-page-next-js.vercel.app/',
+    summary: 'A minimalist gym landing page',
+    points: [
+      'Developed a clean and responsive gym landing page using Next.js.',
+      'Focused on minimalist design to highlight gym services and features.',
+    ],
+  },
 ]
 
 const skills = {
