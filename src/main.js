@@ -1,4 +1,5 @@
 import "./style.css";
+import heroImage from "./assets/hero.png";
 
 const experienceItems = [
   {
@@ -85,7 +86,7 @@ const projects = [
     stack: "Next.js",
     period: "2 days",
     link: "https://gym-landing-page-next-js.vercel.app/",
-    summary: "A minimalist gym landing page",
+    summary: "A minimalist gym landing page.",
     points: [
       "Developed a clean and responsive gym landing page using Next.js.",
       "Focused on minimalist design to highlight gym services and features.",
@@ -117,116 +118,190 @@ const skills = {
   core: ["Data Structures", "Algorithms", "OOPs", "Ownership", "Collaboration"],
 };
 
+const navItems = [
+  ["top", "Mission"],
+  ["numbers", "Numbers"],
+  ["experience", "Journey"],
+  ["projects", "Products"],
+  ["skills", "Stack"],
+  ["contact", "Contacts"],
+];
+
+const metrics = [
+  { value: "10%", target: 10, suffix: "%", label: "Spinny Care traffic lift" },
+  { value: "50%", target: 50, suffix: "%", label: "Approval flow TAT reduction" },
+  { value: "4x", target: 4, suffix: "x", label: "Fewer order-service calls" },
+  { value: "0.80", target: 80, prefix: "RN 0.", label: "React Native upgrade" },
+];
+
+const motionPhrases = [
+  "React Systems",
+  "AI Workflows",
+  "Payment UX",
+  "Web Vitals",
+  "0 to 1 Builds",
+  "Mobile WebViews",
+  "Design Systems",
+  "Production Ownership",
+];
+
+const contactLinks = [
+  ["Email", "mailto:manasraj9669@gmail.com", "manasraj9669@gmail.com"],
+  ["Phone", "tel:+919128826817", "9128826817"],
+  ["LinkedIn", "https://www.linkedin.com/in/manas-raj-mnit/", "/in/manas-raj-mnit"],
+  ["GitHub", "https://github.com/Manasdangi", "/Manasdangi"],
+];
+
+const viewerCountKey = "portfolio-viewer-count";
+const baseViewerCount = 0;
+
+const getViewerCount = () => {
+  try {
+    const storedCount = Number(window.localStorage.getItem(viewerCountKey));
+    const safeCount =
+      Number.isFinite(storedCount) && storedCount > 0
+        ? storedCount
+        : baseViewerCount;
+    const nextCount = safeCount + 1;
+    window.localStorage.setItem(viewerCountKey, String(nextCount));
+    return nextCount;
+  } catch {
+    return baseViewerCount;
+  }
+};
+
+const formatViewerCount = (count) =>
+  new Intl.NumberFormat("en-US").format(count);
+
+const renderList = (items) => items.map((item) => `<li>${item}</li>`).join("");
+
 document.querySelector("#app").innerHTML = `
+  <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+  <div class="ambient-grid" aria-hidden="true"></div>
   <div class="page-shell">
     <nav class="topbar" aria-label="Primary">
-      <div class="brand">
+      <a class="brand" href="#top" aria-label="Manas Raj home">
         <span class="brand-mark">MR</span>
-        <span class="brand-name">Manas Raj</span>
-      </div>
-      <div class="topbar-links">
-        <a href="#experience">Experience</a>
-        <a href="#projects">Projects</a>
-        <a href="#skills">Skills</a>
-        <a href="#education">Education</a>
+        <span>
+          <span class="brand-name">Manas Raj</span>
+          <span class="brand-role">Software Engineer</span>
+        </span>
+      </a>
+      <div class="topbar-right">
+        <span class="motion-pill" aria-label="Animation status">
+          <span></span>
+          Sound: Off
+        </span>
+        <div class="viewer-count" aria-label="Viewer count">
+          <span class="viewer-count-label">Viewed by</span>
+          <strong id="viewer-count-value">0 users viewed</strong>
+        </div>
+        <div class="topbar-links">
+          ${navItems.map(([id, label]) => `<a href="#${id}" data-nav="${id}">${label}</a>`).join("")}
+        </div>
       </div>
     </nav>
 
-    <header class="hero">
+    <header class="hero" id="top">
+      <div class="hero-orbits" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
       <div class="hero-grid">
-        <section class="hero-copy">
-          <p class="eyebrow">Software Engineer • Frontend & Product Engineering</p>
-          <h1 class="hero-title">Frontend engineer who ships fast, scales thoughtfully, and builds products that users actually feel.</h1>
+        <section class="hero-copy reveal">
+          <p class="eyebrow">Frontend & Product Engineering</p>
+          <h1 class="hero-title">I build fast product experiences that feel calm, sharp, and reliable at scale.</h1>
           <p class="summary">
-            I build high-performance product experiences with strong engineering fundamentals across frontend architecture, performance optimization, system design, and delivery. At Spinny, Airtel, and Niyo, I’ve shipped revenue-impacting journeys, payment systems, support flows, and internal platforms used at real scale.
+            Software Engineer with hands-on ownership across Spinny, Airtel, and Niyo. I turn ambiguous product problems into high-performance interfaces, resilient flows, and measurable user impact.
           </p>
           <div class="hero-proof" aria-label="Key strengths">
-            <span class="proof-chip">Built from 0 to 1</span>
-            <span class="proof-chip">Frontend + system design</span>
-            <span class="proof-chip">AI-native workflow</span>
+            <span class="proof-chip">0 to 1 product builds</span>
+            <span class="proof-chip">Payments and checkout</span>
+            <span class="proof-chip">Performance systems</span>
+            <span class="proof-chip">AI-native workflows</span>
           </div>
           <div class="hero-actions">
             <a class="button button-primary" href="mailto:manasraj9669@gmail.com">Contact Me</a>
-            <a class="button button-secondary" href="#projects">View Projects</a>
-            <a class="button button-secondary" href="/resume.pdf" target="_blank" rel="noreferrer">View Resume</a>
+            <a class="button button-secondary" href="#projects">View Work</a>
+            <a class="button button-ghost" href="/resume.pdf" target="_blank" rel="noreferrer">Resume</a>
           </div>
-          <ul class="contact-list" aria-label="Contact details">
-            <li>
-              <a href="tel:+919128826817">
-                <span class="contact-icon" aria-hidden="true">☎</span>
-                <span>Phone: 9128826817</span>
-              </a>
-            </li>
-            <li>
-              <a href="mailto:manasraj9669@gmail.com">
-                <span class="contact-icon" aria-hidden="true">✉</span>
-                <span>Email: manasraj9669@gmail.com</span>
-              </a>
-            </li>
-            <li>
-              <a href="https://www.linkedin.com/in/manas-raj-mnit/" target="_blank" rel="noreferrer">
-                <span class="contact-icon" aria-hidden="true">in</span>
-                <span>LinkedIn: /in/manas-raj-mnit</span>
-              </a>
-            </li>
-            <li>
-              <a href="https://github.com/Manasdangi" target="_blank" rel="noreferrer">
-                <span class="contact-icon" aria-hidden="true">◎</span>
-                <span>GitHub: /Manasdangi</span>
-              </a>
-            </li>
-          </ul>
+          <a class="scroll-cue" href="#profile" aria-label="Scroll down to explore portfolio">
+            <span></span>
+            Scroll down to explore
+          </a>
         </section>
 
-        <aside class="hero-side" aria-label="Quick profile">
-          <div class="hero-card">
-            <p class="card-label">Current Focus</p>
-            <ul class="metric-list">
-              <li>
-                <strong>Frontend systems</strong>
-                <span>Strong in React, TypeScript, Vite, WebView integrations, performance tuning, and production-grade UI architecture.</span>
-              </li>
-              <li>
-                <strong>Product impact</strong>
-                <span>Delivered meaningful user-facing impact across Spinny Care, Spinny consumer, Airtel payments, and internal platforms with faster flows, better UX, and measurable business outcomes.</span>
-              </li>
-              <li>
-                <strong>Build from scratch</strong>
-                <span>Comfortable taking products from scratch to production with strong system-design thinking and hands-on experience using modern AI tools like Cursor, Claude, and Antigravity.</span>
-              </li>
-            </ul>
-            <div class="availability">
-              <span class="availability-dot"></span>
-              Open to strong product engineering opportunities
+        <aside class="hero-visual reveal" aria-label="Profile snapshot">
+          <div class="portrait-stage magnetic-card">
+            <div class="kinetic-ribbon" aria-hidden="true">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <img src="${heroImage}" alt="Layered product interface illustration" />
+            <div class="code-strip" aria-hidden="true">
+              <span>React</span>
+              <span>TypeScript</span>
+              <span>Vite</span>
+              <span>Web Vitals</span>
             </div>
           </div>
+          <div class="hero-status">
+            <span class="availability-dot"></span>
+            Open to strong product engineering opportunities
+          </div>
         </aside>
+      </div>
+
+      <div class="metric-grid reveal" id="numbers" aria-label="Highlighted outcomes">
+        ${metrics
+          .map(
+            ({ value, target, prefix = "", suffix = "", label }) => `
+              <article class="metric-card magnetic-card">
+                <strong class="count-up" data-target="${target}" data-prefix="${prefix}" data-suffix="${suffix}">${value}</strong>
+                <span>${label}</span>
+              </article>
+            `,
+          )
+          .join("")}
+      </div>
+
+      <div class="capability-marquee reveal" aria-label="Engineering focus areas">
+        <div>
+          ${[...motionPhrases, ...motionPhrases]
+            .map((phrase) => `<span>${phrase}</span>`)
+            .join("")}
+        </div>
       </div>
     </header>
 
     <main>
-      <section class="section section-intro">
+      <section class="section section-intro reveal" id="profile">
         <div class="section-heading">
           <p class="section-kicker">Profile</p>
-          <h2>What I bring to teams</h2>
+          <h2>What I bring to engineering teams</h2>
         </div>
         <div class="intro-grid">
-          <article class="info-card">
+          <article class="info-card magnetic-card">
+            <span class="card-index">01</span>
             <h3>User-first engineering</h3>
             <p>I build product flows that balance speed, reliability, and clarity for real users.</p>
           </article>
-          <article class="info-card">
+          <article class="info-card magnetic-card">
+            <span class="card-index">02</span>
             <h3>Performance mindset</h3>
             <p>I enjoy profiling, removing render waste, and improving Core Web Vitals where they matter.</p>
           </article>
-          <article class="info-card">
+          <article class="info-card magnetic-card">
+            <span class="card-index">03</span>
             <h3>Ownership</h3>
-            <p>I’m comfortable taking features from idea to production and iterating based on outcomes.</p>
+            <p>I am comfortable taking features from idea to production and iterating based on outcomes.</p>
           </article>
         </div>
       </section>
 
-      <section class="section" id="experience">
+      <section class="section reveal" id="experience">
         <div class="section-heading">
           <p class="section-kicker">Experience</p>
           <h2>Professional journey</h2>
@@ -235,7 +310,7 @@ document.querySelector("#app").innerHTML = `
           ${experienceItems
             .map(
               (item) => `
-                <article class="timeline-item">
+                <article class="timeline-item magnetic-card">
                   <div class="timeline-meta">
                     <p class="timeline-company">${item.company}</p>
                     <p>${item.role}</p>
@@ -244,9 +319,7 @@ document.querySelector("#app").innerHTML = `
                   </div>
                   <div class="timeline-content">
                     <h3>${item.role} at ${item.company}</h3>
-                    <ul class="detail-list">
-                      ${item.highlights.map((point) => `<li>${point}</li>`).join("")}
-                    </ul>
+                    <ul class="detail-list">${renderList(item.highlights)}</ul>
                   </div>
                 </article>
               `,
@@ -255,26 +328,33 @@ document.querySelector("#app").innerHTML = `
         </div>
       </section>
 
-      <section class="section" id="projects">
-        <div class="section-heading">
-          <p class="section-kicker">Projects</p>
-          <h2>Selected work</h2>
+      <section class="section reveal" id="projects">
+        <div class="section-heading section-heading-row">
+          <div>
+            <p class="section-kicker">Projects</p>
+            <h2>Selected work</h2>
+          </div>
+          <p class="section-note">Live products, AI workflows, real-time systems, and focused UI builds.</p>
         </div>
         <div class="project-grid">
           ${projects
             .map(
-              (project) => `
-                <article class="project-card">
+              (project, index) => `
+                <article class="project-card magnetic-card">
+                  <div class="project-visual" aria-hidden="true">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                  </div>
                   <div class="project-topline">
-                    <h3>${project.name}</h3>
+                    <span class="card-index">${String(index + 1).padStart(2, "0")}</span>
                     <span>${project.period}</span>
                   </div>
+                  <h3>${project.name}</h3>
                   <p class="project-stack">${project.stack}</p>
                   <p class="project-summary">${project.summary}</p>
                   <a class="project-link" href="${project.link}" target="_blank" rel="noreferrer">Live Project</a>
-                  <ul class="detail-list">
-                    ${project.points.map((point) => `<li>${point}</li>`).join("")}
-                  </ul>
+                  <ul class="detail-list">${renderList(project.points)}</ul>
                 </article>
               `,
             )
@@ -282,38 +362,32 @@ document.querySelector("#app").innerHTML = `
         </div>
       </section>
 
-      <section class="section" id="skills">
+      <section class="section reveal" id="skills">
         <div class="section-heading">
           <p class="section-kicker">Skills</p>
           <h2>Tools and strengths</h2>
         </div>
         <div class="skills-grid">
-          <article class="skill-card">
-            <h3>Languages</h3>
-            <div class="chip-row">${skills.languages.map((skill) => `<span class="chip">${skill}</span>`).join("")}</div>
-          </article>
-          <article class="skill-card">
-            <h3>Frontend</h3>
-            <div class="chip-row">${skills.frontend.map((skill) => `<span class="chip">${skill}</span>`).join("")}</div>
-          </article>
-          <article class="skill-card">
-            <h3>Engineering</h3>
-            <div class="chip-row">${skills.engineering.map((skill) => `<span class="chip">${skill}</span>`).join("")}</div>
-          </article>
-          <article class="skill-card">
-            <h3>Core strengths</h3>
-            <div class="chip-row">${skills.core.map((skill) => `<span class="chip">${skill}</span>`).join("")}</div>
-          </article>
+          ${Object.entries(skills)
+            .map(
+              ([group, values]) => `
+                <article class="skill-card magnetic-card">
+                  <h3>${group === "core" ? "Core strengths" : group}</h3>
+                  <div class="chip-row">${values.map((skill) => `<span class="chip">${skill}</span>`).join("")}</div>
+                </article>
+              `,
+            )
+            .join("")}
         </div>
       </section>
 
-      <section class="section" id="education">
+      <section class="section reveal" id="education">
         <div class="section-heading">
           <p class="section-kicker">Education</p>
           <h2>Academic background</h2>
         </div>
         <div class="education-grid">
-          <article class="education-card">
+          <article class="education-card magnetic-card">
             <div class="education-topline">
               <h3>MNIT Jaipur, Rajasthan</h3>
               <span>Aug 2019 - May 2023</span>
@@ -321,7 +395,7 @@ document.querySelector("#app").innerHTML = `
             <p>Bachelor of Technology, Electrical Engineering</p>
             <p>CGPA: 7.75 / 10</p>
           </article>
-          <article class="education-card">
+          <article class="education-card magnetic-card">
             <div class="education-topline">
               <h3>KN Memo Academy, Asarganj, Munger</h3>
               <span>Apr 2017 - Mar 2019</span>
@@ -329,7 +403,7 @@ document.querySelector("#app").innerHTML = `
             <p>CBSE Intermediate (PCM)</p>
             <p>Score: 90.4%</p>
           </article>
-          <article class="education-card">
+          <article class="education-card magnetic-card">
             <div class="education-topline">
               <h3>School Education</h3>
               <span>Class 10</span>
@@ -339,22 +413,175 @@ document.querySelector("#app").innerHTML = `
           </article>
         </div>
       </section>
+
+      <section class="contact-band reveal" id="contact" aria-label="Contact details">
+        <div>
+          <p class="section-kicker">Contact</p>
+          <h2>Let us build something crisp.</h2>
+        </div>
+        <div class="contact-list">
+          ${contactLinks
+            .map(
+              ([label, href, text]) => `
+                <a href="${href}" ${href.startsWith("http") ? 'target="_blank" rel="noreferrer"' : ""}>
+                  <span>${label}</span>
+                  <strong>${text}</strong>
+                </a>
+              `,
+            )
+            .join("")}
+        </div>
+      </section>
     </main>
   </div>
-  <button class="scroll-top" id="scroll-top" type="button" aria-label="Move to top">Move to top</button>
+  <button class="scroll-top" id="scroll-top" type="button" aria-label="Move to top">Top</button>
 `;
 
+const viewerCountValue = document.querySelector("#viewer-count-value");
 const scrollTopButton = document.querySelector("#scroll-top");
+const scrollProgress = document.querySelector("#scroll-progress");
+const heroTitle = document.querySelector(".hero-title");
+const navLinks = Array.from(document.querySelectorAll("[data-nav]"));
+const sections = navLinks
+  .map((link) => document.getElementById(link.dataset.nav))
+  .filter(Boolean);
+const revealElements = document.querySelectorAll(".reveal");
+const magneticCards = document.querySelectorAll(".magnetic-card");
+const countUpElements = document.querySelectorAll(".count-up");
+const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-const toggleScrollTopButton = () => {
-  if (!scrollTopButton) return;
-  scrollTopButton.classList.toggle("is-visible", window.scrollY > 320);
+if (heroTitle && !reduceMotion) {
+  heroTitle.innerHTML = heroTitle.textContent
+    .split(" ")
+    .map((word, index) => `<span style="--word-index:${index}">${word}</span>`)
+    .join(" ");
+}
+
+if (viewerCountValue) {
+  const viewerCount = getViewerCount();
+  const label = viewerCount === 1 ? "user viewed" : "users viewed";
+  viewerCountValue.textContent = `${formatViewerCount(viewerCount)} ${label}`;
+}
+
+const updateScrollState = () => {
+  const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+  const progress = scrollable > 0 ? window.scrollY / scrollable : 0;
+
+  if (scrollProgress) {
+    scrollProgress.style.transform = `scaleX(${progress})`;
+  }
+
+  scrollTopButton?.classList.toggle("is-visible", window.scrollY > 320);
 };
 
-toggleScrollTopButton();
+const setActiveNav = () => {
+  let activeId = sections[0]?.id;
 
-window.addEventListener("scroll", toggleScrollTopButton, { passive: true });
+  sections.forEach((section) => {
+    if (section.getBoundingClientRect().top <= window.innerHeight * 0.34) {
+      activeId = section.id;
+    }
+  });
+
+  navLinks.forEach((link) => {
+    link.classList.toggle("is-active", link.dataset.nav === activeId);
+  });
+};
+
+const animateCount = (element) => {
+  if (element.dataset.counted === "true") return;
+
+  element.dataset.counted = "true";
+
+  const target = Number(element.dataset.target);
+  const prefix = element.dataset.prefix || "";
+  const suffix = element.dataset.suffix || "";
+
+  if (!Number.isFinite(target) || reduceMotion) {
+    element.textContent = `${prefix}${target}${suffix}`;
+    return;
+  }
+
+  const duration = 1150;
+  const start = performance.now();
+
+  const tick = (now) => {
+    const progress = Math.min((now - start) / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 4);
+    const value = Math.round(eased * target);
+    element.textContent = `${prefix}${value}${suffix}`;
+
+    if (progress < 1) {
+      requestAnimationFrame(tick);
+    }
+  };
+
+  requestAnimationFrame(tick);
+};
+
+updateScrollState();
+setActiveNav();
+
+window.addEventListener(
+  "scroll",
+  () => {
+    updateScrollState();
+    setActiveNav();
+  },
+  { passive: true },
+);
 
 scrollTopButton?.addEventListener("click", () => {
-  window.scrollTo({ top: 0, behavior: "smooth" });
+  window.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" });
 });
+
+if ("IntersectionObserver" in window) {
+  const revealObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          entry.target
+            .querySelectorAll?.(".count-up")
+            .forEach((element) => animateCount(element));
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.16, rootMargin: "0px 0px -60px" },
+  );
+
+  revealElements.forEach((element) => revealObserver.observe(element));
+} else {
+  revealElements.forEach((element) => element.classList.add("is-visible"));
+  countUpElements.forEach((element) => animateCount(element));
+}
+
+if (!reduceMotion) {
+  window.addEventListener(
+    "pointermove",
+    (event) => {
+      document.documentElement.style.setProperty("--cursor-x", `${event.clientX}px`);
+      document.documentElement.style.setProperty("--cursor-y", `${event.clientY}px`);
+    },
+    { passive: true },
+  );
+
+  magneticCards.forEach((card) => {
+    card.addEventListener("pointermove", (event) => {
+      const bounds = card.getBoundingClientRect();
+      const x = event.clientX - bounds.left;
+      const y = event.clientY - bounds.top;
+      const rotateX = ((y / bounds.height) - 0.5) * -5;
+      const rotateY = ((x / bounds.width) - 0.5) * 5;
+
+      card.style.setProperty("--mouse-x", `${x}px`);
+      card.style.setProperty("--mouse-y", `${y}px`);
+      card.style.transform = `perspective(900px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
+    });
+
+    card.addEventListener("pointerleave", () => {
+      card.style.transform = "";
+    });
+  });
+}
