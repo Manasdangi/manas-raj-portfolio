@@ -4,55 +4,50 @@ import heroImage from "./assets/hero.png";
 const experienceItems = [
   {
     company: "Spinny",
-    location: "Gurugram, Haryana",
-    role: "Software Engineer",
+    location: "Gurgaon",
+    role: "SDE-II",
     period: "Jan 2025 - Present",
     highlights: [
-      "Developed the Spinny Care desktop website single-handedly, enabling seamless service booking and management and increasing traffic by 10%.",
-      "Built the Adhoc Approval Flow in Spinny Care so technicians could send car-parts issue approvals to users through the app, cutting turnaround time by 50% and reducing manual intervention.",
-      "Constructed payment checkout for the Spinny Care website, reducing cash transactions and enabling complete digital record-keeping and refund processes.",
-      "Built an SEO-optimized Car Service Cost Calculator that improved transparency and discoverability and ranked on the first page of Google search.",
-      "Created the Help & Support journey for Spinny Care with query and sub-query selection, improving issue segregation and reducing resolution TAT.",
-      "Developed the Catalogue Page from scratch for refurbishment spare-parts availability using TanStack Query, improving load performance, API response time, and usability.",
-      "Improved Web Vitals and overall frontend performance through React optimization, memoization, dynamic imports, virtualization, and hands-on work with SSR, Webpack, and caching strategies.",
-      "Contributed to CI/CD and production deployment workflows while building scalable features with stronger system-design awareness.",
-      "Built key refurbishment dashboard modules including address change, slot change, and workshop change flows for workshop-level operations.",
-      "Transitioned into the Spinny app team and contributed to end-to-end app release processes, React Native upgrades from 0.73 to 0.80, and smoother WebView-based user experiences.",
+      "Developed the Spinny Pro desktop website independently, enabling seamless service booking and management and increasing overall user visits by 8-9%.",
+      "Built the Adhoc Approval Flow in Spinny Care, enabling technicians to send car-parts issue approvals through the app and reducing turnaround time and manual intervention by 20-25%.",
+      "Constructed the Spinny Care payment checkout, reducing cash transactions while enabling fully digital record-keeping and refund processes.",
+      "Built an intuitive, SEO-optimized Car Service Cost Calculator that estimates service charges by vehicle type and ranks on the first page of Google search.",
+      "Integrated and enhanced the shared Design System for the Spinny Consumer platform, contributing reusable components and standardized UI patterns to reduce development effort and improve consistency.",
+      "Developed the refurbishment Catalogue Page from scratch with TanStack Query, improving page-load speed, API performance, and usability for spare-parts discovery.",
+      "Developed the Spinny Consumer Sell Homepage from scratch with a simpler, more intuitive journey, increasing lead conversion rates by 10%.",
+      "Optimized the React codebase with memoization, dynamic imports, and virtualization, improving CLS, FPS, LCP, page performance, and load speed by 20-30%.",
+      "Integrated WebViews in the Spinny app and resolved navigation-related issues to create smoother cross-platform journeys.",
     ],
   },
   {
-    company: "Airtel Digital",
-    location: "Gurugram, Haryana",
+    company: "Airtel",
+    location: "Gurgaon",
     role: "Software Engineer",
     period: "Oct 2023 - Jan 2025",
     highlights: [
-      "Worked on the Thanks App checkout team across full checkout, pre-checkout, and quick-checkout flows, continuously shipping features to improve user experience.",
-      "Built backend-driven widgets for APB wallet and saved-card payment modes, including encryption for card transactions and better checkout security.",
-      "Improved Airtel UPI onboarding success rate by 2% and added health callouts for down banks, delivering an additional 1.5% success-rate lift.",
-      "Developed a new quick checkout flow for React Native and iOS, increasing success rate by 2% and improving checkout reliability.",
-      "Resolved a large volume of SWAT bugs, cleaned up UI inconsistencies, and supported SANITY testing for major releases.",
-      "Analyzed clickstream data to identify onboarding and transaction analytics gaps and refine success-rate calculations on Growth Book.",
-      "Architected a scalable, high-performance checkout flow for millions of monthly users and migrated the full checkout page from native iOS to React Native using backend-driven widgets and SOLID principles.",
-      "Implemented an order-creation and polling flow for broadband recharge journeys, reducing order-service API calls by 3x to 4x and lowering database load.",
-      "Integrated SIM binding checks for APB wallet transactions, reducing wallet fraud and improving account security.",
-    ],
-  },
-  {
-    company: "Niyo Solutions Inc.",
-    location: "Bangalore Urban, Karnataka",
-    role: "Software Developer Intern",
-    period: "Jun 2022 - Dec 2022",
-    highlights: [
-      "Enhanced internal search and support tooling by fixing bugs and shipping new workflow improvements.",
-      "Built features to display customer live photo, liveness score, and face match score by integrating backend APIs with AWS S3-backed data.",
-      "Optimized the biometric KYC enable and disable flow by reducing three backend calls to one, saving about 600 ms and making the process roughly 300% faster.",
-      "Added KYC mode and status details on customer profile pages, improving support efficiency and customer experience.",
-      "Worked on PAN Verification API and Wealth API migrations, helping strengthen onboarding and account creation flows.",
+      "Developed Airtel UPI onboarding, improving success rate by 2%, and created health callouts for unavailable banks that delivered an additional 1.5% lift.",
+      "Built backend-driven widgets for APB Wallet and saved-card payment modes with card encryption and MPIN validation, helping the wallet achieve an almost 100% transaction success rate.",
+      "Implemented SIM-binding checks for APB Wallet transactions, reducing fraud, strengthening account security, and improving success rate by 1%.",
+      "Architected a scalable React Native payment checkout flow for 3 million monthly active users, covering the full range of transaction edge cases.",
+      "Developed Airtel UPI payments in Airtel's web repository with seamless VPA handling and intent/callback integration, improving reliability across platforms.",
     ],
   },
 ];
 
 const projects = [
+  {
+    name: "Interview Buddy",
+    stack: "React, TypeScript, Vite, Zustand, Express, Gemini, Firebase",
+    period: "Jun 2026 - Present",
+    summary:
+      "A full-stack AI interview simulator for realistic frontend practice, with adaptive questioning, voice interaction, persistent history, and detailed performance feedback.",
+    points: [
+      "Built Round 1, Round 2, and System Design interview modes with beginner, intermediate, and advanced difficulty levels plus five rotating daily question sets.",
+      "Designed a Gemini-powered interviewer that asks one question at a time and adapts follow-ups using structured state for answer quality, strengths, weak areas, covered topics, and difficulty trends.",
+      "Added microphone dictation and live voice answers with Gemini audio transcription, browser text-to-speech replies, an interview timer, and navigation guards that protect active sessions.",
+      "Generated scorecards across technical ability, communication, problem-solving, and depth, with personalized feedback and recommended topics; persisted authenticated history through Google sign-in and Firestore-backed APIs.",
+    ],
+  },
   {
     name: "TalentLens",
     stack: "React, Vite, TypeScript, Firebase, Groq LLM",
@@ -95,27 +90,50 @@ const projects = [
 ];
 
 const skills = {
-  languages: ["JavaScript", "TypeScript", "HTML", "CSS", "Basic C++"],
+  languages: ["HTML", "CSS", "JavaScript", "TypeScript"],
   frontend: [
     "React",
+    "React Native",
     "Vite",
-    "Next JS",
     "Redux",
     "Webpack",
     "GraphQL",
     "SSR",
     "Socket.IO",
-    "Webview",
+    "WebView",
+    "REST API",
   ],
   engineering: [
-    "Performance Profiling",
     "Component-driven Architecture",
     "Chrome DevTools",
+    "Performance Profiling",
+    "Accessibility",
+    "Design Systems",
+    "Core Web Vitals",
+  ],
+  core: [
+    "Data Structures",
+    "Algorithms",
+    "OOPs",
     "Debugging",
     "Git",
+    "Jira",
     "Agile",
+    "Bitbucket",
+    "Lighthouse",
   ],
-  core: ["Data Structures", "Algorithms", "OOPs", "Ownership", "Collaboration"],
+};
+
+const allHeroSkills = Object.values(skills).flat();
+const heroSkillTracks = Array.from({ length: 3 }, (_, trackIndex) =>
+  allHeroSkills.filter((_, skillIndex) => skillIndex % 3 === trackIndex),
+);
+
+const skillGroupLabels = {
+  languages: "Languages",
+  frontend: "Web development",
+  engineering: "Engineering practices",
+  core: "Other skills",
 };
 
 const navItems = [
@@ -128,10 +146,10 @@ const navItems = [
 ];
 
 const metrics = [
-  { value: "10%", target: 10, suffix: "%", label: "Spinny Care traffic lift" },
-  { value: "50%", target: 50, suffix: "%", label: "Approval flow TAT reduction" },
-  { value: "4x", target: 4, suffix: "x", label: "Fewer order-service calls" },
-  { value: "0.80", target: 80, prefix: "RN 0.", label: "React Native upgrade" },
+  { value: "9%", target: 9, suffix: "%", label: "Spinny Pro user visit growth" },
+  { value: "25%", target: 25, suffix: "%", label: "Approval turnaround reduction" },
+  { value: "10%", target: 10, suffix: "%", label: "Sell homepage lead conversion lift" },
+  { value: "30%", target: 30, suffix: "%", label: "Peak page performance gain" },
 ];
 
 const motionPhrases = [
@@ -175,6 +193,20 @@ const formatViewerCount = (count) =>
 
 const renderList = (items) => items.map((item) => `<li>${item}</li>`).join("");
 
+const renderSkillLane = (items, index) => {
+  const chips = items.map((skill) => `<span>${skill}</span>`).join("");
+  const duration = Math.max(20, Math.round(items.length * 3.2));
+
+  return `
+    <div class="skill-lane skill-lane-${index + 1}">
+      <div class="skill-lane-track" style="--lane-duration: ${duration}s">
+        <div class="skill-lane-group">${chips}</div>
+        <div class="skill-lane-group" aria-hidden="true">${chips}</div>
+      </div>
+    </div>
+  `;
+};
+
 document.querySelector("#app").innerHTML = `
   <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
   <div class="ambient-grid" aria-hidden="true"></div>
@@ -188,10 +220,6 @@ document.querySelector("#app").innerHTML = `
         </span>
       </a>
       <div class="topbar-right">
-        <span class="motion-pill" aria-label="Animation status">
-          <span></span>
-          Sound: Off
-        </span>
         <div class="viewer-count" aria-label="Viewer count">
           <span class="viewer-count-label">Viewed by</span>
           <strong id="viewer-count-value">0 users viewed</strong>
@@ -213,23 +241,13 @@ document.querySelector("#app").innerHTML = `
           <p class="eyebrow">Frontend & Product Engineering</p>
           <h1 class="hero-title">I build fast product experiences that feel calm, sharp, and reliable at scale.</h1>
           <p class="summary">
-            Software Engineer with hands-on ownership across Spinny, Airtel, and Niyo. I turn ambiguous product problems into high-performance interfaces, resilient flows, and measurable user impact.
+            SDE-II with hands-on product ownership across Spinny and Airtel. I turn ambiguous product problems into high-performance interfaces, resilient flows, and measurable user impact.
           </p>
-          <div class="hero-proof" aria-label="Key strengths">
-            <span class="proof-chip">0 to 1 product builds</span>
-            <span class="proof-chip">Payments and checkout</span>
-            <span class="proof-chip">Performance systems</span>
-            <span class="proof-chip">AI-native workflows</span>
-          </div>
           <div class="hero-actions">
             <a class="button button-primary" href="mailto:manasraj9669@gmail.com">Contact Me</a>
             <a class="button button-secondary" href="#projects">View Work</a>
             <a class="button button-ghost" href="/resume.pdf" target="_blank" rel="noreferrer">Resume</a>
           </div>
-          <a class="scroll-cue" href="#profile" aria-label="Scroll down to explore portfolio">
-            <span></span>
-            Scroll down to explore
-          </a>
         </section>
 
         <aside class="hero-visual reveal" aria-label="Profile snapshot">
@@ -240,11 +258,8 @@ document.querySelector("#app").innerHTML = `
               <span></span>
             </div>
             <img src="${heroImage}" alt="Layered product interface illustration" />
-            <div class="code-strip" aria-hidden="true">
-              <span>React</span>
-              <span>TypeScript</span>
-              <span>Vite</span>
-              <span>Web Vitals</span>
+            <div class="skill-cloud" aria-hidden="true">
+              ${heroSkillTracks.map(renderSkillLane).join("")}
             </div>
           </div>
           <div class="hero-status">
@@ -353,7 +368,7 @@ document.querySelector("#app").innerHTML = `
                   <h3>${project.name}</h3>
                   <p class="project-stack">${project.stack}</p>
                   <p class="project-summary">${project.summary}</p>
-                  <a class="project-link" href="${project.link}" target="_blank" rel="noreferrer">Live Project</a>
+                  ${project.link ? `<a class="project-link" href="${project.link}" target="_blank" rel="noreferrer">Live Project</a>` : ""}
                   <ul class="detail-list">${renderList(project.points)}</ul>
                 </article>
               `,
@@ -372,7 +387,7 @@ document.querySelector("#app").innerHTML = `
             .map(
               ([group, values]) => `
                 <article class="skill-card magnetic-card">
-                  <h3>${group === "core" ? "Core strengths" : group}</h3>
+                  <h3>${skillGroupLabels[group]}</h3>
                   <div class="chip-row">${values.map((skill) => `<span class="chip">${skill}</span>`).join("")}</div>
                 </article>
               `,
