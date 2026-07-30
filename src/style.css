@@ -557,59 +557,112 @@ ul {
 
 .skill-cloud {
   position: absolute;
-  inset: 42px 0;
+  inset: 0;
   z-index: 3;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  gap: 18px;
   overflow: hidden;
   pointer-events: none;
-  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
 }
 
-.skill-lane {
-  width: 100%;
-  overflow: hidden;
+.skill-cloud-title {
+  position: absolute;
+  top: 18px;
+  left: 50%;
+  z-index: 2;
+  margin: 0;
+  padding: 0 14px;
+  background: rgba(7, 8, 9, 0.96);
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-shadow: 0 0 24px rgba(255, 255, 255, 0.28);
+  transform: translate(-50%, -50%);
 }
 
-.skill-lane-track,
-.skill-lane-group {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  width: max-content;
+.skill-orbit {
+  --orbit-radius: 100px;
+  --ring-color: rgba(255, 255, 255, 0.14);
+  position: absolute;
+  inset: 0;
 }
 
-.skill-lane-track {
-  animation: skill-lane-scroll var(--lane-duration) linear infinite;
+.skill-orbit::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: calc(var(--orbit-radius) * 2);
+  aspect-ratio: 1;
+  border: 1px solid var(--ring-color);
+  border-radius: 50%;
+  box-shadow: inset 0 0 38px rgba(255, 255, 255, 0.018);
+  transform: translate(-50%, -50%);
+}
+
+.skill-orbit-1 {
+  --orbit-radius: clamp(120px, 16vw, 220px);
+  --ring-color: rgba(120, 247, 219, 0.2);
+}
+
+.skill-orbit-2 {
+  --orbit-radius: clamp(96px, 12vw, 165px);
+  --ring-color: rgba(159, 124, 255, 0.2);
+}
+
+.skill-orbit-3 {
+  --orbit-radius: clamp(70px, 8vw, 110px);
+  --ring-color: rgba(255, 255, 255, 0.16);
+}
+
+.skill-orbit-4 {
+  --orbit-radius: clamp(40px, 4.5vw, 62px);
+  --ring-color: rgba(255, 107, 85, 0.22);
+}
+
+.skill-satellite {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  animation: skill-orbit var(--orbit-duration) linear var(--skill-delay) infinite;
   will-change: transform;
 }
 
-.skill-lane-2 .skill-lane-track {
-  animation-direction: reverse;
+.skill-orbit-2 .skill-satellite,
+.skill-orbit-4 .skill-satellite {
+  animation-name: skill-orbit-reverse;
 }
 
-.skill-lane-3 .skill-lane-track {
-  animation-duration: calc(var(--lane-duration) * 1.12);
-}
-
-.skill-lane span {
+.skill-label {
+  position: absolute;
+  top: 0;
+  left: 0;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 40px;
-  padding: 0 16px;
-  border: 1px solid rgba(255, 255, 255, 0.24);
+  min-height: 34px;
+  padding: 0 13px;
+  border: 1px solid var(--ring-color);
   border-radius: 999px;
-  background: rgba(5, 5, 5, 0.68);
+  background: rgba(5, 5, 5, 0.84);
   color: #fff;
-  font-size: 0.75rem;
+  font-size: 0.68rem;
   font-weight: 800;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.035em;
   white-space: nowrap;
-  box-shadow: 0 10px 34px rgba(0, 0, 0, 0.34);
-  backdrop-filter: blur(12px);
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.52),
+    0 0 18px color-mix(in srgb, var(--ring-color) 34%, transparent);
+  backdrop-filter: blur(14px);
+  animation: skill-counter-orbit var(--orbit-duration) linear var(--skill-delay) infinite;
+  will-change: transform, opacity;
+}
+
+.skill-orbit-2 .skill-label,
+.skill-orbit-4 .skill-label {
+  animation-name: skill-counter-orbit-reverse;
 }
 
 .hero-status,
@@ -1327,9 +1380,57 @@ ul {
   }
 }
 
-@keyframes skill-lane-scroll {
+@keyframes skill-orbit {
+  from {
+    transform: rotate(0deg) translateX(var(--orbit-radius));
+  }
+
   to {
-    transform: translateX(calc(-50% - 5px));
+    transform: rotate(360deg) translateX(var(--orbit-radius));
+  }
+}
+
+@keyframes skill-orbit-reverse {
+  from {
+    transform: rotate(0deg) translateX(var(--orbit-radius));
+  }
+
+  to {
+    transform: rotate(-360deg) translateX(var(--orbit-radius));
+  }
+}
+
+@keyframes skill-counter-orbit {
+  0% {
+    opacity: 0.62;
+    transform: translate(-50%, -50%) rotate(0deg) scale(0.9);
+  }
+
+  50% {
+    opacity: 1;
+    transform: translate(-50%, -50%) rotate(-180deg) scale(1.06);
+  }
+
+  100% {
+    opacity: 0.62;
+    transform: translate(-50%, -50%) rotate(-360deg) scale(0.9);
+  }
+}
+
+@keyframes skill-counter-orbit-reverse {
+  0% {
+    opacity: 0.62;
+    transform: translate(-50%, -50%) rotate(0deg) scale(0.9);
+  }
+
+  50% {
+    opacity: 1;
+    transform: translate(-50%, -50%) rotate(180deg) scale(1.06);
+  }
+
+  100% {
+    opacity: 0.62;
+    transform: translate(-50%, -50%) rotate(360deg) scale(0.9);
   }
 }
 
@@ -1892,7 +1993,7 @@ body::after {
   max-width: 800px;
   color: #fff;
   font-family: var(--body);
-  font-size: 4.25rem;
+  font-size: 4.10rem;
   font-weight: 800;
   line-height: 0.95;
 }
@@ -1943,11 +2044,6 @@ body::after {
 
 .portrait-stage::before {
   border-color: rgba(255, 255, 255, 0.1);
-}
-
-.skill-lane span {
-  border-color: rgba(255, 255, 255, 0.22);
-  background: rgba(5, 5, 5, 0.72);
 }
 
 .hero-status {
@@ -2294,14 +2390,18 @@ body::after {
   }
 
   .skill-cloud {
-    inset: 24px 0;
-    gap: 10px;
+    inset: 0;
   }
 
-  .skill-lane span {
-    min-height: 34px;
-    padding: 0 12px;
-    font-size: 0.68rem;
+  .skill-label {
+    min-height: 30px;
+    padding: 0 10px;
+    font-size: 0.58rem;
+  }
+
+  .skill-cloud-title {
+    top: 18px;
+    font-size: 0.95rem;
   }
 
   .metric-card {
@@ -2341,5 +2441,9 @@ body::after {
   .reveal {
     opacity: 1;
     transform: none;
+  }
+
+  .skill-cloud {
+    display: none;
   }
 }

@@ -124,10 +124,27 @@ const skills = {
   ],
 };
 
-const allHeroSkills = Object.values(skills).flat();
-const heroSkillTracks = Array.from({ length: 3 }, (_, trackIndex) =>
-  allHeroSkills.filter((_, skillIndex) => skillIndex % 3 === trackIndex),
-);
+const heroSkillOrbits = [
+  [
+    ...skills.engineering,
+    "Data Structures",
+    "JavaScript",
+    "TypeScript",
+    "React Native",
+  ],
+  [
+    "Socket.IO",
+    "REST API",
+    "Algorithms",
+    "Debugging",
+    "Bitbucket",
+    "Lighthouse",
+    "Webpack",
+    "GraphQL",
+  ],
+  ["React", "Vite", "Redux", "WebView", "Jira", "Agile"],
+  ["HTML", "CSS", "SSR", "OOPs", "Git"],
+];
 
 const skillGroupLabels = {
   languages: "Languages",
@@ -139,10 +156,10 @@ const skillGroupLabels = {
 const navItems = [
   ["top", "Mission"],
   ["numbers", "Numbers"],
+  ["contact", "Contacts"],
   ["experience", "Journey"],
   ["projects", "Products"],
   ["skills", "Stack"],
-  ["contact", "Contacts"],
 ];
 
 const metrics = [
@@ -193,17 +210,22 @@ const formatViewerCount = (count) =>
 
 const renderList = (items) => items.map((item) => `<li>${item}</li>`).join("");
 
-const renderSkillLane = (items, index) => {
-  const chips = items.map((skill) => `<span>${skill}</span>`).join("");
-  const duration = Math.max(20, Math.round(items.length * 3.2));
+const renderSkillOrbit = (items, orbitIndex) => {
+  const duration = [38, 32, 27, 23][orbitIndex];
+  const satellites = items
+    .map((skill, skillIndex) => {
+      const delay = -((duration * skillIndex) / items.length).toFixed(2);
+
+      return `
+        <span class="skill-satellite" style="--orbit-duration: ${duration}s; --skill-delay: ${delay}s">
+          <span class="skill-label">${skill}</span>
+        </span>
+      `;
+    })
+    .join("");
 
   return `
-    <div class="skill-lane skill-lane-${index + 1}">
-      <div class="skill-lane-track" style="--lane-duration: ${duration}s">
-        <div class="skill-lane-group">${chips}</div>
-        <div class="skill-lane-group" aria-hidden="true">${chips}</div>
-      </div>
-    </div>
+    <div class="skill-orbit skill-orbit-${orbitIndex + 1}">${satellites}</div>
   `;
 };
 
@@ -259,7 +281,8 @@ document.querySelector("#app").innerHTML = `
             </div>
             <img src="${heroImage}" alt="Layered product interface illustration" />
             <div class="skill-cloud" aria-hidden="true">
-              ${heroSkillTracks.map(renderSkillLane).join("")}
+              <p class="skill-cloud-title">Skills</p>
+              ${heroSkillOrbits.map(renderSkillOrbit).join("")}
             </div>
           </div>
           <div class="hero-status">
@@ -292,6 +315,25 @@ document.querySelector("#app").innerHTML = `
     </header>
 
     <main>
+      <section class="contact-band reveal" id="contact" aria-label="Contact details">
+        <div>
+          <p class="section-kicker">Contact</p>
+          <h2>Let us build something crisp.</h2>
+        </div>
+        <div class="contact-list">
+          ${contactLinks
+            .map(
+              ([label, href, text]) => `
+                <a href="${href}" ${href.startsWith("http") ? 'target="_blank" rel="noreferrer"' : ""}>
+                  <span>${label}</span>
+                  <strong>${text}</strong>
+                </a>
+              `,
+            )
+            .join("")}
+        </div>
+      </section>
+
       <section class="section section-intro reveal" id="profile">
         <div class="section-heading">
           <p class="section-kicker">Profile</p>
@@ -429,24 +471,6 @@ document.querySelector("#app").innerHTML = `
         </div>
       </section>
 
-      <section class="contact-band reveal" id="contact" aria-label="Contact details">
-        <div>
-          <p class="section-kicker">Contact</p>
-          <h2>Let us build something crisp.</h2>
-        </div>
-        <div class="contact-list">
-          ${contactLinks
-            .map(
-              ([label, href, text]) => `
-                <a href="${href}" ${href.startsWith("http") ? 'target="_blank" rel="noreferrer"' : ""}>
-                  <span>${label}</span>
-                  <strong>${text}</strong>
-                </a>
-              `,
-            )
-            .join("")}
-        </div>
-      </section>
     </main>
   </div>
   <button class="scroll-top" id="scroll-top" type="button" aria-label="Move to top">Top</button>
