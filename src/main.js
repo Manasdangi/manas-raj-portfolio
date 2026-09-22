@@ -9,14 +9,18 @@ const experienceItems = [
     period: "Jan 2025 - Present",
     highlights: [
       "Developed the Spinny Pro desktop website independently, enabling seamless service booking and management and increasing overall user visits by 8-9%.",
+      "Built a scheduled AI triage agent with Claude Code and Bitbucket Pipelines that reads daily Sentry errors and files enriched Jira bugs with root-cause analysis, cutting 25 daily error candidates down to 2 actionable tickets through a one-command workflow that drafts the fix and raises a PR.",
       "Built the Adhoc Approval Flow in Spinny Care, enabling technicians to send car-parts issue approvals through the app and reducing turnaround time and manual intervention by 20-25%.",
       "Constructed the Spinny Care payment checkout, reducing cash transactions while enabling fully digital record-keeping and refund processes.",
       "Built an intuitive, SEO-optimized Car Service Cost Calculator that estimates service charges by vehicle type and ranks on the first page of Google search.",
+      "Built a car inspection scheduling feature that streamlines the booking journey for damaged or service-required vehicles, making it easier for users to initiate and track inspection requests.",
       "Integrated and enhanced the shared Design System for the Spinny Consumer platform, contributing reusable components and standardized UI patterns to reduce development effort and improve consistency.",
       "Developed the refurbishment Catalogue Page from scratch with TanStack Query, improving page-load speed, API performance, and usability for spare-parts discovery.",
       "Developed the Spinny Consumer Sell Homepage from scratch with a simpler, more intuitive journey, increasing lead conversion rates by 10%.",
       "Optimized the React codebase with memoization, dynamic imports, and virtualization, improving CLS, FPS, LCP, page performance, and load speed by 20-30%.",
-      "Integrated WebViews in the Spinny app and resolved navigation-related issues to create smoother cross-platform journeys.",
+      "Migrated the Spinny mobile app from React Native 0.72 to 0.80, ensuring compatibility with the latest framework and dependencies.",
+      "Enabled 16 KB Android memory page size support for the Spinny app, ensuring compatibility with newer Android platform requirements.",
+      "Integrated WebView flows inside the Spinny mobile app and resolved multiple navigation and cross-platform communication issues.",
     ],
   },
   {
@@ -30,6 +34,7 @@ const experienceItems = [
       "Implemented SIM-binding checks for APB Wallet transactions, reducing fraud, strengthening account security, and improving success rate by 1%.",
       "Architected a scalable React Native payment checkout flow for 3 million monthly active users, covering the full range of transaction edge cases.",
       "Developed Airtel UPI payments in Airtel's web repository with seamless VPA handling and intent/callback integration, improving reliability across platforms.",
+      "Contributed to Airtel's common design system architecture, air-widget-library and air-design-system, building reusable components and using them to render pages across multiple Airtel products.",
     ],
   },
 ];
@@ -187,27 +192,6 @@ const contactLinks = [
   ["GitHub", "https://github.com/Manasdangi", "/Manasdangi"],
 ];
 
-const viewerCountKey = "portfolio-viewer-count";
-const baseViewerCount = 0;
-
-const getViewerCount = () => {
-  try {
-    const storedCount = Number(window.localStorage.getItem(viewerCountKey));
-    const safeCount =
-      Number.isFinite(storedCount) && storedCount > 0
-        ? storedCount
-        : baseViewerCount;
-    const nextCount = safeCount + 1;
-    window.localStorage.setItem(viewerCountKey, String(nextCount));
-    return nextCount;
-  } catch {
-    return baseViewerCount;
-  }
-};
-
-const formatViewerCount = (count) =>
-  new Intl.NumberFormat("en-US").format(count);
-
 const renderList = (items) => items.map((item) => `<li>${item}</li>`).join("");
 
 const renderSkillOrbit = (items, orbitIndex) => {
@@ -232,6 +216,7 @@ const renderSkillOrbit = (items, orbitIndex) => {
 document.querySelector("#app").innerHTML = `
   <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
   <div class="ambient-grid" aria-hidden="true"></div>
+  <div class="cursor-glow" aria-hidden="true"></div>
   <div class="page-shell">
     <nav class="topbar" aria-label="Primary">
       <a class="brand" href="#top" aria-label="Manas Raj home">
@@ -242,10 +227,6 @@ document.querySelector("#app").innerHTML = `
         </span>
       </a>
       <div class="topbar-right">
-        <div class="viewer-count" aria-label="Viewer count">
-          <span class="viewer-count-label">Viewed by</span>
-          <strong id="viewer-count-value">0 users viewed</strong>
-        </div>
         <div class="topbar-links">
           ${navItems.map(([id, label]) => `<a href="#${id}" data-nav="${id}">${label}</a>`).join("")}
         </div>
@@ -476,7 +457,6 @@ document.querySelector("#app").innerHTML = `
   <button class="scroll-top" id="scroll-top" type="button" aria-label="Move to top">Top</button>
 `;
 
-const viewerCountValue = document.querySelector("#viewer-count-value");
 const scrollTopButton = document.querySelector("#scroll-top");
 const scrollProgress = document.querySelector("#scroll-progress");
 const heroTitle = document.querySelector(".hero-title");
@@ -494,12 +474,6 @@ if (heroTitle && !reduceMotion) {
     .split(" ")
     .map((word, index) => `<span style="--word-index:${index}">${word}</span>`)
     .join(" ");
-}
-
-if (viewerCountValue) {
-  const viewerCount = getViewerCount();
-  const label = viewerCount === 1 ? "user viewed" : "users viewed";
-  viewerCountValue.textContent = `${formatViewerCount(viewerCount)} ${label}`;
 }
 
 const updateScrollState = () => {
@@ -597,29 +571,53 @@ if ("IntersectionObserver" in window) {
 }
 
 if (!reduceMotion) {
+  let cursorFrame = null;
+  let latestPointer = { x: 0, y: 0 };
+
   window.addEventListener(
     "pointermove",
     (event) => {
-      document.documentElement.style.setProperty("--cursor-x", `${event.clientX}px`);
-      document.documentElement.style.setProperty("--cursor-y", `${event.clientY}px`);
+      latestPointer = { x: event.clientX, y: event.clientY };
+
+      if (cursorFrame !== null) return;
+
+      cursorFrame = requestAnimationFrame(() => {
+        document.documentElement.style.setProperty("--cursor-x", `${latestPointer.x}px`);
+        document.documentElement.style.setProperty("--cursor-y", `${latestPointer.y}px`);
+        cursorFrame = null;
+      });
     },
     { passive: true },
   );
 
   magneticCards.forEach((card) => {
-    card.addEventListener("pointermove", (event) => {
-      const bounds = card.getBoundingClientRect();
-      const x = event.clientX - bounds.left;
-      const y = event.clientY - bounds.top;
-      const rotateX = ((y / bounds.height) - 0.5) * -5;
-      const rotateY = ((x / bounds.width) - 0.5) * 5;
+    let cardFrame = null;
+    let latestCardEvent = null;
 
-      card.style.setProperty("--mouse-x", `${x}px`);
-      card.style.setProperty("--mouse-y", `${y}px`);
-      card.style.transform = `perspective(900px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
+    card.addEventListener("pointermove", (event) => {
+      latestCardEvent = event;
+
+      if (cardFrame !== null) return;
+
+      cardFrame = requestAnimationFrame(() => {
+        const bounds = card.getBoundingClientRect();
+        const x = latestCardEvent.clientX - bounds.left;
+        const y = latestCardEvent.clientY - bounds.top;
+        const rotateX = ((y / bounds.height) - 0.5) * -5;
+        const rotateY = ((x / bounds.width) - 0.5) * 5;
+
+        card.style.setProperty("--mouse-x", `${x}px`);
+        card.style.setProperty("--mouse-y", `${y}px`);
+        card.style.transform = `perspective(900px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
+        cardFrame = null;
+      });
     });
 
     card.addEventListener("pointerleave", () => {
+      if (cardFrame !== null) {
+        cancelAnimationFrame(cardFrame);
+        cardFrame = null;
+      }
       card.style.transform = "";
     });
   });
