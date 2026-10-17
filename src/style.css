@@ -321,10 +321,10 @@ svg.fill {
 }
 
 .hero-summary {
-  max-width: 560px;
+  max-width: 600px;
   margin-top: 24px;
   color: var(--ink-soft);
-  font-size: 18px;
+  font-size: 17px;
   line-height: 1.65;
 }
 

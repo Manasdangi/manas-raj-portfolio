@@ -216,9 +216,11 @@ document.querySelector("#app").innerHTML = `
         <span class="hero-role">Frontend Engineer · React &amp; React Native</span>
       </h1>
       <p class="hero-summary">
-        SDE-II at <b>Spinny</b>, previously <b>Airtel Payments</b>. ${yearsOfExperience}+ years shipping
-        consumer products end to end: payment flows for 3M monthly users, high-converting web
-        journeys and measurable Core Web Vitals wins.
+        My core expertise includes <b>React</b>, <b>JavaScript</b>, <b>TypeScript</b>, <b>React Native</b>,
+        <b>Redux</b>, and modern frontend architecture. At <b>Spinny</b>, I’ve owned and shipped products
+        end-to-end across payments, service booking, SEO, design systems, and consumer-facing experiences.
+        I’ve also worked extensively on frontend performance, including reducing unnecessary re-renders,
+        code splitting, lazy loading, virtualization, and Core Web Vitals optimization.
       </p>
       <div class="hero-actions">
         <a class="btn btn-primary" href="${RESUME}" target="_blank" rel="noreferrer">${icon.download}Download resume</a>
@@ -279,7 +281,6 @@ document.querySelector("#app").innerHTML = `
     <section class="container section" id="skills">
       <div class="section-head">
         <p class="kicker">Skills</p>
-        <h2>Toolkit</h2>
       </div>
       <div class="skills reveal">
         ${skillGroups
