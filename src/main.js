@@ -1,624 +1,400 @@
 import "./style.css";
-import heroImage from "./assets/hero.png";
+
+const EMAIL = "manasraj9669@gmail.com";
+const PHONE = "+91 91288 26817";
+const LINKEDIN = "https://www.linkedin.com/in/manas-raj-mnit/";
+const GITHUB = "https://github.com/Manasdangi";
+const RESUME = "/resume.pdf";
+const CAREER_START = new Date(2023, 9, 1);
+
+const yearsOfExperience = Math.floor(
+  (Date.now() - CAREER_START.getTime()) / (365.25 * 24 * 60 * 60 * 1000),
+);
+
+const icon = {
+  arrow: `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>`,
+  download: `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 19h14"/></svg>`,
+  mail: `<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg>`,
+  phone: `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>`,
+  copy: `<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h8"/></svg>`,
+  pin: `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12Z"/><circle cx="12" cy="9" r="2.5"/></svg>`,
+  linkedin: `<svg viewBox="0 0 24 24" aria-hidden="true" class="fill"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9.75h4V21H3V9.75Zm6.5 0h3.8v1.6h.06c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.77 2.5 4.77 5.75V21h-4v-5.1c0-1.22-.02-2.78-1.8-2.78-1.8 0-2.08 1.33-2.08 2.7V21h-4V9.75Z"/></svg>`,
+  github: `<svg viewBox="0 0 24 24" aria-hidden="true" class="fill"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.89 1.53 2.34 1.09 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.6 9.6 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"/></svg>`,
+};
 
 const experienceItems = [
   {
     company: "Spinny",
-    location: "Gurgaon",
     role: "SDE-II",
-    period: "Jan 2025 - Present",
+    period: "Jan 2025 – Present",
+    location: "Gurgaon",
+    context: "India's full-stack used-car platform. Consumer web, Spinny Care, Spinny Pro and the React Native app.",
+    stack: ["React", "React Native", "TypeScript", "TanStack Query", "Claude Code", "Bitbucket Pipelines"],
     highlights: [
-      "Developed the Spinny Pro desktop website independently, enabling seamless service booking and management and increasing overall user visits by 8-9%.",
-      "Built a scheduled AI triage agent with Claude Code and Bitbucket Pipelines that reads daily Sentry errors and files enriched Jira bugs with root-cause analysis, cutting 25 daily error candidates down to 2 actionable tickets through a one-command workflow that drafts the fix and raises a PR.",
-      "Built the Adhoc Approval Flow in Spinny Care, enabling technicians to send car-parts issue approvals through the app and reducing turnaround time and manual intervention by 20-25%.",
-      "Constructed the Spinny Care payment checkout, reducing cash transactions while enabling fully digital record-keeping and refund processes.",
-      "Built an intuitive, SEO-optimized Car Service Cost Calculator that estimates service charges by vehicle type and ranks on the first page of Google search.",
-      "Built a car inspection scheduling feature that streamlines the booking journey for damaged or service-required vehicles, making it easier for users to initiate and track inspection requests.",
-      "Integrated and enhanced the shared Design System for the Spinny Consumer platform, contributing reusable components and standardized UI patterns to reduce development effort and improve consistency.",
-      "Developed the refurbishment Catalogue Page from scratch with TanStack Query, improving page-load speed, API performance, and usability for spare-parts discovery.",
-      "Developed the Spinny Consumer Sell Homepage from scratch with a simpler, more intuitive journey, increasing lead conversion rates by 10%.",
-      "Optimized the React codebase with memoization, dynamic imports, and virtualization, improving CLS, FPS, LCP, page performance, and load speed by 20-30%.",
-      "Migrated the Spinny mobile app from React Native 0.72 to 0.80, ensuring compatibility with the latest framework and dependencies.",
-      "Enabled 16 KB Android memory page size support for the Spinny app, ensuring compatibility with newer Android platform requirements.",
-      "Integrated WebView flows inside the Spinny mobile app and resolved multiple navigation and cross-platform communication issues.",
+      "Developed the <b>Spinny Consumer Sell Homepage</b> from scratch with a simpler journey, <b>lifting lead conversion by 10%</b>.",
+      "Built the <b>Spinny Pro desktop website</b> independently for service booking and management, <b>growing user visits by 8–9%</b>.",
+      "Optimized the React codebase with memoization, dynamic imports and virtualization, improving CLS, FPS and LCP for <b>20–30% faster page performance</b>.",
+      "Built a scheduled <b>AI triage agent</b> with Claude Code and Bitbucket Pipelines that turns daily Sentry errors into enriched Jira bugs with root-cause analysis, <b>cutting 25 daily candidates to 2 actionable tickets</b>, with a one-command flow that drafts the fix and raises a PR.",
+      "Built the <b>Adhoc Approval Flow</b> in Spinny Care so technicians send car-parts approvals in-app, <b>reducing turnaround and manual work by 20–25%</b>.",
+      "Built an SEO-optimized <b>Car Service Cost Calculator</b> that <b>ranks on Google's first page</b>.",
+      "Constructed the Spinny Care <b>payment checkout</b>, reducing cash transactions and enabling fully digital records and refunds.",
+      "Developed the refurbishment <b>Catalogue Page</b> from scratch with TanStack Query, improving page-load speed, API performance and spare-parts discovery.",
+      "Migrated the Spinny mobile app from <b>React Native 0.72 to 0.80</b> and enabled <b>16 KB Android page-size</b> support for newer platform requirements.",
+      "Built a car inspection scheduling feature that streamlines booking and tracking for damaged or service-required vehicles.",
+      "Contributed reusable components and standardized UI patterns to the shared <b>Spinny Design System</b>.",
+      "Integrated WebView flows inside the mobile app and resolved navigation and cross-platform communication issues.",
     ],
   },
   {
     company: "Airtel",
-    location: "Gurgaon",
     role: "Software Engineer",
-    period: "Oct 2023 - Jan 2025",
+    period: "Oct 2023 – Jan 2025",
+    location: "Gurgaon",
+    context: "Airtel Payments Bank. UPI, wallet and checkout flows used by millions every month.",
+    stack: ["React Native", "React", "JavaScript", "Payments", "Design Systems"],
     highlights: [
-      "Developed Airtel UPI onboarding, improving success rate by 2%, and created health callouts for unavailable banks that delivered an additional 1.5% lift.",
-      "Built backend-driven widgets for APB Wallet and saved-card payment modes with card encryption and MPIN validation, helping the wallet achieve an almost 100% transaction success rate.",
-      "Implemented SIM-binding checks for APB Wallet transactions, reducing fraud, strengthening account security, and improving success rate by 1%.",
-      "Architected a scalable React Native payment checkout flow for 3 million monthly active users, covering the full range of transaction edge cases.",
-      "Developed Airtel UPI payments in Airtel's web repository with seamless VPA handling and intent/callback integration, improving reliability across platforms.",
-      "Contributed to Airtel's common design system architecture, air-widget-library and air-design-system, building reusable components and using them to render pages across multiple Airtel products.",
+      "Architected a scalable React Native <b>payment checkout for 3M monthly active users</b>, covering the full range of transaction edge cases.",
+      "Built backend-driven widgets for APB Wallet and saved cards with card encryption and MPIN validation, helping the wallet reach <b>~100% transaction success</b>.",
+      "Developed <b>Airtel UPI onboarding</b>, <b>improving success rate by 2%</b>, plus health callouts for unavailable banks for a further <b>1.5% lift</b>.",
+      "Implemented <b>SIM-binding checks</b> for wallet transactions, reducing fraud and <b>improving success rate by 1%</b>.",
+      "Developed UPI payments in Airtel's web repo with seamless VPA handling and intent/callback integration across platforms.",
+      "Contributed to <b>air-widget-library</b> and <b>air-design-system</b>, Airtel's shared component architecture used across multiple products.",
     ],
   },
 ];
+
+const VISIBLE_HIGHLIGHTS = 5;
 
 const projects = [
   {
     name: "Interview Buddy",
-    stack: "React, TypeScript, Vite, Zustand, Express, Gemini, Firebase",
-    period: "Jun 2026 - Present",
+    tagline: "AI interview simulator for frontend engineers",
+    period: "2026",
+    stack: ["React", "TypeScript", "Zustand", "Express", "Gemini", "Firebase"],
     summary:
-      "A full-stack AI interview simulator for realistic frontend practice, with adaptive questioning, voice interaction, persistent history, and detailed performance feedback.",
+      "Realistic frontend interview practice with an adaptive AI interviewer, live voice answers, persistent history and detailed scorecards.",
     points: [
-      "Built Round 1, Round 2, and System Design interview modes with beginner, intermediate, and advanced difficulty levels plus five rotating daily question sets.",
-      "Designed a Gemini-powered interviewer that asks one question at a time and adapts follow-ups using structured state for answer quality, strengths, weak areas, covered topics, and difficulty trends.",
-      "Added microphone dictation and live voice answers with Gemini audio transcription, browser text-to-speech replies, an interview timer, and navigation guards that protect active sessions.",
-      "Generated scorecards across technical ability, communication, problem-solving, and depth, with personalized feedback and recommended topics; persisted authenticated history through Google sign-in and Firestore-backed APIs.",
+      "Round 1, Round 2 and System Design modes across three difficulty levels with rotating daily question sets.",
+      "Gemini-powered interviewer that adapts follow-ups using structured state: answer quality, weak areas, covered topics and difficulty trend.",
+      "Voice answers with Gemini audio transcription, text-to-speech replies, a session timer and navigation guards.",
+      "Scorecards across technical depth, communication and problem-solving; history persisted via Google sign-in and Firestore.",
     ],
   },
   {
     name: "TalentLens",
-    stack: "React, Vite, TypeScript, Firebase, Groq LLM",
-    period: "Dec 2025 - Present",
+    tagline: "AI hiring platform for candidates and recruiters",
+    period: "2025",
     link: "https://talentlens-gamma.vercel.app/",
+    stack: ["React", "TypeScript", "Firebase", "Groq LLM"],
     summary:
-      "An AI-powered hiring platform for both candidates and recruiters, focused on resume scoring, job matching, and application tracking.",
+      "Resume scoring, job matching and application tracking, with a recruiter dashboard that ranks applicants using AI.",
     points: [
-      "Built a resume scoring workflow where candidates upload resumes, choose role and experience level, add a job description, and receive AI scoring with summaries, strengths, improvements, and keyword match or miss analysis.",
-      "Allowed candidates to save up to four role-specific resumes and apply to openings with the best-matched resume in one click.",
-      "Designed a recruiter dashboard to post jobs, review applicants, and rank candidates using AI on top of resume data stored in Firestore.",
-      "Implemented job recommendations, compatibility scoring, OAuth-based application tracking, and a modular TypeScript architecture with clear separation of UI, services, and state.",
+      "AI resume scoring against a job description, with strengths, improvements and keyword match/miss analysis.",
+      "Candidates save up to four role-specific resumes and apply with the best match in one click.",
+      "Recruiter dashboard to post jobs, review applicants and rank candidates over Firestore-backed resume data.",
     ],
   },
   {
-    name: "Multiplayer Chess Platform",
-    stack: "React, Socket.IO, Firebase, JavaScript",
-    period: "Personal Project",
+    name: "Multiplayer Chess",
+    tagline: "Real-time chess with rooms and match history",
+    period: "Personal",
     link: "https://chess-gamma-five.vercel.app/",
+    stack: ["React", "Socket.IO", "Firebase"],
     summary:
-      "A real-time multiplayer chess experience where players can create rooms, join friends, manage profiles, and review match history.",
+      "Create a private room, invite a friend and play live, with profiles and a history of past matches.",
     points: [
-      "Built private room creation and join flows so users can easily start live matches with friends.",
-      "Implemented real-time gameplay using Socket.IO along with backend support for live game state synchronization.",
-      "Wrote the core move logic for chess pieces from scratch, including queen, rook, bishop, knight, and pawn movement handling.",
-      "Designed the chessboard UI myself and later revisited the product to improve login plus create and join room flows.",
+      "Real-time gameplay and game-state sync over Socket.IO.",
+      "Move logic for every piece written from scratch.",
+      "Custom-designed board UI with reworked login and room flows.",
     ],
   },
   {
     name: "Pulse Fit Gym",
-    stack: "Next.js",
-    period: "2 days",
+    tagline: "Minimal, responsive landing page",
+    period: "Weekend build",
     link: "https://gym-landing-page-next-js.vercel.app/",
-    summary: "A minimalist gym landing page.",
-    points: [
-      "Developed a clean and responsive gym landing page using Next.js.",
-      "Focused on minimalist design to highlight gym services and features.",
-    ],
+    stack: ["Next.js"],
+    summary: "A clean, fast gym landing page built in two days with Next.js.",
+    points: [],
   },
 ];
 
-const skills = {
-  languages: ["HTML", "CSS", "JavaScript", "TypeScript"],
-  frontend: [
-    "React",
-    "React Native",
-    "Vite",
-    "Redux",
-    "Webpack",
-    "GraphQL",
-    "SSR",
-    "Socket.IO",
-    "WebView",
-    "REST API",
-  ],
-  engineering: [
-    "Component-driven Architecture",
-    "Chrome DevTools",
-    "Performance Profiling",
-    "Accessibility",
-    "Design Systems",
-    "Core Web Vitals",
-  ],
-  core: [
-    "Data Structures",
-    "Algorithms",
-    "OOPs",
-    "Debugging",
-    "Git",
-    "Jira",
-    "Agile",
-    "Bitbucket",
-    "Lighthouse",
-  ],
-};
-
-const heroSkillOrbits = [
-  [
-    ...skills.engineering,
-    "Data Structures",
-    "JavaScript",
-    "TypeScript",
-    "React Native",
-  ],
-  [
-    "Socket.IO",
-    "REST API",
-    "Algorithms",
-    "Debugging",
-    "Bitbucket",
-    "Lighthouse",
-    "Webpack",
-    "GraphQL",
-  ],
-  ["React", "Vite", "Redux", "WebView", "Jira", "Agile"],
-  ["HTML", "CSS", "SSR", "OOPs", "Git"],
-];
-
-const skillGroupLabels = {
-  languages: "Languages",
-  frontend: "Web development",
-  engineering: "Engineering practices",
-  core: "Other skills",
-};
-
-const navItems = [
-  ["top", "Mission"],
-  ["numbers", "Numbers"],
-  ["contact", "Contacts"],
-  ["experience", "Journey"],
-  ["projects", "Products"],
-  ["skills", "Stack"],
+const skillGroups = [
+  ["Languages", ["JavaScript", "TypeScript", "HTML", "CSS"]],
+  ["Frontend & Mobile", ["React", "React Native", "Redux", "Zustand", "TanStack Query", "Next.js", "Vite", "Webpack", "SSR", "WebView"]],
+  ["APIs & Real-time", ["REST", "GraphQL", "Socket.IO", "Firebase"]],
+  ["Performance & Quality", ["Core Web Vitals", "Performance Profiling", "Lighthouse", "Chrome DevTools", "Accessibility", "Design Systems"]],
+  ["Tools & Practices", ["Git", "Bitbucket", "Jira", "Agile", "Claude Code", "Data Structures & Algorithms", "OOP"]],
 ];
 
 const metrics = [
-  { value: "9%", target: 9, suffix: "%", label: "Spinny Pro user visit growth" },
-  { value: "25%", target: 25, suffix: "%", label: "Approval turnaround reduction" },
-  { value: "10%", target: 10, suffix: "%", label: "Sell homepage lead conversion lift" },
-  { value: "30%", target: 30, suffix: "%", label: "Peak page performance gain" },
+  { value: "+10%", label: "Lead conversion", source: "Spinny Sell homepage" },
+  { value: "20–30%", label: "Faster page performance", source: "React optimization, Spinny" },
+  { value: "3M", label: "Monthly users on checkout", source: "Airtel payments" },
+  { value: "25 → 2", label: "Daily errors to triage", source: "AI triage agent, Spinny" },
 ];
 
-const motionPhrases = [
-  "React Systems",
-  "AI Workflows",
-  "Payment UX",
-  "Web Vitals",
-  "0 to 1 Builds",
-  "Mobile WebViews",
-  "Design Systems",
-  "Production Ownership",
+const navItems = [
+  ["experience", "Experience"],
+  ["projects", "Projects"],
+  ["skills", "Skills"],
+  ["education", "Education"],
+  ["contact", "Contact"],
 ];
 
-const contactLinks = [
-  ["Email", "mailto:manasraj9669@gmail.com", "manasraj9669@gmail.com"],
-  ["Phone", "tel:+919128826817", "9128826817"],
-  ["LinkedIn", "https://www.linkedin.com/in/manas-raj-mnit/", "/in/manas-raj-mnit"],
-  ["GitHub", "https://github.com/Manasdangi", "/Manasdangi"],
-];
+const chips = (items) => items.map((item) => `<li>${item}</li>`).join("");
 
-const renderList = (items) => items.map((item) => `<li>${item}</li>`).join("");
-
-const renderSkillOrbit = (items, orbitIndex) => {
-  const duration = [38, 32, 27, 23][orbitIndex];
-  const satellites = items
-    .map((skill, skillIndex) => {
-      const delay = -((duration * skillIndex) / items.length).toFixed(2);
-
-      return `
-        <span class="skill-satellite" style="--orbit-duration: ${duration}s; --skill-delay: ${delay}s">
-          <span class="skill-label">${skill}</span>
-        </span>
-      `;
-    })
-    .join("");
+const renderExperience = (item) => {
+  const visible = item.highlights.slice(0, VISIBLE_HIGHLIGHTS);
+  const hidden = item.highlights.slice(VISIBLE_HIGHLIGHTS);
 
   return `
-    <div class="skill-orbit skill-orbit-${orbitIndex + 1}">${satellites}</div>
+    <article class="job reveal">
+      <header class="job-head">
+        <div>
+          <h3>${item.role} <span class="at">at</span> ${item.company}</h3>
+          <p class="job-context">${item.context}</p>
+        </div>
+        <div class="job-meta">
+          <span>${item.period}</span>
+          <span>${item.location}</span>
+        </div>
+      </header>
+      <ul class="bullets">${visible.map((h) => `<li>${h}</li>`).join("")}</ul>
+      ${
+        hidden.length
+          ? `<details class="more">
+              <summary><span class="more-closed">Show ${hidden.length} more</span><span class="more-open">Show less</span></summary>
+              <ul class="bullets">${hidden.map((h) => `<li>${h}</li>`).join("")}</ul>
+            </details>`
+          : ""
+      }
+      <ul class="tags" aria-label="Tech used">${chips(item.stack)}</ul>
+    </article>
   `;
 };
 
+const renderProject = (project, index) => `
+  <article class="project reveal${index < 2 ? " project-featured" : ""}">
+    <div class="project-head">
+      <span class="project-period">${project.period}</span>
+      ${
+        project.link
+          ? `<a class="project-link" href="${project.link}" target="_blank" rel="noreferrer" aria-label="Open ${project.name} live demo">Live ${icon.arrow}</a>`
+          : `<span class="project-link is-muted">In progress</span>`
+      }
+    </div>
+    <h3>${project.name}</h3>
+    <p class="project-tagline">${project.tagline}</p>
+    <p class="project-summary">${project.summary}</p>
+    ${project.points.length ? `<ul class="bullets bullets-compact">${project.points.map((p) => `<li>${p}</li>`).join("")}</ul>` : ""}
+    <ul class="tags" aria-label="Tech used">${chips(project.stack)}</ul>
+  </article>
+`;
+
 document.querySelector("#app").innerHTML = `
-  <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
-  <div class="ambient-grid" aria-hidden="true"></div>
-  <div class="cursor-glow" aria-hidden="true"></div>
-  <div class="page-shell">
-    <nav class="topbar" aria-label="Primary">
-      <a class="brand" href="#top" aria-label="Manas Raj home">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <nav class="nav" aria-label="Primary">
+    <div class="container nav-inner">
+      <a class="brand" href="#top" aria-label="Manas Raj, back to top">
         <span class="brand-mark">MR</span>
-        <span>
-          <span class="brand-name">Manas Raj</span>
-          <span class="brand-role">Software Engineer</span>
-        </span>
+        <span class="brand-name">Manas Raj</span>
       </a>
-      <div class="topbar-right">
-        <div class="topbar-links">
-          ${navItems.map(([id, label]) => `<a href="#${id}" data-nav="${id}">${label}</a>`).join("")}
-        </div>
+      <div class="nav-links">
+        ${navItems.map(([id, label]) => `<a href="#${id}" data-nav="${id}">${label}</a>`).join("")}
       </div>
-    </nav>
+      <a class="btn btn-small btn-primary" href="${RESUME}" target="_blank" rel="noreferrer">${icon.download}Resume</a>
+    </div>
+  </nav>
 
-    <header class="hero" id="top">
-      <div class="hero-orbits" aria-hidden="true">
-        <span></span>
-        <span></span>
-        <span></span>
+  <header class="hero container" id="top">
+    <div class="hero-copy">
+      <p class="status-pill"><span class="dot"></span>Open to SDE-II / Senior Frontend roles</p>
+      <h1>
+        Manas Raj
+        <span class="hero-role">Frontend Engineer · React &amp; React Native</span>
+      </h1>
+      <p class="hero-summary">
+        SDE-II at <b>Spinny</b>, previously <b>Airtel Payments</b>. ${yearsOfExperience}+ years shipping
+        consumer products end to end: payment flows for 3M monthly users, high-converting web
+        journeys and measurable Core Web Vitals wins.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="${RESUME}" target="_blank" rel="noreferrer">${icon.download}Download resume</a>
+        <a class="btn btn-secondary" href="mailto:${EMAIL}">${icon.mail}Email me</a>
+        <a class="btn btn-icon" href="${LINKEDIN}" target="_blank" rel="noreferrer" aria-label="LinkedIn profile">${icon.linkedin}</a>
+        <a class="btn btn-icon" href="${GITHUB}" target="_blank" rel="noreferrer" aria-label="GitHub profile">${icon.github}</a>
       </div>
-      <div class="hero-grid">
-        <section class="hero-copy reveal">
-          <p class="eyebrow">Frontend & Product Engineering</p>
-          <h1 class="hero-title">I build fast product experiences that feel calm, sharp, and reliable at scale.</h1>
-          <p class="summary">
-            SDE-II with hands-on product ownership across Spinny and Airtel. I turn ambiguous product problems into high-performance interfaces, resilient flows, and measurable user impact.
-          </p>
-          <div class="hero-actions">
-            <a class="button button-primary" href="mailto:manasraj9669@gmail.com">Contact Me</a>
-            <a class="button button-secondary" href="#projects">View Work</a>
-            <a class="button button-ghost" href="/resume.pdf" target="_blank" rel="noreferrer">Resume</a>
-          </div>
-        </section>
+    </div>
 
-        <aside class="hero-visual reveal" aria-label="Profile snapshot">
-          <div class="portrait-stage magnetic-card">
-            <div class="kinetic-ribbon" aria-hidden="true">
-              <span></span>
-              <span></span>
-              <span></span>
+    <aside class="snapshot" aria-label="Quick profile">
+      <p class="snapshot-title">At a glance</p>
+      <dl>
+        <div><dt>Current</dt><dd>SDE-II, Spinny <span>Jan 2025 – now</span></dd></div>
+        <div><dt>Previous</dt><dd>Software Engineer, Airtel <span>Oct 2023 – Jan 2025</span></dd></div>
+        <div><dt>Experience</dt><dd>${yearsOfExperience}+ years, frontend &amp; mobile</dd></div>
+        <div><dt>Location</dt><dd>Gurgaon, India</dd></div>
+        <div><dt>Education</dt><dd>B.Tech, MNIT Jaipur <span>2023</span></dd></div>
+      </dl>
+      <ul class="tags tags-strong" aria-label="Core stack">${chips(["React", "React Native", "TypeScript", "JavaScript", "Redux", "Web Performance"])}</ul>
+      <button class="copy-email" type="button" data-copy="${EMAIL}">
+        <span class="copy-text">${EMAIL}</span>
+        <span class="copy-action">${icon.copy}<span data-copy-label>Copy</span></span>
+      </button>
+    </aside>
+  </header>
+
+  <main id="main">
+    <section class="container metrics" aria-label="Impact highlights">
+      ${metrics
+        .map(
+          (m) => `
+            <div class="metric reveal">
+              <strong>${m.value}</strong>
+              <span class="metric-label">${m.label}</span>
+              <span class="metric-source">${m.source}</span>
             </div>
-            <img src="${heroImage}" alt="Layered product interface illustration" />
-            <div class="skill-cloud" aria-hidden="true">
-              <p class="skill-cloud-title">Skills</p>
-              ${heroSkillOrbits.map(renderSkillOrbit).join("")}
-            </div>
-          </div>
-          <div class="hero-status">
-            <span class="availability-dot"></span>
-            Open to strong product engineering opportunities
-          </div>
-        </aside>
-      </div>
+          `,
+        )
+        .join("")}
+    </section>
 
-      <div class="metric-grid reveal" id="numbers" aria-label="Highlighted outcomes">
-        ${metrics
+    <section class="container section" id="experience">
+      <div class="section-head">
+        <p class="kicker">Experience</p>
+        <h2>Where I've shipped</h2>
+      </div>
+      <div class="jobs">${experienceItems.map(renderExperience).join("")}</div>
+    </section>
+
+    <section class="container section" id="projects">
+      <div class="section-head">
+        <p class="kicker">Projects</p>
+        <h2>Things I've built on my own</h2>
+      </div>
+      <div class="projects">${projects.map(renderProject).join("")}</div>
+    </section>
+
+    <section class="container section" id="skills">
+      <div class="section-head">
+        <p class="kicker">Skills</p>
+        <h2>Toolkit</h2>
+      </div>
+      <div class="skills reveal">
+        ${skillGroups
           .map(
-            ({ value, target, prefix = "", suffix = "", label }) => `
-              <article class="metric-card magnetic-card">
-                <strong class="count-up" data-target="${target}" data-prefix="${prefix}" data-suffix="${suffix}">${value}</strong>
-                <span>${label}</span>
-              </article>
+            ([group, items]) => `
+              <div class="skill-row">
+                <h3>${group}</h3>
+                <ul class="tags">${chips(items)}</ul>
+              </div>
             `,
           )
           .join("")}
       </div>
+    </section>
 
-      <div class="capability-marquee reveal" aria-label="Engineering focus areas">
-        <div>
-          ${[...motionPhrases, ...motionPhrases]
-            .map((phrase) => `<span>${phrase}</span>`)
-            .join("")}
+    <section class="container section" id="education">
+      <div class="section-head">
+        <p class="kicker">Education</p>
+        <h2>Academics</h2>
+      </div>
+      <div class="edu reveal">
+        <div class="edu-main">
+          <h3>Malaviya National Institute of Technology (MNIT), Jaipur</h3>
+          <p>B.Tech, Electrical Engineering · CGPA 7.75 / 10</p>
+          <span>2019 – 2023</span>
+        </div>
+        <div class="edu-side">
+          <p><b>Class XII (CBSE, PCM)</b> 90.4%</p>
+          <p><b>Class X (CBSE)</b> CGPA 10 / 10</p>
         </div>
       </div>
-    </header>
+    </section>
 
-    <main>
-      <section class="contact-band reveal" id="contact" aria-label="Contact details">
-        <div>
-          <p class="section-kicker">Contact</p>
-          <h2>Let us build something crisp.</h2>
-        </div>
-        <div class="contact-list">
-          ${contactLinks
-            .map(
-              ([label, href, text]) => `
-                <a href="${href}" ${href.startsWith("http") ? 'target="_blank" rel="noreferrer"' : ""}>
-                  <span>${label}</span>
-                  <strong>${text}</strong>
-                </a>
-              `,
-            )
-            .join("")}
-        </div>
-      </section>
+    <section class="container contact reveal" id="contact">
+      <div>
+        <p class="kicker">Contact</p>
+        <h2>Hiring for a frontend or React Native role?</h2>
+        <p class="contact-sub">I usually reply within a day. Email is the fastest way to reach me.</p>
+      </div>
+      <div class="contact-grid">
+        <a class="contact-card" href="mailto:${EMAIL}">${icon.mail}<span>Email</span><strong>${EMAIL}</strong></a>
+        <a class="contact-card" href="tel:${PHONE.replace(/\s/g, "")}">${icon.phone}<span>Phone</span><strong>${PHONE}</strong></a>
+        <a class="contact-card" href="${LINKEDIN}" target="_blank" rel="noreferrer">${icon.linkedin}<span>LinkedIn</span><strong>/in/manas-raj-mnit</strong></a>
+        <a class="contact-card" href="${GITHUB}" target="_blank" rel="noreferrer">${icon.github}<span>GitHub</span><strong>/Manasdangi</strong></a>
+      </div>
+    </section>
+  </main>
 
-      <section class="section section-intro reveal" id="profile">
-        <div class="section-heading">
-          <p class="section-kicker">Profile</p>
-          <h2>What I bring to engineering teams</h2>
-        </div>
-        <div class="intro-grid">
-          <article class="info-card magnetic-card">
-            <span class="card-index">01</span>
-            <h3>User-first engineering</h3>
-            <p>I build product flows that balance speed, reliability, and clarity for real users.</p>
-          </article>
-          <article class="info-card magnetic-card">
-            <span class="card-index">02</span>
-            <h3>Performance mindset</h3>
-            <p>I enjoy profiling, removing render waste, and improving Core Web Vitals where they matter.</p>
-          </article>
-          <article class="info-card magnetic-card">
-            <span class="card-index">03</span>
-            <h3>Ownership</h3>
-            <p>I am comfortable taking features from idea to production and iterating based on outcomes.</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="section reveal" id="experience">
-        <div class="section-heading">
-          <p class="section-kicker">Experience</p>
-          <h2>Professional journey</h2>
-        </div>
-        <div class="timeline">
-          ${experienceItems
-            .map(
-              (item) => `
-                <article class="timeline-item magnetic-card">
-                  <div class="timeline-meta">
-                    <p class="timeline-company">${item.company}</p>
-                    <p>${item.role}</p>
-                    <p>${item.location}</p>
-                    <p>${item.period}</p>
-                  </div>
-                  <div class="timeline-content">
-                    <h3>${item.role} at ${item.company}</h3>
-                    <ul class="detail-list">${renderList(item.highlights)}</ul>
-                  </div>
-                </article>
-              `,
-            )
-            .join("")}
-        </div>
-      </section>
-
-      <section class="section reveal" id="projects">
-        <div class="section-heading section-heading-row">
-          <div>
-            <p class="section-kicker">Projects</p>
-            <h2>Selected work</h2>
-          </div>
-          <p class="section-note">Live products, AI workflows, real-time systems, and focused UI builds.</p>
-        </div>
-        <div class="project-grid">
-          ${projects
-            .map(
-              (project, index) => `
-                <article class="project-card magnetic-card">
-                  <div class="project-visual" aria-hidden="true">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                  </div>
-                  <div class="project-topline">
-                    <span class="card-index">${String(index + 1).padStart(2, "0")}</span>
-                    <span>${project.period}</span>
-                  </div>
-                  <h3>${project.name}</h3>
-                  <p class="project-stack">${project.stack}</p>
-                  <p class="project-summary">${project.summary}</p>
-                  ${project.link ? `<a class="project-link" href="${project.link}" target="_blank" rel="noreferrer">Live Project</a>` : ""}
-                  <ul class="detail-list">${renderList(project.points)}</ul>
-                </article>
-              `,
-            )
-            .join("")}
-        </div>
-      </section>
-
-      <section class="section reveal" id="skills">
-        <div class="section-heading">
-          <p class="section-kicker">Skills</p>
-          <h2>Tools and strengths</h2>
-        </div>
-        <div class="skills-grid">
-          ${Object.entries(skills)
-            .map(
-              ([group, values]) => `
-                <article class="skill-card magnetic-card">
-                  <h3>${skillGroupLabels[group]}</h3>
-                  <div class="chip-row">${values.map((skill) => `<span class="chip">${skill}</span>`).join("")}</div>
-                </article>
-              `,
-            )
-            .join("")}
-        </div>
-      </section>
-
-      <section class="section reveal" id="education">
-        <div class="section-heading">
-          <p class="section-kicker">Education</p>
-          <h2>Academic background</h2>
-        </div>
-        <div class="education-grid">
-          <article class="education-card magnetic-card">
-            <div class="education-topline">
-              <h3>MNIT Jaipur, Rajasthan</h3>
-              <span>Aug 2019 - May 2023</span>
-            </div>
-            <p>Bachelor of Technology, Electrical Engineering</p>
-            <p>CGPA: 7.75 / 10</p>
-          </article>
-          <article class="education-card magnetic-card">
-            <div class="education-topline">
-              <h3>KN Memo Academy, Asarganj, Munger</h3>
-              <span>Apr 2017 - Mar 2019</span>
-            </div>
-            <p>CBSE Intermediate (PCM)</p>
-            <p>Score: 90.4%</p>
-          </article>
-          <article class="education-card magnetic-card">
-            <div class="education-topline">
-              <h3>School Education</h3>
-              <span>Class 10</span>
-            </div>
-            <p>CBSE Secondary Education</p>
-            <p>CGPA: 10 / 10</p>
-          </article>
-        </div>
-      </section>
-
-    </main>
-  </div>
-  <button class="scroll-top" id="scroll-top" type="button" aria-label="Move to top">Top</button>
+  <footer class="container footer">
+    <span>© ${new Date().getFullYear()} Manas Raj</span>
+    <span class="footer-loc">${icon.pin}Gurgaon, India</span>
+  </footer>
 `;
 
-const scrollTopButton = document.querySelector("#scroll-top");
-const scrollProgress = document.querySelector("#scroll-progress");
-const heroTitle = document.querySelector(".hero-title");
-const navLinks = Array.from(document.querySelectorAll("[data-nav]"));
-const sections = navLinks
-  .map((link) => document.getElementById(link.dataset.nav))
-  .filter(Boolean);
-const revealElements = document.querySelectorAll(".reveal");
-const magneticCards = document.querySelectorAll(".magnetic-card");
-const countUpElements = document.querySelectorAll(".count-up");
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-if (heroTitle && !reduceMotion) {
-  heroTitle.innerHTML = heroTitle.textContent
-    .split(" ")
-    .map((word, index) => `<span style="--word-index:${index}">${word}</span>`)
-    .join(" ");
-}
-
-const updateScrollState = () => {
-  const scrollable = document.documentElement.scrollHeight - window.innerHeight;
-  const progress = scrollable > 0 ? window.scrollY / scrollable : 0;
-
-  if (scrollProgress) {
-    scrollProgress.style.transform = `scaleX(${progress})`;
-  }
-
-  scrollTopButton?.classList.toggle("is-visible", window.scrollY > 320);
-};
+// Active nav link
+const navLinks = Array.from(document.querySelectorAll("[data-nav]"));
+const sections = navLinks.map((link) => document.getElementById(link.dataset.nav)).filter(Boolean);
 
 const setActiveNav = () => {
-  let activeId = sections[0]?.id;
-
+  let activeId = null;
   sections.forEach((section) => {
-    if (section.getBoundingClientRect().top <= window.innerHeight * 0.34) {
-      activeId = section.id;
-    }
+    if (section.getBoundingClientRect().top <= window.innerHeight * 0.35) activeId = section.id;
   });
-
-  navLinks.forEach((link) => {
-    link.classList.toggle("is-active", link.dataset.nav === activeId);
-  });
-};
-
-const animateCount = (element) => {
-  if (element.dataset.counted === "true") return;
-
-  element.dataset.counted = "true";
-
-  const target = Number(element.dataset.target);
-  const prefix = element.dataset.prefix || "";
-  const suffix = element.dataset.suffix || "";
-
-  if (!Number.isFinite(target) || reduceMotion) {
-    element.textContent = `${prefix}${target}${suffix}`;
-    return;
+  if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4) {
+    activeId = sections.at(-1)?.id;
   }
-
-  const duration = 1150;
-  const start = performance.now();
-
-  const tick = (now) => {
-    const progress = Math.min((now - start) / duration, 1);
-    const eased = 1 - Math.pow(1 - progress, 4);
-    const value = Math.round(eased * target);
-    element.textContent = `${prefix}${value}${suffix}`;
-
-    if (progress < 1) {
-      requestAnimationFrame(tick);
-    }
-  };
-
-  requestAnimationFrame(tick);
+  navLinks.forEach((link) => link.classList.toggle("is-active", link.dataset.nav === activeId));
+  document.querySelector(".nav")?.classList.toggle("is-scrolled", window.scrollY > 8);
 };
 
-updateScrollState();
 setActiveNav();
+window.addEventListener("scroll", setActiveNav, { passive: true });
 
-window.addEventListener(
-  "scroll",
-  () => {
-    updateScrollState();
-    setActiveNav();
-  },
-  { passive: true },
-);
+// Reveal on scroll
+const revealElements = document.querySelectorAll(".reveal");
 
-scrollTopButton?.addEventListener("click", () => {
-  window.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" });
-});
-
-if ("IntersectionObserver" in window) {
-  const revealObserver = new IntersectionObserver(
+if (!reduceMotion && "IntersectionObserver" in window) {
+  const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-visible");
-          entry.target
-            .querySelectorAll?.(".count-up")
-            .forEach((element) => animateCount(element));
-          revealObserver.unobserve(entry.target);
-        }
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("is-visible");
+        observer.unobserve(entry.target);
       });
     },
-    { threshold: 0.16, rootMargin: "0px 0px -60px" },
+    { threshold: 0.12, rootMargin: "0px 0px -40px" },
   );
-
-  revealElements.forEach((element) => revealObserver.observe(element));
+  revealElements.forEach((el) => observer.observe(el));
 } else {
-  revealElements.forEach((element) => element.classList.add("is-visible"));
-  countUpElements.forEach((element) => animateCount(element));
+  revealElements.forEach((el) => el.classList.add("is-visible"));
 }
 
-if (!reduceMotion) {
-  let cursorFrame = null;
-  let latestPointer = { x: 0, y: 0 };
+// Print the full resume content, including collapsed highlights
+window.addEventListener("beforeprint", () => {
+  document.querySelectorAll("details.more").forEach((d) => (d.open = true));
+});
 
-  window.addEventListener(
-    "pointermove",
-    (event) => {
-      latestPointer = { x: event.clientX, y: event.clientY };
+// Copy email
+document.querySelectorAll("[data-copy]").forEach((button) => {
+  const label = button.querySelector("[data-copy-label]");
 
-      if (cursorFrame !== null) return;
-
-      cursorFrame = requestAnimationFrame(() => {
-        document.documentElement.style.setProperty("--cursor-x", `${latestPointer.x}px`);
-        document.documentElement.style.setProperty("--cursor-y", `${latestPointer.y}px`);
-        cursorFrame = null;
-      });
-    },
-    { passive: true },
-  );
-
-  magneticCards.forEach((card) => {
-    let cardFrame = null;
-    let latestCardEvent = null;
-
-    card.addEventListener("pointermove", (event) => {
-      latestCardEvent = event;
-
-      if (cardFrame !== null) return;
-
-      cardFrame = requestAnimationFrame(() => {
-        const bounds = card.getBoundingClientRect();
-        const x = latestCardEvent.clientX - bounds.left;
-        const y = latestCardEvent.clientY - bounds.top;
-        const rotateX = ((y / bounds.height) - 0.5) * -5;
-        const rotateY = ((x / bounds.width) - 0.5) * 5;
-
-        card.style.setProperty("--mouse-x", `${x}px`);
-        card.style.setProperty("--mouse-y", `${y}px`);
-        card.style.transform = `perspective(900px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
-        cardFrame = null;
-      });
-    });
-
-    card.addEventListener("pointerleave", () => {
-      if (cardFrame !== null) {
-        cancelAnimationFrame(cardFrame);
-        cardFrame = null;
-      }
-      card.style.transform = "";
-    });
+  button.addEventListener("click", async () => {
+    try {
+      await navigator.clipboard.writeText(button.dataset.copy);
+      label.textContent = "Copied";
+    } catch {
+      window.location.href = `mailto:${button.dataset.copy}`;
+      return;
+    }
+    button.classList.add("is-copied");
+    setTimeout(() => {
+      label.textContent = "Copy";
+      button.classList.remove("is-copied");
+    }, 1800);
   });
-}
+});
