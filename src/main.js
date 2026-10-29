@@ -65,11 +65,63 @@ const experienceItems = [
 
 const VISIBLE_HIGHLIGHTS = 5;
 
+const mobileProjects = [
+  {
+    name: "Foodie",
+    tagline: "Food ordering app for iOS and Android",
+    period: "React Native CLI",
+    repo: "https://github.com/Manasdangi/foodie-app",
+    extraLink: {
+      label: "Admin portal",
+      href: "https://github.com/Manasdangi/foodie-app-restaurant-admin-portal",
+    },
+    stack: ["React Native", "Firebase Auth", "Cloud Firestore", "React Navigation", "Context + useReducer"],
+    summary:
+      "Browse restaurants and dishes, build a cart, check out and track past orders, with a companion React web portal for restaurant partners.",
+    points: [
+      "Restaurant and dish discovery with a category carousel, search across restaurants and dishes, and sort plus rating and veg filters.",
+      "Cart, checkout with payment-method selection, and order history stored in Cloud Firestore.",
+      "Google Sign-In and Firebase email-link auth, plus saved addresses with device geolocation.",
+      "App state split into Context + <code>useReducer</code> slices for cart, addresses, restaurants, sorting and user.",
+    ],
+    screens: [
+      ["foodie-1-home.webp", "Foodie home screen with address bar, search, food categories and restaurant filters"],
+      ["foodie-2-search.webp", "Foodie dish search showing restaurants with quantity steppers"],
+      ["foodie-3-cart.webp", "Foodie cart with order items, total and checkout button"],
+      ["foodie-4-checkout.webp", "Foodie checkout with order summary and payment method options"],
+    ],
+    screenSize: [358, 785],
+  },
+  {
+    name: "DietBuddy",
+    tagline: "AI nutrition and workout companion",
+    period: "Expo",
+    repo: "https://github.com/Manasdangi/DietBuddy-Frontend",
+    stack: ["React Native", "Expo", "Gemini API", "Zustand", "React Navigation"],
+    summary:
+      "Log a meal by photo, voice note or text. Gemini estimates calories and macros and the app tracks them against your daily targets.",
+    points: [
+      "Meal capture from camera, photo library or a voice recording, analysed by Gemini 1.5 Flash against a strict JSON schema with a safe fallback.",
+      "Goal-based onboarding (bulking or cutting) that sets daily calorie, protein and carb targets, with progress kept in a Zustand store.",
+      "Custom blurred bottom tab bar with a centre action button, and light and dark themes.",
+      "Screens for the daily dashboard, AI logger, meal log, workout session and history.",
+    ],
+    screens: [
+      ["dietbuddy-1-onboarding.webp", "DietBuddy onboarding asking the user to choose bulking or cutting"],
+      ["dietbuddy-2-home.webp", "DietBuddy dashboard with daily calories, protein and carb targets"],
+      ["dietbuddy-3-ai-logger.webp", "DietBuddy AI chat for logging a meal by text, photo or voice"],
+      ["dietbuddy-4-workout.webp", "DietBuddy workout session with progress ring and exercise sets"],
+    ],
+    screenSize: [540, 1169],
+  },
+];
+
 const projects = [
   {
     name: "Interview Buddy",
     tagline: "AI interview simulator for frontend engineers",
     period: "2026",
+    repo: "https://github.com/Manasdangi/Interview-Buddy",
     stack: ["React", "TypeScript", "Zustand", "Express", "Gemini", "Firebase"],
     summary:
       "Realistic frontend interview practice with an adaptive AI interviewer, live voice answers, persistent history and detailed scorecards.",
@@ -85,6 +137,7 @@ const projects = [
     tagline: "AI hiring platform for candidates and recruiters",
     period: "2025",
     link: "https://talentlens-gamma.vercel.app/",
+    repo: "https://github.com/Manasdangi/TalentLens",
     stack: ["React", "TypeScript", "Firebase", "Groq LLM"],
     summary:
       "Resume scoring, job matching and application tracking, with a recruiter dashboard that ranks applicants using AI.",
@@ -99,6 +152,7 @@ const projects = [
     tagline: "Real-time chess with rooms and match history",
     period: "Personal",
     link: "https://chess-gamma-five.vercel.app/",
+    repo: "https://github.com/Manasdangi/chess",
     stack: ["React", "Socket.IO", "Firebase"],
     summary:
       "Create a private room, invite a friend and play live, with profiles and a history of past matches.",
@@ -113,6 +167,7 @@ const projects = [
     tagline: "Minimal, responsive landing page",
     period: "Weekend build",
     link: "https://gym-landing-page-next-js.vercel.app/",
+    repo: "https://github.com/Manasdangi/gym-landing-page-next-js",
     stack: ["Next.js"],
     summary: "A clean, fast gym landing page built in two days with Next.js.",
     points: [],
@@ -174,15 +229,63 @@ const renderExperience = (item) => {
   `;
 };
 
+const projectLinks = (project, { showStatus = true } = {}) => {
+  const links = [];
+  if (project.link) {
+    links.push(
+      `<a class="project-link" href="${project.link}" target="_blank" rel="noreferrer" aria-label="Open ${project.name} live demo">Live ${icon.arrow}</a>`,
+    );
+  } else if (showStatus) {
+    links.push(`<span class="project-link is-muted">In progress</span>`);
+  }
+  if (project.repo) {
+    links.push(
+      `<a class="project-link project-link-ghost" href="${project.repo}" target="_blank" rel="noreferrer" aria-label="View ${project.name} source code on GitHub">${icon.github}Code</a>`,
+    );
+  }
+  if (project.extraLink) {
+    links.push(
+      `<a class="project-link project-link-ghost" href="${project.extraLink.href}" target="_blank" rel="noreferrer" aria-label="View ${project.name} ${project.extraLink.label} source code on GitHub">${project.extraLink.label} ${icon.arrow}</a>`,
+    );
+  }
+  return `<div class="project-links">${links.join("")}</div>`;
+};
+
+const renderMobileProject = (project) => {
+  const [w, h] = project.screenSize;
+  return `
+    <article class="project project-mobile reveal">
+      <div class="project-mobile-copy">
+        <div class="project-head">
+          <span class="project-period">${project.period}</span>
+          ${projectLinks(project, { showStatus: false })}
+        </div>
+        <h3>${project.name}</h3>
+        <p class="project-tagline">${project.tagline}</p>
+        <p class="project-summary">${project.summary}</p>
+        <ul class="bullets bullets-compact">${project.points.map((p) => `<li>${p}</li>`).join("")}</ul>
+        <ul class="tags" aria-label="Tech used">${chips(project.stack)}</ul>
+      </div>
+      <ul class="screens" aria-label="${project.name} app screens" tabindex="0">
+        ${project.screens
+          .map(
+            ([file, alt]) => `
+              <li class="screen">
+                <img src="/projects/${file}" alt="${alt}" width="${w}" height="${h}" loading="lazy" decoding="async" />
+              </li>
+            `,
+          )
+          .join("")}
+      </ul>
+    </article>
+  `;
+};
+
 const renderProject = (project, index) => `
   <article class="project reveal${index < 2 ? " project-featured" : ""}">
     <div class="project-head">
       <span class="project-period">${project.period}</span>
-      ${
-        project.link
-          ? `<a class="project-link" href="${project.link}" target="_blank" rel="noreferrer" aria-label="Open ${project.name} live demo">Live ${icon.arrow}</a>`
-          : `<span class="project-link is-muted">In progress</span>`
-      }
+      ${projectLinks(project)}
     </div>
     <h3>${project.name}</h3>
     <p class="project-tagline">${project.tagline}</p>
@@ -275,6 +378,9 @@ document.querySelector("#app").innerHTML = `
         <p class="kicker">Projects</p>
         <h2>Things I've built on my own</h2>
       </div>
+      <h3 class="project-group">Mobile apps · React Native</h3>
+      <div class="projects-mobile">${mobileProjects.map(renderMobileProject).join("")}</div>
+      <h3 class="project-group">Web &amp; full-stack</h3>
       <div class="projects">${projects.map(renderProject).join("")}</div>
     </section>
 
