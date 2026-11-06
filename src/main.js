@@ -176,8 +176,8 @@ const projects = [
 
 const skillGroups = [
   ["Languages", ["JavaScript", "TypeScript", "HTML", "CSS"]],
-  ["Frontend & Mobile", ["React", "React Native", "Redux", "Zustand", "TanStack Query", "Next.js", "Vite", "Webpack", "SSR", "WebView"]],
-  ["APIs & Real-time", ["REST", "GraphQL", "Socket.IO", "Firebase"]],
+  ["Frontend & Mobile", ["React", "React Native", "Redux", "Zustand", "TanStack Query", "Vite", "Webpack", "SSR", "WebView"]],
+  ["APIs & Real-time", ["Node.js", "Express", "REST", "GraphQL", "Socket.IO", "Firebase"]],
   ["Performance & Quality", ["Core Web Vitals", "Performance Profiling", "Lighthouse", "Chrome DevTools", "Accessibility", "Design Systems"]],
   ["Tools & Practices", ["Git", "Bitbucket", "Jira", "Agile", "Claude Code", "Data Structures & Algorithms", "OOP"]],
 ];
@@ -190,9 +190,9 @@ const metrics = [
 ];
 
 const navItems = [
+  ["skills", "Skills"],
   ["experience", "Experience"],
   ["projects", "Projects"],
-  ["skills", "Skills"],
   ["education", "Education"],
   ["contact", "Contact"],
 ];
@@ -365,6 +365,24 @@ document.querySelector("#app").innerHTML = `
         .join("")}
     </section>
 
+    <section class="container section" id="skills">
+      <div class="section-head">
+        <p class="kicker">Skills</p>
+      </div>
+      <div class="skills reveal">
+        ${skillGroups
+          .map(
+            ([group, items]) => `
+              <div class="skill-row">
+                <h3>${group}</h3>
+                <ul class="tags">${chips(items)}</ul>
+              </div>
+            `,
+          )
+          .join("")}
+      </div>
+    </section>
+
     <section class="container section" id="experience">
       <div class="section-head">
         <p class="kicker">Experience</p>
@@ -382,24 +400,6 @@ document.querySelector("#app").innerHTML = `
       <div class="projects-mobile">${mobileProjects.map(renderMobileProject).join("")}</div>
       <h3 class="project-group">Web &amp; full-stack</h3>
       <div class="projects">${projects.map(renderProject).join("")}</div>
-    </section>
-
-    <section class="container section" id="skills">
-      <div class="section-head">
-        <p class="kicker">Skills</p>
-      </div>
-      <div class="skills reveal">
-        ${skillGroups
-          .map(
-            ([group, items]) => `
-              <div class="skill-row">
-                <h3>${group}</h3>
-                <ul class="tags">${chips(items)}</ul>
-              </div>
-            `,
-          )
-          .join("")}
-      </div>
     </section>
 
     <section class="container section" id="education">
