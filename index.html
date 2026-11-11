@@ -114,7 +114,8 @@ h1 .lt{display:inline-block;transition:transform .25s cubic-bezier(.2,.8,.2,1),c
 .lead{color:var(--muted);max-width:60ch;margin-top:22px;font-size:17px}
 .lead b{color:var(--fg);font-weight:600}
 .cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:32px}
-.run{position:absolute;right:max(16px,env(safe-area-inset-right,0px));bottom:28px;z-index:3;width:min(340px,calc(100% - 32px));display:flex;flex-direction:column;gap:12px;padding:16px 18px;background:color-mix(in srgb,var(--surface) 90%,transparent);border:1px solid var(--line);border-radius:18px;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.run{position:absolute;right:max(16px,env(safe-area-inset-right,0px));bottom:84px;z-index:3;width:min(340px,calc(100% - 32px));display:flex;flex-direction:column;gap:12px;padding:16px 18px;background:color-mix(in srgb,var(--surface) 90%,transparent);border:1px solid var(--line);border-radius:18px;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.run-title b{font-weight:800;color:var(--fg)}
 .run-title{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
 .legend{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:12.5px;color:var(--muted)}
 .legend span{display:inline-flex;align-items:center;gap:6px}
@@ -322,7 +323,7 @@ footer{border-top:1px solid var(--line);padding-block:28px;color:var(--muted);fo
       </div>
     </div>
     <div class="run">
-      <span class="run-title">AI triage agent · live demo</span>
+      <span class="run-title"><b>AI</b> triage agent · live demo</span>
       <div class="legend" aria-hidden="true"><span><i class="lg a"></i>Sentry error</span><span><i class="lg h"></i>Jira ticket</span><span><i class="lg d"></i>Filtered out</span></div>
       <div class="num"><b>25</b><small>errors</small><i>→</i><b id="cnt">2</b><small>tickets</small></div>
       <p id="runLabel">2 enriched Jira bugs. One command drafts the fix and raises a PR.</p>
@@ -642,7 +643,7 @@ footer{border-top:1px solid var(--line);padding-block:28px;color:var(--muted);fo
 
   /* particle field: replays the 25 -> 2 triage run */
   var cv=$('#cv'),ctx=cv.getContext('2d'),W=0,H=0,dpr=1,parts=[],col={},cnt=$('#cnt'),capEl=$('#runLabel'),lastCap='';
-  var KEEP={7:{ax:.80,ay:.30,label:'Jira bug · root cause'},18:{ax:.72,ay:.72,label:'Fix drafted · PR raised'}};
+  var KEEP={7:{ax:.80,ay:.30,label:'Jira bug · root cause'},18:{ax:.58,ay:.60,label:'Fix drafted · PR raised'}};
   var mode='final',t0=0,labelA=1,visible=true,raf=0,frame=0;
   function readColors(){var cs=getComputedStyle(root);['--accent','--hot','--amber','--muted','--fg','--surface','--line'].forEach(function(k){col[k]=cs.getPropertyValue(k).trim()})}
   function size(){var r=hero.getBoundingClientRect();dpr=Math.min(2,window.devicePixelRatio||1);W=r.width;H=r.height;cv.width=W*dpr;cv.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);
