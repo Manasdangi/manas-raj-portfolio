@@ -276,7 +276,7 @@ footer{border-top:1px solid var(--line);padding-block:28px;color:var(--muted);fo
 .foot{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 .visits{font-family:var(--f-mono);font-size:12.5px;display:inline-flex;gap:8px;align-items:center}
 .visits::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--good)}
-.visits.top{padding:7px 14px;border:1px solid var(--line);border-radius:999px;background:color-mix(in srgb,var(--surface) 80%,transparent);color:var(--muted);margin-left:6px;vertical-align:top}
+.visits.nav{padding:7px 13px;border:1px solid var(--line);border-radius:999px;font-size:12px;color:var(--muted);white-space:nowrap}
 
 /* palette */
 .pal{position:fixed;inset:0;z-index:100;display:none;align-items:flex-start;justify-content:center;padding:max(12vh,env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) 16px max(16px,env(safe-area-inset-left,0px));background:color-mix(in srgb,var(--bg) 70%,transparent);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
@@ -302,6 +302,7 @@ footer{border-top:1px solid var(--line);padding-block:28px;color:var(--muted);fo
       <a href="#work">Work</a><a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#skills">Skills</a><a href="#topmate">Mentoring</a><a href="#contact">Contact</a>
     </nav>
     <div class="nav-actions">
+      <span class="visits nav" id="visitsNav" hidden></span>
       <button class="btn" id="openPal" type="button" aria-label="Open command menu"><span class="hide-s">Search</span> <kbd id="kbdHint">⌘K</kbd></button>
       <button class="btn icon" id="themeBtn" type="button" aria-label="Toggle theme"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.2" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M8 1.8a6.2 6.2 0 0 1 0 12.4z" fill="currentColor"/></svg></button>
       <a class="btn primary hide-s" href="/resume.pdf" target="_blank" rel="noopener">Resume</a>
@@ -314,7 +315,7 @@ footer{border-top:1px solid var(--line);padding-block:28px;color:var(--muted);fo
   <div class="hero" id="hero">
     <canvas id="cv" aria-hidden="true"></canvas>
     <div class="wrap hero-in">
-      <span class="status"><span class="dot"></span>Open to SDE-II / Senior Frontend roles</span> <span class="visits top" id="visitsTop" hidden></span>
+      <span class="status"><span class="dot"></span>Open to SDE-II / Senior Frontend roles</span>
       <h1 id="name" aria-label="Manas Raj"><span class="ln">Manas</span><span class="ln">Raj</span></h1>
       <p class="role">Frontend Engineer · <em>React &amp; React Native</em></p>
       <p class="lead">My core expertise includes <b>React</b>, <b>JavaScript</b>, <b>TypeScript</b>, <b>React Native</b>, <b>Redux</b>, and modern frontend architecture. At <b>Spinny</b>, I've owned and shipped products end-to-end across payments, service booking, SEO, design systems, and consumer-facing experiences. I've also worked extensively on frontend performance, including reducing unnecessary re-renders, code splitting, lazy loading, virtualization, and Core Web Vitals optimization.</p>
@@ -780,7 +781,7 @@ footer{border-top:1px solid var(--line);padding-block:28px;color:var(--muted);fo
     var els=$$('.visits');if(!els.length)return;
     var H={apikey:cfg.key,'Content-Type':'application/json'};
     function fmt(n){return Number(n).toLocaleString('en-IN')}
-    function show(v,u){if(v==null)return;var txt=fmt(v)+(v==1?' visit':' visits')+(u!=null?' · '+fmt(u)+(u==1?' visitor':' visitors'):'');els.forEach(function(el){el.textContent=txt;el.hidden=false})}
+    function show(v,u){if(v==null)return;var txt=fmt(v)+(v==1?' visit':' visits')+(u!=null?' · '+fmt(u)+(u==1?' visitor':' visitors'):'');var short=fmt(v)+(v==1?' visit':' visits');els.forEach(function(el){var n=el.classList.contains('nav');el.textContent=n?short:txt;if(n&&u!=null)el.title=fmt(u)+(u==1?' unique visitor':' unique visitors');el.hidden=false})}
     var counted=false,isNew=true;
     try{counted=sessionStorage.getItem('mr-counted')==='1';isNew=localStorage.getItem('mr-visitor')!=='1'}catch(e){}
     var dev=/^(localhost|127\.|\[::1\]|0\.0\.0\.0)/.test(location.hostname);
