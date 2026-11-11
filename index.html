@@ -274,6 +274,8 @@ details.more .bul{margin-top:12px}
 .ct span{overflow-wrap:anywhere}
 footer{border-top:1px solid var(--line);padding-block:28px;color:var(--muted);font-size:14px}
 .foot{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.visits{font-family:var(--f-mono);font-size:12.5px;display:inline-flex;gap:8px;align-items:center}
+.visits::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--good)}
 
 /* palette */
 .pal{position:fixed;inset:0;z-index:100;display:none;align-items:flex-start;justify-content:center;padding:max(12vh,env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) 16px max(16px,env(safe-area-inset-left,0px));background:color-mix(in srgb,var(--bg) 70%,transparent);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
@@ -566,7 +568,7 @@ footer{border-top:1px solid var(--line);padding-block:28px;color:var(--muted);fo
   </div>
 </main>
 
-<footer><div class="wrap foot"><span>© 2026 Manas Raj</span><span>Gurgaon, India</span></div></footer>
+<footer><div class="wrap foot"><span>© 2026 Manas Raj</span><span class="visits" id="visits" hidden></span><span>Gurgaon, India</span></div></footer>
 
 <div class="pal" id="pal" role="dialog" aria-modal="true" aria-label="Command menu">
   <div class="pal-box">
@@ -578,6 +580,7 @@ footer{border-top:1px solid var(--line);padding-block:28px;color:var(--muted);fo
 </div>
 <div class="toast" id="toast" role="status"></div>
 
+<script>window.__STATS__={url:"https://sganyrhgnxiixwhpbmbs.supabase.co",key:"sb_publishable_1Twwmi97P7g858XcsffheQ_e2Mcgpj_"};</script>
 <script>
 (function(){
   var $=function(s,r){return (r||document).querySelector(s)}, $$=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))};
@@ -769,6 +772,31 @@ footer{border-top:1px solid var(--line);padding-block:28px;color:var(--muted);fo
     else if(e.key==='ArrowUp'){e.preventDefault();if(shown.length){sel=(sel-1+shown.length)%shown.length;mark()}}
     else if(e.key==='Enter'){e.preventDefault();var el=$('#palList li.sel a, #palList li.sel button');if(el)el.click()}
   });
+
+  /* visit counter: Supabase RPC. Config is injected at build time; with no config this does nothing. */
+  (function(){
+    var cfg=window.__STATS__;if(!cfg||!cfg.url||!cfg.key)return;
+    var el=$('#visits');if(!el)return;
+    var H={apikey:cfg.key,'Content-Type':'application/json'};
+    function fmt(n){return Number(n).toLocaleString('en-IN')}
+    function show(v,u){if(v==null)return;el.textContent=fmt(v)+(v==1?' visit':' visits')+(u!=null?' · '+fmt(u)+(u==1?' visitor':' visitors'):'');el.hidden=false}
+    var counted=false,isNew=true;
+    try{counted=sessionStorage.getItem('mr-counted')==='1';isNew=localStorage.getItem('mr-visitor')!=='1'}catch(e){}
+    var dev=/^(localhost|127\.|\[::1\]|0\.0\.0\.0)/.test(location.hostname);
+    if(!counted&&!dev){
+      fetch(cfg.url+'/rest/v1/rpc/portfolio_track',{method:'POST',headers:H,body:JSON.stringify({p_new_visitor:isNew})})
+        .then(function(r){return r.ok?r.json():null}).then(function(d){
+          var r=d&&d[0];if(!r)return;
+          try{sessionStorage.setItem('mr-counted','1');localStorage.setItem('mr-visitor','1')}catch(e){}
+          show(r.views,r.visitors);
+        }).catch(function(){});
+    }else{
+      fetch(cfg.url+'/rest/v1/portfolio_stats?select=key,count',{headers:H})
+        .then(function(r){return r.ok?r.json():null}).then(function(rows){
+          if(!rows)return;var m={};rows.forEach(function(x){m[x.key]=x.count});show(m.views,m.visitors);
+        }).catch(function(){});
+    }
+  })();
 })();
 </script>
   </body>
