@@ -1,4 +1,7 @@
 import "./style.css";
+import { inject } from "@vercel/analytics";
+
+inject();
 
 const EMAIL = "manasraj9669@gmail.com";
 const PHONE = "+91 91288 26817";
