@@ -43,6 +43,7 @@ const experienceItems = [
       "Constructed the Spinny Care <b>payment checkout</b>, reducing cash transactions and enabling fully digital records and refunds.",
       "Developed the refurbishment <b>Catalogue Page</b> from scratch with TanStack Query, improving page-load speed, API performance and spare-parts discovery.",
       "Migrated the Spinny mobile app from <b>React Native 0.72 to 0.80</b> and enabled <b>16 KB Android page-size</b> support for newer platform requirements.",
+      "Developed an <b>offline notification system</b> for the Spinny app using the <b>Notifee</b> library.",
       "Built a car inspection scheduling feature that streamlines booking and tracking for damaged or service-required vehicles.",
       "Contributed reusable components and standardized UI patterns to the shared <b>Spinny Design System</b>.",
       "Integrated WebView flows inside the mobile app and resolved navigation and cross-platform communication issues.",
