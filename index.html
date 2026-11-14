@@ -665,7 +665,7 @@ footer{border-top:1px solid var(--line);padding-block:28px;color:var(--muted);fo
 
   /* particle field: replays the 25 -> 2 triage run */
   var cv=$('#cv'),ctx=cv.getContext('2d'),W=0,H=0,dpr=1,parts=[],col={},cnt=$('#cnt'),capEl=$('#runLabel'),lastCap='';
-  var KEEP={7:{ax:.64,ay:.56,label:'Jira bug · root cause'},18:{ax:.58,ay:.76,label:'Fix drafted · PR raised'}};
+  var KEEP={};
   var mode='final',t0=0,labelA=1,visible=true,raf=0,frame=0;
   function readColors(){var cs=getComputedStyle(root);['--accent','--hot','--amber','--muted','--fg','--surface','--line'].forEach(function(k){col[k]=cs.getPropertyValue(k).trim()})}
   function size(){var r=hero.getBoundingClientRect();dpr=Math.min(2,window.devicePixelRatio||1);W=r.width;H=r.height;cv.width=W*dpr;cv.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);
