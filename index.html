@@ -125,7 +125,10 @@ h1 .lt{display:inline-block;transition:transform .25s cubic-bezier(.2,.8,.2,1),c
 .run .num small{font-family:var(--f-body);font-size:13px;font-weight:500;letter-spacing:0;color:var(--muted)}
 .run .num i{font-style:normal;color:var(--hot);font-weight:600}
 .run .num b{font-weight:750}
-.run p{font-size:14px;line-height:1.45;min-height:2.9em}
+.run-pts{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px;font-size:13.5px;line-height:1.45;color:var(--muted)}
+.run-pts li{position:relative;padding-left:14px}
+.run-pts li::before{content:"";position:absolute;left:0;top:.6em;width:6px;height:6px;border-radius:50%;background:var(--hot)}
+.run-pts b{color:var(--fg);font-weight:650}
 .run button{align-self:flex-start;font:inherit;font-family:var(--f-mono);font-size:12.5px;cursor:pointer;color:var(--fg);background:var(--surface-2);border:1px solid var(--line);border-radius:999px;padding:7px 14px}
 .run button:hover{border-color:var(--hot)}
 @media (max-width:700px){.run{position:relative;right:auto;top:auto;bottom:auto;width:auto;margin:28px max(16px,env(safe-area-inset-left,0px)) 0}}
@@ -327,10 +330,14 @@ footer{border-top:1px solid var(--line);padding-block:28px;color:var(--muted);fo
       </div>
     </div>
     <div class="run">
-      <span class="run-title"><b>AI</b> triage agent · live demo</span>
-      <div class="legend" aria-hidden="true"><span><i class="lg a"></i>Sentry error</span><span><i class="lg h"></i>Jira ticket</span><span><i class="lg d"></i>Filtered out</span></div>
-      <div class="num"><b>25</b><small>errors</small><i>→</i><b id="cnt">2</b><small>tickets</small></div>
-      <p id="runLabel">2 enriched Jira bugs. One command drafts the fix and raises a PR.</p>
+      <span class="run-title"><b>AI</b> triage agent · Sentry → Jira → PR</span>
+      <div class="num"><b>25</b><small>Sentry errors</small><i>→</i><b>2</b><small>Jira tickets</small></div>
+      <ul class="run-pts">
+        <li><b>Claude</b> judges which errors matter most and files the top 2 as <b>enriched Jira bugs</b> with root cause.</li>
+        <li>Scheduled <b>agent on Bitbucket Pipelines</b>, running daily.</li>
+        <li><b>One command</b> drafts the fix; the <b>PR is raised via an MCP server</b>.</li>
+      </ul>
+      <div class="legend" aria-hidden="true"><span><i class="lg a"></i>Sentry error</span><span><i class="lg d"></i>Filtered out</span></div>
       <button id="replay" type="button">▶ replay</button>
     </div>
   </div>
@@ -664,7 +671,7 @@ footer{border-top:1px solid var(--line);padding-block:28px;color:var(--muted);fo
   hero.addEventListener('pointerleave',function(){mouse.on=false;mouse.x=mouse.y=-9999;lettersUpdate()});
 
   /* particle field: replays the 25 -> 2 triage run */
-  var cv=$('#cv'),ctx=cv.getContext('2d'),W=0,H=0,dpr=1,parts=[],col={},cnt=$('#cnt'),capEl=$('#runLabel'),lastCap='';
+  var cv=$('#cv'),ctx=cv.getContext('2d'),W=0,H=0,dpr=1,parts=[],col={};
   var KEEP={};
   var mode='final',t0=0,labelA=1,visible=true,raf=0,frame=0;
   function readColors(){var cs=getComputedStyle(root);['--accent','--hot','--amber','--muted','--fg','--surface','--line'].forEach(function(k){col[k]=cs.getPropertyValue(k).trim()})}
@@ -694,9 +701,6 @@ footer{border-top:1px solid var(--line);padding-block:28px;color:var(--muted);fo
       var dT=(!p.keep&&p.passed)?1:0,hT=(p.keep&&p.passed)?1:0;
       var s=mode==='final'&&t>9000?1:.14;p.dim+=(dT-p.dim)*s;p.hot+=(hT-p.hot)*s;
     });
-    var tix=0;parts.forEach(function(p){if(p.keep&&p.hot>.5)tix++});cnt.textContent=String(tix);
-    var cap=mode==='final'?'2 enriched Jira bugs. One command drafts the fix and raises a PR.':(t<600?'25 Sentry errors come in.':(t<2100?'The agent scans each one and traces root causes.':'2 become enriched Jira bugs.'));
-    if(cap!==lastCap){lastCap=cap;capEl.textContent=cap}
     /* links */
     ctx.lineWidth=1;
     for(var a=0;a<parts.length;a++)for(var b=a+1;b<parts.length;b++){var A=parts[a],B=parts[b],d=Math.hypot(A.x-B.x,A.y-B.y);if(d<120){var al=(1-d/120)*.22*(1-Math.max(A.dim,B.dim)*.8);ctx.strokeStyle=rgba(col['--line'],al*3);ctx.beginPath();ctx.moveTo(A.x,A.y);ctx.lineTo(B.x,B.y);ctx.stroke()}}
