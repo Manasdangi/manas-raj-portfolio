@@ -174,6 +174,20 @@ h1 .lt{display:inline-block;transition:transform .25s cubic-bezier(.2,.8,.2,1),c
 .card::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .3s;background:radial-gradient(420px circle at var(--mx,50%) var(--my,0%),color-mix(in srgb,var(--accent) 18%,transparent),transparent 70%)}
 .card:hover{border-color:color-mix(in srgb,var(--accent) 60%,var(--line))}
 .card:hover::after{opacity:1}
+.faq{display:grid;gap:14px;max-width:900px}
+.faq-item{padding:0}
+.faq-item summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:20px 24px;font-family:var(--f-display);font-size:clamp(20px,2.4vw,26px);font-weight:650;letter-spacing:-.02em;line-height:1.2}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary::after{content:"+";flex:none;font-family:var(--f-mono);font-size:26px;line-height:1;color:var(--accent);transition:transform .25s}
+.faq-item[open] summary::after{transform:rotate(45deg)}
+.faq-item summary:focus-visible{outline:2px solid var(--accent);outline-offset:-2px;border-radius:22px}
+.faq-a{padding:0 24px 22px;color:var(--muted);max-width:75ch}
+.faq-a p{margin:0 0 10px}
+.faq-a p:last-child{margin-bottom:0}
+.faq-a b{color:var(--fg);font-weight:600}
+.faq-a ul{margin:0;padding-left:18px;display:grid;gap:8px}
+.faq-a li::marker{color:var(--hot)}
+.faq-a a{color:var(--accent);font-weight:600}
 .chips{display:flex;flex-wrap:wrap;gap:6px;list-style:none;margin:0;padding:0}
 .chip{font-family:var(--f-mono);font-size:11.5px;padding:3px 10px;border-radius:999px;border:1px solid var(--line);background:var(--surface-2);color:var(--muted)}
 
@@ -595,6 +609,28 @@ footer{border-top:1px solid var(--line);padding-block:28px;color:var(--muted);fo
       <div class="card skill"><h3>APIs &amp; Real-time</h3><ul class="chips"><li class="chip">Node.js</li><li class="chip">Express</li><li class="chip">REST</li><li class="chip">GraphQL</li><li class="chip">Socket.IO</li><li class="chip">Firebase</li></ul></div>
       <div class="card skill wide"><h3>Performance &amp; Quality</h3><ul class="chips"><li class="chip">Core Web Vitals</li><li class="chip">Performance Profiling</li><li class="chip">Lighthouse</li><li class="chip">Chrome DevTools</li><li class="chip">Accessibility</li><li class="chip">Design Systems</li></ul></div>
       <div class="card skill wide"><h3>Tools &amp; Practices</h3><ul class="chips"><li class="chip">Git</li><li class="chip">Bitbucket</li><li class="chip">Jira</li><li class="chip">Agile</li><li class="chip">Claude Code</li><li class="chip">Data Structures &amp; Algorithms</li><li class="chip">OOP</li></ul></div>
+    </div>
+  </section>
+
+  <section id="faq" style="padding-top:40px">
+    <div class="sec-head"><span class="eyebrow">Recruiter FAQ</span><h2>Quick answers before you ask</h2></div>
+    <div class="faq">
+      <details class="card faq-item" open>
+        <summary>Why should you hire me?</summary>
+        <div class="faq-a"><p>Because I <b>ship products end to end</b> and care about the number they move. At <b>Spinny</b> I've owned payments, service booking, SEO and design-system work from first screen to production. Before that, at <b>Airtel</b>, I built payment checkout and UPI onboarding in React Native for <b>3M monthly users</b>.</p><p>I back that with performance habits (<b>Core Web Vitals</b>, code splitting, virtualization) and I build with AI too: a <b>Claude-powered triage agent</b> and a <b>WebMCP</b> integration so AI agents can search Spinny's inventory.</p></div>
+      </details>
+      <details class="card faq-item">
+        <summary>Why am I a fit for your company?</summary>
+        <div class="faq-a"><p>Whatever the product, I start from the <b>user flow and the metric it should move</b>: conversion, speed or failure rate. I've worked on consumer web and React Native at scale, and I'm comfortable leading: I <b>led the Spinny team for two months</b> while handling app deployment.</p><p>I like owning problems end to end, so I don't stop at the UI. I've also done the <b>release side</b> (Fastlane and mobile CI/CD) and the <b>design-system side</b> (integrating Spinny's SPEED design system) alongside feature work.</p></div>
+      </details>
+      <details class="card faq-item">
+        <summary>What are my strengths?</summary>
+        <div class="faq-a"><ul><li><b>React, TypeScript and React Native</b>, shipped on both web and mobile.</li><li><b>Frontend performance:</b> fewer re-renders, code splitting, lazy loading, virtualization and Core Web Vitals.</li><li><b>Design systems and quality:</b> reusable components, accessibility and consistent UI.</li><li><b>AI-assisted engineering:</b> Claude Code, MCP and LLM APIs in real workflows.</li><li><b>Communication:</b> I interview candidates at Spinny and mentor frontend engineers on Topmate.</li></ul></div>
+      </details>
+      <details class="card faq-item">
+        <summary>What roles am I looking for?</summary>
+        <div class="faq-a"><p><b>SDE-II, Senior Frontend and Senior React Native</b> roles, ideally with room to grow toward full-stack ownership. I also take freelance projects in frontend, full-stack and React Native.</p><p><a href="mailto:manasraj9669@gmail.com">Email me</a> or <a href="/resume.pdf" target="_blank" rel="noopener">view my resume</a>.</p></div>
+      </details>
     </div>
   </section>
   </div>
