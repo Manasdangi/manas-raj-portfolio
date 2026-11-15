@@ -65,6 +65,10 @@ section{padding-block:104px;scroll-margin-top:72px}
 .glance-wrap{padding-block:40px 0}
 .glance{padding:clamp(20px,2.6vw,28px) clamp(20px,3vw,34px);display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:22px clamp(28px,5vw,64px);align-items:center;background:radial-gradient(700px circle at 0% 0%,color-mix(in srgb,var(--accent) 14%,transparent),transparent 60%),var(--surface)}
 .glance .eyebrow{letter-spacing:.3em;color:var(--muted)}
+.gl-id{display:flex;align-items:center;gap:16px}
+.gl-photo{width:88px;height:88px;flex:none;object-fit:cover;border-radius:22px;border:1px solid var(--line);box-shadow:0 0 0 4px color-mix(in srgb,var(--accent) 18%,transparent)}
+.gl-name{display:block;margin-top:4px;font-family:var(--f-display);font-size:22px;font-weight:700;letter-spacing:-.02em;line-height:1.15}
+.gl-sub{display:block;margin-top:2px;color:var(--muted);font-size:13.5px}
 .gl-rows{margin:14px 0 0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:28px}
 .gl-row{display:flex;flex-direction:column;gap:1px;padding-block:10px;border-bottom:1px dashed var(--line);min-width:0}
 .gl-row dt{color:var(--muted);font-size:13px}
@@ -349,7 +353,10 @@ footer{border-top:1px solid var(--line);padding-block:28px;color:var(--muted);fo
   <div class="wrap glance-wrap">
     <aside class="card glance" aria-label="Quick profile">
       <div>
-        <span class="eyebrow">AT A GLANCE</span>
+        <div class="gl-id">
+          <img class="gl-photo" src="/manas.jpg" width="88" height="88" alt="Portrait of Manas Raj" decoding="async">
+          <div><span class="eyebrow">AT A GLANCE</span><strong class="gl-name">Manas Raj</strong><span class="gl-sub">Frontend Engineer · React &amp; React Native</span></div>
+        </div>
         <dl class="gl-rows">
           <div class="gl-row"><dt>Current</dt><dd>SDE-II, Spinny<small>Jan 2025 – now</small></dd></div>
           <div class="gl-row"><dt>Previous</dt><dd>Software Engineer, Airtel<small>Oct 2023 – Jan 2025</small></dd></div>
