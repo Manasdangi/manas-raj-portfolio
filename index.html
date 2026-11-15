@@ -740,7 +740,6 @@ footer{border-top:1px solid var(--line);padding-block:28px;color:var(--muted);fo
 <script>
 (function(){
   var el=document.getElementById('pitch');if(!el)return;
-  try{if(sessionStorage.getItem('pitchSeen'))return}catch(e){}
   var SHOW_AFTER=5000,LIFE=5000,remaining=LIFE,t0=0,tm=0,open=false;
   function hide(){
     open=false;clearTimeout(tm);el.classList.remove('show');
@@ -751,7 +750,6 @@ footer{border-top:1px solid var(--line);padding-block:28px;color:var(--muted);fo
   function resume(){if(open)start()}
   function show(){
     if(open)return;open=true;remaining=LIFE;
-    try{sessionStorage.setItem('pitchSeen','1')}catch(e){}
     el.hidden=false;void el.offsetWidth;el.classList.add('show','run');start();
   }
   function arm(){setTimeout(function(){if(document.hidden){var f=function(){if(!document.hidden){document.removeEventListener('visibilitychange',f);show()}};document.addEventListener('visibilitychange',f)}else show()},SHOW_AFTER)}
