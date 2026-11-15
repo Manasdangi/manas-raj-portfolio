@@ -121,7 +121,7 @@ kbd{font-family:var(--f-mono);font-size:11px;border:1px solid var(--line);border
 .status{display:inline-flex;align-items:center;gap:10px;font-size:13px;font-weight:700;line-height:1.35;max-width:100%;padding:7px 15px;border:1px solid var(--line);border-radius:999px;background:color-mix(in srgb,var(--surface) 80%,transparent);color:var(--muted)}
 .dot{width:8px;height:8px;border-radius:50%;background:var(--good);animation:ping 2.4s infinite}
 @keyframes ping{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--good) 60%,transparent)}70%,100%{box-shadow:0 0 0 9px transparent}}
-h1{font-size:clamp(76px,19vw,250px);font-weight:750;letter-spacing:-.055em;line-height:.84;margin:30px 0 28px}
+h1{font-size:var(--fs,clamp(76px,19vw,250px));font-weight:750;letter-spacing:-.055em;line-height:.84;margin:30px 0 28px}
 h1 .ln{display:block}
 h1 .lt{display:inline-block;transition:transform .25s cubic-bezier(.2,.8,.2,1),color .25s;will-change:transform}
 .role{font-family:var(--f-display);font-size:clamp(22px,3.2vw,36px);font-weight:600;letter-spacing:-.015em}
@@ -129,28 +129,38 @@ h1 .lt{display:inline-block;transition:transform .25s cubic-bezier(.2,.8,.2,1),c
 .lead{color:var(--muted);max-width:60ch;margin-top:22px;font-size:17px}
 .lead b{color:var(--fg);font-weight:600}
 .cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:32px}
-.hero-side{position:absolute;right:max(16px,env(safe-area-inset-right,0px));top:96px;z-index:3;width:min(340px,calc(100% - 32px));display:flex;flex-direction:column;gap:14px}
-.hero-photo{margin:0;position:relative;aspect-ratio:4/3;border-radius:18px;overflow:hidden;border:1px solid var(--line);background:var(--surface)}
-.hero-photo img{display:block;width:100%;height:100%;object-fit:cover}
-.hero-photo figcaption{position:absolute;left:10px;bottom:10px;font-size:12.5px;font-weight:600;padding:5px 12px;border-radius:999px;color:var(--fg);background:color-mix(in srgb,var(--surface) 82%,transparent);border:1px solid var(--line);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
-.run{width:100%;display:flex;flex-direction:column;gap:12px;padding:16px 18px;background:color-mix(in srgb,var(--surface) 90%,transparent);border:1px solid var(--line);border-radius:18px;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
-.run-title b{font-weight:800;color:var(--fg)}
-.run-title{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
-.legend{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:12.5px;color:var(--muted)}
-.legend span{display:inline-flex;align-items:center;gap:6px}
-.lg{width:9px;height:9px;border-radius:50%;display:inline-block}
-.lg.a{background:var(--amber)}.lg.h{background:var(--hot)}.lg.d{background:var(--muted);opacity:.5}
-.run .num{display:flex;align-items:baseline;gap:10px;font-family:var(--f-display);font-weight:750;letter-spacing:-.04em;line-height:1;font-variant-numeric:tabular-nums;font-size:44px}
-.run .num small{font-family:var(--f-body);font-size:13px;font-weight:500;letter-spacing:0;color:var(--muted)}
-.run .num i{font-style:normal;color:var(--hot);font-weight:600}
-.run .num b{font-weight:750}
-.run-pts{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px;font-size:13.5px;line-height:1.45;color:var(--muted)}
-.run-pts li{position:relative;padding-left:14px}
-.run-pts li::before{content:"";position:absolute;left:0;top:.6em;width:6px;height:6px;border-radius:50%;background:var(--hot)}
-.run-pts b{color:var(--fg);font-weight:650}
-.run button{align-self:flex-start;font:inherit;font-family:var(--f-mono);font-size:12.5px;cursor:pointer;color:var(--fg);background:var(--surface-2);border:1px solid var(--line);border-radius:999px;padding:7px 14px}
-.run button:hover{border-color:var(--hot)}
-@media (max-width:700px){.hero-side{position:relative;right:auto;top:auto;width:auto;margin:28px max(16px,env(safe-area-inset-left,0px)) 0}}
+.name-row{--fs:clamp(76px,19vw,250px);position:relative;display:flow-root}
+.name-photo{margin:0;position:absolute;z-index:3;pointer-events:auto;left:calc(var(--fs)*1.34 + 28px);bottom:calc(28px + var(--fs)*.03);width:calc(var(--fs)*.82);height:calc(var(--fs)*.82);border-radius:calc(var(--fs)*.1);overflow:hidden;border:1px solid var(--line);box-shadow:0 0 0 6px color-mix(in srgb,var(--accent) 16%,transparent)}
+.name-photo img{display:block;width:100%;height:100%;object-fit:cover}
+@media (max-width:700px){.name-photo{left:auto;right:0;width:96px;height:96px;border-radius:24px}}
+/* AI work: self-rotating semicircle of cards (wide screens), swipe row elsewhere */
+.orbit{position:relative;z-index:3;margin:28px max(16px,env(safe-area-inset-left,0px)) 0}
+.orbit-label{display:block;margin-bottom:10px;font-family:var(--f-mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.orbit-label b{color:var(--fg);font-weight:800}
+.orbit-ring,.orbit-dots{display:none}
+.orbit-track{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 2px 14px;-webkit-overflow-scrolling:touch}
+.ocard{flex:0 0 min(300px,82vw);scroll-snap-align:start;min-height:220px;display:flex;flex-direction:column;gap:8px;padding:16px 18px;background:color-mix(in srgb,var(--surface) 92%,transparent);border:1px solid var(--line);border-radius:18px;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:0 18px 40px -24px rgba(0,0,0,.5)}
+.oc-top{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.oc-tag{display:inline-flex;align-items:center;gap:8px;font-family:var(--f-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.oc-tag i{width:8px;height:8px;border-radius:50%;background:var(--accent)}
+.oc-tag i.w{background:var(--hot)}
+.oc-go{font-size:12.5px;font-weight:650;color:var(--accent);white-space:nowrap}
+.oc-go:hover{text-decoration:underline}
+.ocard h3{font-size:21px;letter-spacing:-.02em;line-height:1.1}
+.ocard p{margin:0;font-size:13.5px;line-height:1.45;color:var(--muted)}
+.ocard p b{color:var(--fg);font-weight:650}
+.ocard .chips{margin-top:auto;gap:6px}
+@media (min-width:1240px){
+.orbit.arc{position:absolute;right:max(16px,env(safe-area-inset-right,0px));top:84px;width:500px;height:780px;margin:0}
+.arc .orbit-label{position:absolute;left:0;top:-14px;margin:0}
+.arc .orbit-ring{display:block;position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none;color:var(--muted)}
+.arc .orbit-track{position:absolute;inset:0;display:block;overflow:visible;padding:0}
+.arc .ocard{position:absolute;left:0;top:0;width:320px;height:224px;min-height:0;flex:none;will-change:transform,opacity;cursor:pointer}
+.arc .ocard.front{cursor:default}
+.arc .orbit-dots{display:flex;gap:8px;position:absolute;left:0;bottom:14px}
+.orbit-dots button{width:9px;height:9px;padding:0;border-radius:50%;border:0;background:var(--line);cursor:pointer}
+.orbit-dots button[aria-current="true"]{background:var(--accent);width:22px;border-radius:999px}
+}
 
 /* ticker */
 .ticker{border-bottom:1px solid var(--line);background:var(--solid);color:var(--solid-ink);overflow:hidden}
@@ -338,7 +348,10 @@ footer{border-top:1px solid var(--line);padding-block:28px;color:var(--muted);fo
     <canvas id="cv" aria-hidden="true"></canvas>
     <div class="wrap hero-in">
       <span class="status"><span class="dot"></span>Open to SDE-II / Senior Frontend / Senior React Native roles</span>
-      <h1 id="name" aria-label="Manas Raj"><span class="ln">Manas</span><span class="ln">Raj</span></h1>
+      <div class="name-row">
+        <h1 id="name" aria-label="Manas Raj"><span class="ln">Manas</span><span class="ln">Raj</span></h1>
+        <figure class="name-photo"><img src="/manas.jpg" width="400" height="400" alt="Manas Raj, frontend engineer based in Gurgaon" fetchpriority="high" decoding="async"></figure>
+      </div>
       <p class="role">Frontend Engineer · <em>React &amp; React Native</em></p>
       <p class="lead">My core expertise includes <b>React</b>, <b>JavaScript</b>, <b>TypeScript</b>, <b>React Native</b>, <b>Redux</b>, and modern frontend architecture. At <b>Spinny</b>, I've owned and shipped products end-to-end across payments, service booking, SEO, design systems, and consumer-facing experiences. I've also worked extensively on frontend performance, including reducing unnecessary re-renders, code splitting, lazy loading, virtualization, and Core Web Vitals optimization.</p>
       <div class="cta">
@@ -348,20 +361,18 @@ footer{border-top:1px solid var(--line);padding-block:28px;color:var(--muted);fo
         <a class="btn icon" href="https://github.com/Manasdangi" target="_blank" rel="noopener" aria-label="GitHub"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a10.9 10.9 0 0 1 5.77 0c2.2-1.49 3.16-1.18 3.16-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.42-2.69 5.39-5.25 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5z"/></svg></a>
       </div>
     </div>
-    <div class="hero-side">
-    <div class="run">
-      <span class="run-title"><b>AI</b> triage agent · Sentry → Jira → PR</span>
-      <div class="num"><b>25</b><small>Sentry errors</small><i>→</i><b>2</b><small>Jira tickets</small></div>
-      <ul class="run-pts">
-        <li><b>Claude</b> judges which errors matter most and files the top 2 as <b>enriched Jira bugs</b> with root cause.</li>
-        <li>Scheduled <b>agent on Bitbucket Pipelines</b>, running daily.</li>
-        <li><b>One command</b> drafts the fix; the <b>PR is raised via an MCP server</b>.</li>
-      </ul>
-      <div class="legend" aria-hidden="true"><span><i class="lg a"></i>Sentry error</span><span><i class="lg d"></i>Filtered out</span></div>
-      <button id="replay" type="button">▶ replay</button>
-    </div>
-    <figure class="hero-photo"><img src="/manas-hero.jpg" width="340" height="255" alt="Manas Raj, frontend engineer" fetchpriority="high" decoding="async"><figcaption>Manas Raj · Gurgaon</figcaption></figure>
-    </div>
+    <aside class="orbit" id="orbit" aria-label="AI development work">
+      <span class="orbit-label"><b>AI</b> work · office &amp; personal</span>
+      <svg class="orbit-ring" aria-hidden="true"><circle cx="460" cy="390" r="300" fill="none" stroke="currentColor" stroke-width="1.5" stroke-dasharray="2 9" stroke-linecap="round" opacity=".55"/></svg>
+      <div class="orbit-track">
+        <article class="ocard"><div class="oc-top"><span class="oc-tag"><i class="w"></i>Spinny · Agent</span><a class="oc-go" href="#work">Case study ↗</a></div><h3>AI triage agent</h3><p><b>25 Sentry errors → 2 Jira tickets.</b> Claude judges what matters and files enriched bugs with root cause. One command drafts the fix and the PR is raised via an MCP server.</p><ul class="chips"><li class="chip">Claude</li><li class="chip">Bitbucket Pipelines</li><li class="chip">MCP</li></ul></article>
+        <article class="ocard"><div class="oc-top"><span class="oc-tag"><i class="w"></i>Spinny · Consumer web</span></div><h3>AI assistant on the website</h3><p>Customers ask by <b>text or voice note</b> and are taken straight to the right page. Handled complex navigation, performance and <b>voice-note transcription</b>.</p><ul class="chips"><li class="chip">LLM</li><li class="chip">Voice</li><li class="chip">Navigation</li></ul></article>
+        <article class="ocard"><div class="oc-top"><span class="oc-tag"><i class=""></i>Personal · AI hiring</span><a class="oc-go" href="https://talentlens-gamma.vercel.app/" target="_blank" rel="noopener">Live demo ↗</a></div><h3>TalentLens</h3><p><b>AI resume scoring</b> against a job description with keyword match and miss analysis, plus a recruiter dashboard that ranks applicants.</p><ul class="chips"><li class="chip">React</li><li class="chip">TypeScript</li><li class="chip">Firebase</li><li class="chip">Groq</li></ul></article>
+        <article class="ocard"><div class="oc-top"><span class="oc-tag"><i class=""></i>Personal · In progress</span><a class="oc-go" href="https://github.com/Manasdangi/Interview-Buddy" target="_blank" rel="noopener">Source ↗</a></div><h3>Interview Buddy</h3><p>Frontend interview practice with an <b>adaptive AI interviewer</b>, live voice answers, text-to-speech replies and scorecards.</p><ul class="chips"><li class="chip">React</li><li class="chip">LLM API</li><li class="chip">Voice</li></ul></article>
+        <article class="ocard"><div class="oc-top"><span class="oc-tag"><i class=""></i>Personal · Mobile</span><a class="oc-go" href="https://github.com/Manasdangi/DietBuddy-Frontend" target="_blank" rel="noopener">Source ↗</a></div><h3>DietBuddy</h3><p>Log a meal by <b>photo, voice note or text</b>; Gemini estimates calories and macros against bulking or cutting goals.</p><ul class="chips"><li class="chip">React Native</li><li class="chip">Expo</li><li class="chip">Gemini</li></ul></article>
+      </div>
+      <div class="orbit-dots" role="group" aria-label="Choose AI project"><button type="button" aria-label="Show AI triage agent"></button><button type="button" aria-label="Show AI assistant on the website"></button><button type="button" aria-label="Show TalentLens"></button><button type="button" aria-label="Show Interview Buddy"></button><button type="button" aria-label="Show DietBuddy"></button></div>
+    </aside>
   </div>
 
   <div class="ticker" aria-label="Impact highlights"><div class="tk" id="tk">
@@ -774,7 +785,59 @@ footer{border-top:1px solid var(--line);padding-block:28px;color:var(--muted);fo
   new ResizeObserver(function(){size();draw(performance.now())}).observe(hero);
   if('IntersectionObserver' in window){new IntersectionObserver(function(es){visible=es[0].isIntersecting;if(visible&&!raf&&!reduce)raf=requestAnimationFrame(step)}).observe(hero)}
   window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change',function(){readColors();draw(performance.now())});
-  $('#replay').addEventListener('click',play);
+  var rp=$('#replay');if(rp)rp.addEventListener('click',play);
+
+  /* AI work: semicircle carousel that rotates by itself on wide screens */
+  (function(){
+    var orbit=$('#orbit');if(!orbit)return;
+    var cards=$$('#orbit .ocard'),dots=$$('#orbit .orbit-dots button'),n=cards.length,STEP=360/n;
+    var R=300,CW=320,CH=224,TW=950,HOLD=3800;
+    var mq=window.matchMedia('(min-width:1240px)');
+    var rot=0,idx=0,from=0,to=0,tw=0,last=0,paused=false,vis=true,raf=0,arc=false;
+    function norm(a){return((a+180)%360+360)%360-180}
+    function mod(a){return((a%n)+n)%n}
+    function layout(){
+      var cy=orbit.clientHeight/2,cx=CW/2+R,f=mod(idx);
+      cards.forEach(function(c,i){
+        var phi=norm(i*STEP-rot),a=Math.abs(phi),rad=phi*Math.PI/180;
+        var x=cx-R*Math.cos(rad)-CW/2,y=cy+R*Math.sin(rad)-CH/2;
+        var sc=Math.max(.7,1-.22*(a/72)),op=Math.max(0,1-Math.pow(a/115,2.2));
+        c.style.transform='translate3d('+x.toFixed(1)+'px,'+y.toFixed(1)+'px,0) scale('+sc.toFixed(3)+') rotate('+(phi*.12).toFixed(2)+'deg)';
+        c.style.opacity=op.toFixed(3);
+        c.style.zIndex=String(200-Math.round(a));
+        c.style.pointerEvents=op>.25?'auto':'none';
+        c.style.visibility=op<.02?'hidden':'visible';
+        c.inert=a>40;
+        c.classList.toggle('front',i===f&&a<8);
+      });
+      dots.forEach(function(d,i){d.setAttribute('aria-current',i===f?'true':'false')});
+    }
+    function go(i){idx=i;from=rot;to=i*STEP;tw=performance.now()}
+    function goTo(j){var d=j-mod(idx);if(d>n/2)d-=n;if(d<-n/2)d+=n;if(d)go(idx+d)}
+    function tick(t){
+      raf=requestAnimationFrame(tick);
+      if(tw){
+        var k=Math.min(1,(t-tw)/TW),e=k<.5?4*k*k*k:1-Math.pow(-2*k+2,3)/2;
+        rot=from+(to-from)*e;layout();
+        if(k>=1){tw=0;last=t}
+      }else if(!paused&&vis&&!reduce&&t-last>HOLD){go(idx+1)}
+    }
+    function setArc(on){
+      if(on===arc)return;arc=on;orbit.classList.toggle('arc',on);
+      if(on){rot=idx*STEP;layout();last=performance.now();raf=requestAnimationFrame(tick)}
+      else{cancelAnimationFrame(raf);cards.forEach(function(c){c.removeAttribute('style');c.inert=false;c.classList.remove('front')})}
+    }
+    function hold(v){paused=v;if(!v)last=performance.now()}
+    orbit.addEventListener('pointerenter',function(){hold(true)});
+    orbit.addEventListener('pointerleave',function(){hold(false)});
+    orbit.addEventListener('focusin',function(){hold(true)});
+    orbit.addEventListener('focusout',function(){hold(false)});
+    cards.forEach(function(c,i){c.addEventListener('click',function(e){if(arc&&!e.target.closest('a'))goTo(i)})});
+    dots.forEach(function(d,i){d.addEventListener('click',function(){goTo(i)})});
+    if('IntersectionObserver' in window){new IntersectionObserver(function(en){vis=en[0].isIntersecting}).observe($('#hero'))}
+    if(mq.addEventListener)mq.addEventListener('change',function(e){setArc(e.matches)});else if(mq.addListener)mq.addListener(function(e){setArc(e.matches)});
+    setArc(mq.matches);
+  })();
   /* after the first run the dim/hot easing should settle quickly */
   var origStep=step;
 
