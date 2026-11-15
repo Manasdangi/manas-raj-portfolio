@@ -111,6 +111,7 @@ header.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;backgroun
 .btn.icon{padding:0;width:38px;height:38px;justify-content:center}
 kbd{font-family:var(--f-mono);font-size:11px;border:1px solid var(--line);border-radius:6px;padding:1px 6px;color:var(--muted);background:var(--surface)}
 .progress{position:absolute;left:0;bottom:-1px;height:2px;width:100%;background:linear-gradient(90deg,var(--accent),var(--hot));transform:scaleX(0);transform-origin:left}
+@media (max-width:1040px){.links{display:none}.nav-actions{margin-left:auto}}
 @media (max-width:900px){.links{display:none}.nav-actions{margin-left:auto}.hide-s{display:none}}
 
 /* hero */
@@ -135,8 +136,8 @@ h1 .lt{display:inline-block;transition:transform .25s cubic-bezier(.2,.8,.2,1),c
 @media (max-width:700px){.name-photo{left:auto;right:0;width:96px;height:96px;border-radius:24px}}
 /* AI work: self-rotating semicircle of cards (wide screens), swipe row elsewhere */
 .orbit{position:relative;z-index:3;margin:28px max(16px,env(safe-area-inset-left,0px)) 0}
-.orbit-label{display:block;margin-bottom:10px;font-family:var(--f-mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
-.orbit-label b{color:var(--fg);font-weight:800}
+.orbit-label{display:block;margin-bottom:12px;font-family:var(--f-display);font-size:clamp(24px,2.6vw,32px);font-weight:800;letter-spacing:-.025em;line-height:1.1;color:var(--fg)}
+.orbit-label b{color:var(--accent);font-weight:800}
 .orbit-ring,.orbit-dots{display:none}
 .orbit-track{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 2px 14px;-webkit-overflow-scrolling:touch}
 .ocard{flex:0 0 min(300px,82vw);scroll-snap-align:start;min-height:220px;display:flex;flex-direction:column;gap:8px;padding:16px 18px;background:color-mix(in srgb,var(--surface) 92%,transparent);border:1px solid var(--line);border-radius:18px;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:0 18px 40px -24px rgba(0,0,0,.5)}
@@ -152,7 +153,7 @@ h1 .lt{display:inline-block;transition:transform .25s cubic-bezier(.2,.8,.2,1),c
 .ocard .chips{margin-top:auto;gap:6px}
 @media (min-width:1240px){
 .orbit.arc{position:absolute;right:max(16px,env(safe-area-inset-right,0px));top:84px;width:500px;height:780px;margin:0}
-.arc .orbit-label{position:absolute;left:0;top:-14px;margin:0}
+.arc .orbit-label{position:absolute;left:0;top:-48px;margin:0;white-space:nowrap}
 .arc .orbit-ring{display:block;position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none;color:var(--muted)}
 .arc .orbit-track{position:absolute;inset:0;display:block;overflow:visible;padding:0}
 .arc .ocard{position:absolute;left:0;top:0;width:320px;height:252px;min-height:0;flex:none;will-change:transform,opacity;cursor:pointer}
@@ -174,6 +175,19 @@ h1 .lt{display:inline-block;transition:transform .25s cubic-bezier(.2,.8,.2,1),c
 .card::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .3s;background:radial-gradient(420px circle at var(--mx,50%) var(--my,0%),color-mix(in srgb,var(--accent) 18%,transparent),transparent 70%)}
 .card:hover{border-color:color-mix(in srgb,var(--accent) 60%,var(--line))}
 .card:hover::after{opacity:1}
+.consult{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);gap:28px clamp(28px,5vw,64px);align-items:start;padding:clamp(24px,4vw,44px);background:radial-gradient(700px circle at 0% 0%,color-mix(in srgb,var(--accent) 16%,transparent),transparent 60%),var(--surface)}
+.consult-l{display:flex;flex-direction:column;gap:16px;align-items:flex-start}
+.consult h2{font-size:clamp(30px,4.2vw,52px);font-weight:700;letter-spacing:-.035em;line-height:1.02}
+.consult p{margin:0;color:var(--muted);font-size:17px;max-width:46ch}
+.consult p b{color:var(--fg);font-weight:600}
+.consult .cta{margin-top:6px}
+.consult-note{color:var(--muted);font-size:13px}
+.consult-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.consult-item{padding:16px 18px;border:1px solid var(--line);border-radius:16px;background:var(--bg)}
+.consult-item h3{font-size:17px;letter-spacing:-.015em;line-height:1.2}
+.consult-item p{margin:6px 0 0;font-size:13.5px;line-height:1.45}
+@media (max-width:900px){.consult{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:520px){.consult-grid{grid-template-columns:minmax(0,1fr)}}
 .faq{display:grid;gap:14px;max-width:900px}
 .faq-item{padding:0}
 .faq-item summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:20px 24px;font-family:var(--f-display);font-size:clamp(20px,2.4vw,26px);font-weight:650;letter-spacing:-.02em;line-height:1.2}
@@ -345,7 +359,7 @@ footer{border-top:1px solid var(--line);padding-block:28px;color:var(--muted);fo
   <div class="wrap nav-in">
     <a class="brand" href="#top" aria-label="Manas Raj, back to top"><span class="mark">MR</span><span>Manas Raj</span></a>
     <nav class="links" aria-label="Primary">
-      <a href="#work">Work</a><a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#skills">Skills</a><a href="#topmate">Mentoring</a><a href="#contact">Contact</a>
+      <a href="#work">Work</a><a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#skills">Skills</a><a href="#topmate">Mentoring</a><a href="#consulting">Consulting</a><a href="#contact">Contact</a>
     </nav>
     <div class="nav-actions">
       <span class="visits nav" id="visitsNav" hidden></span>
@@ -633,6 +647,22 @@ footer{border-top:1px solid var(--line);padding-block:28px;color:var(--muted);fo
       </details>
     </div>
   </section>
+
+  <section id="consulting" style="padding-top:40px">
+    <div class="card consult">
+      <div class="consult-l">
+        <span class="eyebrow">Consulting</span>
+        <h2>Need a consultant, architect or domain expert?</h2>
+        <p>Designing or building a <b>website, app, tool or product</b>? Consult me. I help teams and founders with architecture, build and review, from the first sketch to production.</p>
+        <div class="cta">
+          <a class="btn primary" href="mailto:manasraj9669@gmail.com?subject=Consulting%20enquiry">Consult me</a>
+          <a class="btn" href="https://www.linkedin.com/in/manas-raj-mnit/" target="_blank" rel="noopener">Message on LinkedIn</a>
+        </div>
+        <small class="consult-note">I usually reply within a day.</small>
+      </div>
+      <div class="consult-grid"><div class="consult-item"><h3>Frontend architecture</h3><p>React and TypeScript app structure, SSR, micro-frontends and scalable design systems.</p></div><div class="consult-item"><h3>Websites &amp; apps, built</h3><p>Web apps and React Native mobile apps from first sketch to release, including CI/CD and store delivery.</p></div><div class="consult-item"><h3>Performance &amp; SEO</h3><p>Core Web Vitals, Lighthouse audits, code splitting and SEO that actually moves traffic.</p></div><div class="consult-item"><h3>AI features &amp; agents</h3><p>LLM and Claude integrations, text and voice assistants, MCP and WebMCP agent tools.</p></div><div class="consult-item"><h3>Tools &amp; internal products</h3><p>Dashboards, workflow automation and developer tooling that save your team time.</p></div><div class="consult-item"><h3>Domain know-how</h3><p>Payments and checkout, UPI, used-car marketplaces and service booking.</p></div></div>
+    </div>
+  </section>
   </div>
 
   <section class="mate" id="topmate">
@@ -882,7 +912,7 @@ footer{border-top:1px solid var(--line);padding-block:28px;color:var(--muted);fo
   var mac=/Mac|iPhone|iPad/.test(navigator.platform||navigator.userAgent);
   $('#kbdHint').textContent=mac?'⌘K':'Ctrl K';
   var items=[
-    {t:'Featured work',g:'Go to',h:'#work'},{t:'Experience',g:'Go to',h:'#experience'},{t:'Projects',g:'Go to',h:'#projects'},{t:'Skills',g:'Go to',h:'#skills'},{t:'Mentoring on Topmate',g:'Go to',h:'#topmate'},{t:'Contact',g:'Go to',h:'#contact'},
+    {t:'Featured work',g:'Go to',h:'#work'},{t:'Experience',g:'Go to',h:'#experience'},{t:'Projects',g:'Go to',h:'#projects'},{t:'Skills',g:'Go to',h:'#skills'},{t:'Mentoring on Topmate',g:'Go to',h:'#topmate'},{t:'Consulting',g:'Go to',h:'#consulting'},{t:'Contact',g:'Go to',h:'#contact'},
     {t:'TalentLens live demo',g:'Project',x:'https://talentlens-gamma.vercel.app/'},{t:'Multiplayer Chess live demo',g:'Project',x:'https://chess-gamma-five.vercel.app/'},{t:'Interview Buddy source',g:'Project',x:'https://github.com/Manasdangi/Interview-Buddy'},{t:'DietBuddy source',g:'Project',x:'https://github.com/Manasdangi/DietBuddy-Frontend'},{t:'Foodie source',g:'Project',x:'https://github.com/Manasdangi/foodie-app'},{t:'Pulse Fit Gym live demo',g:'Project',x:'https://gym-landing-page-next-js.vercel.app/'},
     {t:'Download resume',g:'Link',x:'/resume.pdf'},{t:'Book on Topmate',g:'Link',x:'https://topmate.io/manas_raj_mnit'},{t:'LinkedIn',g:'Link',x:'https://www.linkedin.com/in/manas-raj-mnit/'},{t:'GitHub',g:'Link',x:'https://github.com/Manasdangi'},
     {t:'Run the triage demo',g:'Action',a:function(){window.scrollTo({top:0});setTimeout(play,250)}},
