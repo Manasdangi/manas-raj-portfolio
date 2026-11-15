@@ -188,21 +188,25 @@ h1 .lt{display:inline-block;transition:transform .25s cubic-bezier(.2,.8,.2,1),c
 .consult-item p{margin:6px 0 0;font-size:13.5px;line-height:1.45}
 @media (max-width:900px){.consult{grid-template-columns:minmax(0,1fr)}}
 @media (max-width:520px){.consult-grid{grid-template-columns:minmax(0,1fr)}}
-.pitch-stack{position:fixed;z-index:60;right:max(16px,env(safe-area-inset-right,0px));top:50%;transform:translateY(-50%);width:min(340px,calc(100vw - 32px));display:flex;flex-direction:column;gap:12px;pointer-events:none}
-.pitch{position:relative;pointer-events:auto;padding:16px 44px 18px 18px;background:var(--surface);border:1px solid var(--line);border-radius:18px;box-shadow:0 24px 60px -26px rgba(0,0,0,.55);overflow:hidden;opacity:0;transform:translateX(28px);transition:opacity .35s ease,transform .35s ease}
+.pitch-stack{position:fixed;z-index:60;right:max(16px,env(safe-area-inset-right,0px));top:76px;width:min(390px,calc(100vw - 32px));max-height:calc(100vh - 92px);overflow-y:auto;overscroll-behavior:contain;scrollbar-width:none;display:flex;flex-direction:column;gap:10px;pointer-events:none}.pitch-stack::-webkit-scrollbar{display:none}
+.pitch{position:relative;pointer-events:auto;padding:16px 48px 18px 20px;flex:none;background:var(--surface);border:1px solid var(--line);border-radius:18px;box-shadow:0 24px 60px -26px rgba(0,0,0,.55);overflow:hidden;opacity:0;transform:translateY(14px);transition:opacity .35s ease,transform .35s ease}
 .pitch[hidden]{display:none}
 .pitch.show{opacity:1;transform:none}
 .pitch-x{position:absolute;top:10px;right:10px;width:26px;height:26px;border-radius:50%;border:1px solid var(--line);background:var(--surface-2);color:var(--fg);font-size:17px;line-height:1;cursor:pointer;display:grid;place-items:center;padding:0}
 .pitch-x:hover{border-color:var(--accent)}
 .pitch-q{display:block;font-family:var(--f-display);font-size:17px;font-weight:750;letter-spacing:-.015em;line-height:1.2}
-.pitch-a{margin:6px 0 0;font-size:13.5px;line-height:1.45;color:var(--muted)}
+.pitch-a{margin:6px 0 0;font-size:14px;line-height:1.5;color:var(--fg)}
+.pitch-l{margin:9px 0 0;padding:0;list-style:none;display:grid;gap:5px}
+.pitch-l li{position:relative;padding-left:16px;font-size:13.5px;line-height:1.45;color:var(--muted)}
+.pitch-l li::before{content:'';position:absolute;left:0;top:.55em;width:6px;height:6px;border-radius:50%;background:var(--accent)}
+.pitch-l b{color:var(--fg);font-weight:700}
 .pitch-m{display:inline-block;margin-top:8px;font-size:13px;font-weight:650;color:var(--accent);text-decoration:none}
 .pitch-m:hover{text-decoration:underline}
 .pitch-bar{position:absolute;left:0;bottom:0;height:3px;width:100%;background:var(--accent);transform-origin:left;transform:scaleX(1)}
 .pitch.run .pitch-bar{animation:pitchbar 8s linear forwards}
 .pitch:hover .pitch-bar,.pitch:focus-within .pitch-bar{animation-play-state:paused}
 @keyframes pitchbar{to{transform:scaleX(0)}}
-@media (max-width:700px){.pitch-stack{top:auto;bottom:16px;transform:none}.pitch{transform:translateY(24px)}.pitch.show{transform:none}.pitch-a{font-size:13px}}
+@media (max-width:700px){.pitch-stack{top:auto;bottom:12px;left:0;right:0;width:auto;max-height:none;flex-direction:row;align-items:flex-end;overflow-x:auto;overflow-y:visible;scroll-snap-type:x mandatory;padding:0 16px;scroll-padding:0 16px}.pitch{width:calc(100vw - 48px);scroll-snap-align:start;padding:16px 46px 20px 18px}.pitch-a{font-size:13.5px}.pitch-l li{font-size:13px}}
 @media (prefers-reduced-motion:reduce){.pitch-bar{display:none}}
 .faq{display:grid;gap:14px;max-width:900px}
 .faq-item{padding:0}
@@ -729,19 +733,22 @@ footer{border-top:1px solid var(--line);padding-block:28px;color:var(--muted);fo
   <aside class="pitch" role="status" aria-live="polite" hidden>
     <button class="pitch-x" type="button" aria-label="Close">&times;</button>
     <strong class="pitch-q">Why should you hire me?</strong>
-    <p class="pitch-a">I ship products end to end and care about the number they move: payments for 3M users at Airtel, booking and SEO at Spinny.</p>
+    <p class="pitch-a">I turn product goals into shipped features that move a number.</p>
+    <ul class="pitch-l"><li>Grew Spinny Pro service booking from <b>0 to 2,500 bookings a month</b></li><li>Built the Airtel payment checkout used by <b>3M monthly users</b></li><li>Rebuilt Spinny's sell homepage, lifting <b>lead conversion by 10%</b></li></ul>
     <i class="pitch-bar" aria-hidden="true"></i>
   </aside>
   <aside class="pitch" role="status" aria-live="polite" hidden>
     <button class="pitch-x" type="button" aria-label="Close">&times;</button>
     <strong class="pitch-q">Why am I a fit for your company?</strong>
-    <p class="pitch-a">I start from the user flow and the metric, I've led a team, and I own release and design-system work too.</p>
+    <p class="pitch-a">I start from the user flow and the metric, then own the feature through release.</p>
+    <ul class="pitch-l"><li>End to end: UI, APIs, app releases and RN upgrades (0.72 → 0.80)</li><li>Fintech and marketplace: UPI, wallets, checkout, booking, SEO</li><li><b>Led the Spinny team</b> for two months while handling app deployment</li></ul>
     <i class="pitch-bar" aria-hidden="true"></i>
   </aside>
   <aside class="pitch" role="status" aria-live="polite" hidden>
     <button class="pitch-x" type="button" aria-label="Close">&times;</button>
     <strong class="pitch-q">What are my strengths?</strong>
-    <p class="pitch-a">React, TypeScript, React Native, web performance, design systems and AI-assisted engineering.</p>
+    <p class="pitch-a">Production frontend on web and mobile, with AI in the workflow.</p>
+    <ul class="pitch-l"><li><b>React, TypeScript, React Native</b> at scale</li><li>Performance: <b>20–30% faster pages</b> via memoization, code splitting, virtualization</li><li>Design systems (Spinny SPEED, Airtel) and accessibility</li><li>AI engineering: an agent that cuts <b>25 Sentry errors to 2 Jira tickets</b> a day</li></ul>
     <a class="pitch-m" href="#faq">More answers →</a>
     <i class="pitch-bar" aria-hidden="true"></i>
   </aside>
