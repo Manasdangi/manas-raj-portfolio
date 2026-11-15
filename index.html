@@ -200,7 +200,7 @@ h1 .lt{display:inline-block;transition:transform .25s cubic-bezier(.2,.8,.2,1),c
 .pitch-m{display:inline-block;margin-top:12px;font-size:13px;font-weight:650;color:var(--accent);text-decoration:none}
 .pitch-m:hover{text-decoration:underline}
 .pitch-bar{position:absolute;left:0;bottom:0;height:3px;width:100%;background:var(--accent);transform-origin:left;transform:scaleX(1)}
-.pitch.run .pitch-bar{animation:pitchbar 3s linear forwards}
+.pitch.run .pitch-bar{animation:pitchbar 5s linear forwards}
 .pitch:hover .pitch-bar,.pitch:focus-within .pitch-bar{animation-play-state:paused}
 @keyframes pitchbar{to{transform:scaleX(0)}}
 @media (max-width:700px){.pitch{top:auto;bottom:16px;transform:translateY(28px)}.pitch.show{transform:none}}
@@ -741,7 +741,7 @@ footer{border-top:1px solid var(--line);padding-block:28px;color:var(--muted);fo
 (function(){
   var el=document.getElementById('pitch');if(!el)return;
   try{if(sessionStorage.getItem('pitchSeen'))return}catch(e){}
-  var SHOW_AFTER=5000,LIFE=3000,remaining=LIFE,t0=0,tm=0,open=false;
+  var SHOW_AFTER=5000,LIFE=5000,remaining=LIFE,t0=0,tm=0,open=false;
   function hide(){
     open=false;clearTimeout(tm);el.classList.remove('show');
     setTimeout(function(){el.hidden=true;el.classList.remove('run')},400);
