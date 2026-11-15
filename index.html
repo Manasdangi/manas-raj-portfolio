@@ -155,7 +155,7 @@ h1 .lt{display:inline-block;transition:transform .25s cubic-bezier(.2,.8,.2,1),c
 .arc .orbit-label{position:absolute;left:0;top:-14px;margin:0}
 .arc .orbit-ring{display:block;position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none;color:var(--muted)}
 .arc .orbit-track{position:absolute;inset:0;display:block;overflow:visible;padding:0}
-.arc .ocard{position:absolute;left:0;top:0;width:320px;height:224px;min-height:0;flex:none;will-change:transform,opacity;cursor:pointer}
+.arc .ocard{position:absolute;left:0;top:0;width:320px;height:252px;min-height:0;flex:none;will-change:transform,opacity;cursor:pointer}
 .arc .ocard.front{cursor:default}
 .arc .orbit-dots{display:flex;gap:8px;position:absolute;left:0;bottom:14px}
 .orbit-dots button{width:9px;height:9px;padding:0;border-radius:50%;border:0;background:var(--line);cursor:pointer}
@@ -366,7 +366,7 @@ footer{border-top:1px solid var(--line);padding-block:28px;color:var(--muted);fo
       <svg class="orbit-ring" aria-hidden="true"><circle cx="460" cy="390" r="300" fill="none" stroke="currentColor" stroke-width="1.5" stroke-dasharray="2 9" stroke-linecap="round" opacity=".55"/></svg>
       <div class="orbit-track">
         <article class="ocard"><div class="oc-top"><span class="oc-tag"><i class="w"></i>Spinny · Agent</span><a class="oc-go" href="#work">Case study ↗</a></div><h3>AI triage agent</h3><p><b>25 Sentry errors → 2 Jira tickets.</b> Claude judges what matters and files enriched bugs with root cause. One command drafts the fix and the PR is raised via an MCP server.</p><ul class="chips"><li class="chip">Claude</li><li class="chip">Bitbucket Pipelines</li><li class="chip">MCP</li></ul></article>
-        <article class="ocard"><div class="oc-top"><span class="oc-tag"><i class="w"></i>Spinny · Consumer web</span></div><h3>WebMCP agent integration</h3><p>Exposed a <b>search_cars</b> tool on spinny.com via <b>WebMCP</b> (W3C draft), so in-browser AI agents query live inventory through Spinny's listing API instead of scraping the UI. Built on a reusable, <b>SSR-safe hook</b>; shipped behind a <b>GrowthBook</b> flag.</p><ul class="chips"><li class="chip">WebMCP</li><li class="chip">React</li><li class="chip">TypeScript</li></ul></article>
+        <article class="ocard"><div class="oc-top"><span class="oc-tag"><i class="w"></i>Spinny · Consumer web</span></div><h3>WebMCP agent integration</h3><p>Exposed a <b>search_cars</b> tool on spinny.com via <b>WebMCP</b> (W3C draft) so in-browser AI agents query live inventory through Spinny's listing API, not UI scraping. Reusable <b>SSR-safe hook</b>, shipped behind <b>GrowthBook</b>.</p><ul class="chips"><li class="chip">WebMCP</li><li class="chip">React</li><li class="chip">TypeScript</li></ul></article>
         <article class="ocard"><div class="oc-top"><span class="oc-tag"><i class="w"></i>Spinny · Consumer web</span></div><h3>AI assistant on the website</h3><p>Customers ask by <b>text or voice note</b> and are taken straight to the right page. Handled complex navigation, performance and <b>voice-note transcription</b>.</p><ul class="chips"><li class="chip">LLM</li><li class="chip">Voice</li><li class="chip">Navigation</li></ul></article>
         <article class="ocard"><div class="oc-top"><span class="oc-tag"><i class=""></i>Personal · AI hiring</span><a class="oc-go" href="https://talentlens-gamma.vercel.app/" target="_blank" rel="noopener">Live demo ↗</a></div><h3>TalentLens</h3><p><b>AI resume scoring</b> against a job description with keyword match and miss analysis, plus a recruiter dashboard that ranks applicants.</p><ul class="chips"><li class="chip">React</li><li class="chip">TypeScript</li><li class="chip">Firebase</li><li class="chip">Groq</li></ul></article>
         <article class="ocard"><div class="oc-top"><span class="oc-tag"><i class=""></i>Personal · In progress</span><a class="oc-go" href="https://github.com/Manasdangi/Interview-Buddy" target="_blank" rel="noopener">Source ↗</a></div><h3>Interview Buddy</h3><p>Frontend interview practice with an <b>adaptive AI interviewer</b>, live voice answers, text-to-speech replies and scorecards.</p><ul class="chips"><li class="chip">React</li><li class="chip">LLM API</li><li class="chip">Voice</li></ul></article>
@@ -792,7 +792,7 @@ footer{border-top:1px solid var(--line);padding-block:28px;color:var(--muted);fo
   (function(){
     var orbit=$('#orbit');if(!orbit)return;
     var cards=$$('#orbit .ocard'),dots=$$('#orbit .orbit-dots button'),n=cards.length,STEP=360/n;
-    var R=300,CW=320,CH=224,TW=950,HOLD=4200;
+    var R=300,CW=320,CH=252,TW=950,HOLD=4200;
     var mq=window.matchMedia('(min-width:1240px)');
     var rot=0,idx=0,from=0,to=0,tw=0,last=0,paused=false,vis=true,raf=0,arc=false;
     function norm(a){return((a+180)%360+360)%360-180}
