@@ -8,13 +8,13 @@
     <title>Manas Raj | Frontend Engineer (SDE-II) · React, React Native, TypeScript</title>
     <meta
       name="description"
-      content="Manas Raj is an SDE-II frontend engineer at Spinny, previously at Airtel Payments. He builds React and React Native products: payment flows for 3M monthly users, high-converting web journeys and Core Web Vitals wins."
+      content="Manas Raj is an SDE-II frontend engineer at Spinny, previously at Airtel (Checkout team). He builds React and React Native products: payment flows for 3M monthly users, high-converting web journeys and Core Web Vitals wins."
     />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Manas Raj | Frontend Engineer (SDE-II)" />
     <meta
       property="og:description"
-      content="SDE-II at Spinny, ex-Airtel Payments. React, React Native, TypeScript and web performance."
+      content="SDE-II at Spinny, ex-Airtel. React, React Native, TypeScript and web performance."
     />
     <link rel="canonical" href="https://www.manasraj.online/" />
     <meta property="og:url" content="https://www.manasraj.online/" />
@@ -26,7 +26,7 @@
     <meta property="og:image:alt" content="Manas Raj, Frontend Engineer (React and React Native)" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Manas Raj | Frontend Engineer (SDE-II)" />
-    <meta name="twitter:description" content="SDE-II at Spinny, ex-Airtel Payments. React, React Native, TypeScript and web performance." />
+    <meta name="twitter:description" content="SDE-II at Spinny, ex-Airtel. React, React Native, TypeScript and web performance." />
     <meta name="twitter:image" content="https://www.manasraj.online/og.jpg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -254,6 +254,9 @@ dl{margin:0;display:flex;flex-direction:column;gap:16px}
 .job-meta .when{font-family:var(--f-mono);font-size:12.5px;color:var(--accent)}
 .job h3{font-size:clamp(26px,3.4vw,40px);font-weight:700;margin-bottom:8px}
 .job .about{color:var(--muted);margin-bottom:20px}
+.job .role{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;margin:0 0 12px;font-family:var(--f-mono);font-size:13px;font-weight:600;letter-spacing:.02em;text-transform:uppercase;color:var(--accent)}
+.job .role span{color:var(--muted);font-weight:500}
+.job .bul+.role{margin-top:26px}
 .bul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:12px}
 .bul li{position:relative;padding-left:20px}
 .bul li::before{content:"";position:absolute;left:2px;top:.72em;width:6px;height:6px;border-radius:2px;background:var(--hot)}
@@ -413,7 +416,7 @@ footer{border-top:1px solid var(--line);padding-block:28px;color:var(--muted);fo
       <span class="orbit-label"><b>AI</b> work · office &amp; personal</span>
       <svg class="orbit-ring" aria-hidden="true"><circle cx="460" cy="390" r="300" fill="none" stroke="currentColor" stroke-width="1.5" stroke-dasharray="2 9" stroke-linecap="round" opacity=".55"/></svg>
       <div class="orbit-track">
-        <article class="ocard"><div class="oc-top"><span class="oc-tag"><i class="w"></i>Spinny · Agent</span><a class="oc-go" href="#work">Case study ↗</a></div><h3>AI triage agent</h3><p><b>25 Sentry errors → 2 Jira tickets.</b> Claude judges what matters and files enriched bugs with root cause. One command drafts the fix and the PR is raised via an MCP server.</p><ul class="chips"><li class="chip">Claude</li><li class="chip">Bitbucket Pipelines</li><li class="chip">MCP</li></ul></article>
+        <article class="ocard"><div class="oc-top"><span class="oc-tag"><i class="w"></i>Spinny · Agent</span><a class="oc-go" href="#work">Case study ↗</a></div><h3>AI triage agent</h3><p><b>25 Sentry errors → 2 root-caused Jira bugs.</b> Then bugs and PRD-backed features become <b>tested PRs</b> automatically. Engineers only review and merge.</p><ul class="chips"><li class="chip">Claude</li><li class="chip">Bitbucket Pipelines</li><li class="chip">MCP</li></ul></article>
         <article class="ocard"><div class="oc-top"><span class="oc-tag"><i class="w"></i>Spinny · Consumer web</span></div><h3>WebMCP agent integration</h3><p>Exposed a <b>search_cars</b> tool on spinny.com via <b>WebMCP</b> (W3C draft) so in-browser AI agents query live inventory through Spinny's listing API, not UI scraping. Reusable <b>SSR-safe hook</b>, shipped behind <b>GrowthBook</b>.</p><ul class="chips"><li class="chip">WebMCP</li><li class="chip">React</li><li class="chip">TypeScript</li></ul></article>
         <article class="ocard"><div class="oc-top"><span class="oc-tag"><i class="w"></i>Spinny · Consumer web</span></div><h3>AI assistant on the website</h3><p>Customers ask by <b>text or voice note</b> and are taken straight to the right page. Handled complex navigation, performance and <b>voice-note transcription</b>.</p><ul class="chips"><li class="chip">LLM</li><li class="chip">Voice</li><li class="chip">Navigation</li></ul></article>
         <article class="ocard"><div class="oc-top"><span class="oc-tag"><i class=""></i>Personal · AI hiring</span><a class="oc-go" href="https://talentlens-gamma.vercel.app/" target="_blank" rel="noopener">Live demo ↗</a></div><h3>TalentLens</h3><p><b>AI resume scoring</b> against a job description with keyword match and miss analysis, plus a recruiter dashboard that ranks applicants.</p><ul class="chips"><li class="chip">React</li><li class="chip">TypeScript</li><li class="chip">Firebase</li><li class="chip">Groq</li></ul></article>
@@ -425,7 +428,7 @@ footer{border-top:1px solid var(--line);padding-block:28px;color:var(--muted);fo
   </div>
 
   <div class="ticker" aria-label="Impact highlights"><div class="tk" id="tk">
-    <span>+10% lead conversion</span><span>20–30% faster pages</span><span>3M monthly users on checkout</span><span>25 → 2 daily errors to triage</span><span>~100% transaction success</span><span>+8–9% Spinny Pro visits</span><span>20–25% faster approvals</span>
+    <span>+10% lead conversion</span><span>15–20% better Core Web Vitals</span><span>3M monthly users on checkout</span><span>25 → 2 daily errors to triage</span><span>~100% transaction success</span><span>+8–9% Spinny Pro visits</span><span>20–25% faster approvals</span>
   </div></div>
 
   <div class="wrap glance-wrap">
@@ -455,12 +458,12 @@ footer{border-top:1px solid var(--line);padding-block:28px;color:var(--muted);fo
     <div class="sec-head"><span class="eyebrow">Featured work</span><h2>Four things I'd show you first</h2></div>
     <div class="cases">
       <article class="card case" style="--i:0">
-        <div class="case-l"><div><span class="eyebrow">Spinny · Engineering</span><h3>AI triage agent</h3></div><div class="big">25→2</div><span class="note">daily candidates to actionable tickets</span></div>
+        <div class="case-l"><div><span class="eyebrow">Spinny · Engineering</span><h3>AI engineering pipeline</h3></div><div class="big">25→2</div><span class="note">daily candidates to actionable tickets</span></div>
         <div class="case-r">
           <dl>
             <div class="row"><dt>Problem</dt><dd>Daily Sentry errors produced about 25 candidates to sort through by hand.</dd></div>
-            <div class="row"><dt>Built</dt><dd>A <b>scheduled agent</b> with <b>Claude Code</b> and <b>Bitbucket Pipelines</b> that turns each day's Sentry errors into <b>enriched Jira bugs</b> with root-cause analysis. A one-command flow drafts the fix and raises a PR.</dd></div>
-            <div class="row"><dt>Result</dt><dd>25 daily candidates cut to <b>2 actionable tickets</b>.</dd></div>
+            <div class="row"><dt>Built</dt><dd>An end-to-end pipeline with <b>Claude Code</b>, <b>Bitbucket Pipelines</b> and <b>Jira</b>. It triages each day's Sentry errors into <b>root-caused Jira bugs</b>, then automatically turns tickets, bugs or <b>PRD-backed features</b>, into <b>tested PRs</b>.</dd></div>
+            <div class="row"><dt>Result</dt><dd>25 daily candidates cut to <b>2 actionable tickets</b>. Engineers only <b>review and merge</b>.</dd></div>
           </dl>
           <ul class="chips"><li class="chip">Claude Code</li><li class="chip">Bitbucket Pipelines</li><li class="chip">Sentry</li><li class="chip">Jira</li></ul>
         </div>
@@ -487,12 +490,12 @@ footer{border-top:1px solid var(--line);padding-block:28px;color:var(--muted);fo
         </div>
       </article>
       <article class="card case" style="--i:3">
-        <div class="case-l"><div><span class="eyebrow">Airtel Payments Bank</span><h3>Payment checkout in React Native</h3></div><div class="big">3M</div><span class="note">monthly active users on checkout</span></div>
+        <div class="case-l"><div><span class="eyebrow">Airtel · Checkout team</span><h3>Payment checkout in React Native</h3></div><div class="big">3M</div><span class="note">monthly active users on checkout</span></div>
         <div class="case-r">
           <dl>
-            <div class="row"><dt>Context</dt><dd>UPI, wallet and checkout flows used by millions every month.</dd></div>
-            <div class="row"><dt>Built</dt><dd>A scalable <b>React Native payment checkout</b> covering the full range of transaction edge cases. <b>Backend-driven widgets</b> for APB Wallet and saved cards with card encryption and MPIN validation. <b>UPI onboarding</b> with health callouts for unavailable banks. <b>SIM-binding checks</b> for wallet transactions.</dd></div>
-            <div class="row"><dt>Result</dt><dd>About <b>100% transaction success</b> on the wallet and saved-card widgets. UPI onboarding improved success rate by <b>2%</b>. SIM-binding added <b>1%</b>.</dd></div>
+            <div class="row"><dt>Context</dt><dd>UPI, wallet and checkout flows across the Airtel website and Airtel Thanks app, used by millions every month.</dd></div>
+            <div class="row"><dt>Built</dt><dd>A scalable <b>React Native payment checkout</b> covering the full range of transaction edge cases. <b>Backend-driven widgets</b> for APB Wallet and saved cards with card encryption and MPIN validation. <b>UPI onboarding</b> and bank health callouts. Contributions to Airtel's shared frontend architecture: <b>ARDS</b>, the <b>Widget Library</b> and <b>Web Artist</b>.</dd></div>
+            <div class="row"><dt>Result</dt><dd>About <b>100% transaction success</b> on the wallet and saved-card widgets. UPI onboarding and bank health callouts improved success rates by <b>2%</b> and <b>1.5%</b>.</dd></div>
           </dl>
           <ul class="chips"><li class="chip">React Native</li><li class="chip">Payments</li><li class="chip">Design Systems</li></ul>
         </div>
@@ -507,45 +510,49 @@ footer{border-top:1px solid var(--line);padding-block:28px;color:var(--muted);fo
         <div class="job-meta"><span class="when">Jan 2025 – Present</span><span>Gurgaon</span></div>
         <div>
           <h3>SDE-II at Spinny</h3>
-          <p class="about">India's full-stack used-car platform. Consumer web, Spinny Care, Spinny Pro and the React Native app.</p>
+          <p class="about">India's full-stack used-car platform. Consumer web, Spinny Pro, Spinny Care and the React Native app. Promoted from SDE-I to SDE-II in April 2026.</p>
+          <p class="role">SDE-II <span>Apr 2026 – Present</span></p>
           <ul class="bul">
-            <li>Developed the <b>Spinny Consumer Sell Homepage</b> from scratch with a simpler journey, <b>lifting lead conversion by 10%</b>.</li>
-            <li>Built the <b>Spinny Pro desktop website</b> independently for service booking and management, <b>growing user visits by 8–9%</b>.</li>
-            <li>Optimized the React codebase with <b>memoization, dynamic imports and virtualization</b>, improving CLS, FPS and LCP for <b>20–30% faster page performance</b>.</li>
-            <li>Built a scheduled <b>AI triage agent</b> with Claude Code and Bitbucket Pipelines that turns daily Sentry errors into enriched Jira bugs with root-cause analysis, <b>cutting 25 daily candidates to 2 actionable tickets</b>, with a one-command flow that drafts the fix and raises a PR.</li>
-            <li>Built the <b>Adhoc Approval Flow</b> in Spinny Care so technicians send car-parts approvals in-app, <b>reducing turnaround and manual work by 20–25%</b>.</li>
+            <li>Built an end-to-end <b>AI engineering pipeline</b> (<b>Claude Code, Bitbucket Pipelines, Jira</b>) that triages daily Sentry errors into <b>root-caused Jira bugs</b> (<b>25 candidates → 2 actionable</b>), then automatically turns tickets, bugs or PRD-backed features, into <b>tested PRs</b>, with engineers only reviewing and merging.</li>
+            <li>Integrated and enhanced the shared <b>SPEED Design System</b> for the Spinny consumer platform, contributing <b>reusable components</b> and standardizing UI patterns, reducing development effort and improving product consistency.</li>
+            <li>Developed the <b>Sell Homepage</b> for the Spinny consumer website from scratch, redesigning the journey with a simpler, more intuitive UI, <b>lifting lead conversion by 10%</b>.</li>
+            <li>Optimized React performance by eliminating unnecessary re-renders and adding <b>memoization, code splitting, dynamic imports, lazy loading and virtualization</b>, improving rendering performance and <b>Core Web Vitals by 15–20%</b> while reducing bundle size.</li>
+          </ul>
+          <p class="role">SDE-I <span>Jan 2025 – Mar 2026</span></p>
+          <ul class="bul">
+            <li>Built the <b>Spinny Pro service-booking journey</b> within Spinny's consumer website, the end-to-end flow from service listings and detail pages to cart and checkout, <b>scaled from 0 to 2,000–2,500 service bookings a month</b>.</li>
+            <li>Constructed the <b>payment checkout for the Spinny Pro module</b>, reducing cash transactions and making record-keeping and refunds <b>100% digital</b>.</li>
+            <li>Built an <b>SEO-optimized Car Service Cost Calculator</b> that estimates service charges by vehicle type and <b>ranks on the first page of Google</b>.</li>
+            <li>Developed the <b>Car Parts Catalogue Page</b> from scratch with <b>TanStack Query</b> to show spare-parts availability for refurbishment cars, with faster page loads, quicker API responses and a more convenient UI.</li>
           </ul>
           <details class="more">
-            <summary>Show 8 more</summary>
+            <summary>Show 6 more</summary>
             <ul class="bul">
-              <li>Built an SEO-optimized <b>Car Service Cost Calculator</b> that ranks on Google's first page.</li>
-              <li>Constructed the Spinny Care <b>payment checkout</b>, reducing cash transactions and enabling fully digital records and refunds.</li>
-              <li>Developed the refurbishment <b>Catalogue Page</b> from scratch with TanStack Query, improving page-load speed and API performance.</li>
+              <li>Built the <b>Spinny Pro desktop website</b> for service booking and management, <b>growing user visits by 8–9%</b>.</li>
+              <li>Built the <b>Adhoc Approval Flow</b> in Spinny Care so technicians send car-parts approvals in-app, <b>reducing turnaround and manual work by 20–25%</b>.</li>
               <li>Migrated the Spinny mobile app from <b>React Native 0.72 to 0.80</b> and enabled support for newer platform requirements, including <b>16 KB Android page-size</b>.</li>
               <li>Developed an <b>offline notification system</b> for the Spinny app using the <b>Notifee</b> library.</li>
               <li>Built a <b>car inspection scheduling</b> feature that streamlines booking and tracking.</li>
-              <li>Contributed reusable components and standardized UI patterns to the shared <b>Spinny Design System</b>.</li>
               <li>Integrated <b>WebView</b> flows inside the mobile app and resolved navigation and cross-platform communication issues.</li>
             </ul>
           </details>
-          <ul class="chips"><li class="chip">React</li><li class="chip">React Native</li><li class="chip">TypeScript</li><li class="chip">TanStack Query</li><li class="chip">Claude Code</li><li class="chip">Bitbucket Pipelines</li></ul>
+          <ul class="chips"><li class="chip">React</li><li class="chip">TypeScript</li><li class="chip">React Native</li><li class="chip">TanStack Query</li><li class="chip">Claude Code</li><li class="chip">Bitbucket Pipelines</li></ul>
         </div>
       </article>
       <article class="job">
         <div class="job-meta"><span class="when">Oct 2023 – Jan 2025</span><span>Gurgaon</span></div>
         <div>
           <h3>Software Engineer at Airtel</h3>
-          <p class="about">Airtel Payments Bank. UPI, wallet and checkout flows used by millions every month.</p>
+          <p class="about">Checkout team. UPI, wallet and payment checkout flows across the Airtel website and Airtel Thanks app.</p>
           <ul class="bul">
-            <li>Architected a scalable React Native <b>payment checkout for 3M monthly active users</b>, covering the full range of transaction edge cases.</li>
-            <li>Built <b>backend-driven widgets</b> for APB Wallet and saved cards with card encryption and MPIN validation, reaching <b>~100% transaction success</b>.</li>
-            <li>Developed <b>Airtel UPI onboarding</b> (<b>improving success rate by 2%</b>), plus health callouts for unavailable banks for a further <b>1.5% lift</b>.</li>
-            <li>Implemented <b>SIM-binding checks</b> for wallet transactions, reducing fraud and <b>improving success rate by 1%</b>.</li>
-            <li>Developed <b>UPI payments in Airtel's web repo</b> with seamless VPA handling and intent/callback integration.</li>
+            <li>Architected a scalable, new <b>payment checkout flow in React Native</b>, handling all edge cases, for <b>3M monthly active users</b>.</li>
+            <li>Developed <b>Airtel UPI onboarding</b> and <b>bank health callouts</b>, improving transaction success rates by <b>2%</b> and <b>1.5%</b>; built <b>backend-driven widgets</b> for APB Wallet and saved-card payments with <b>card encryption and MPIN validation</b>, with wallet transactions at <b>nearly 100% success</b>.</li>
+            <li>Contributed extensively to Airtel's <b>shared frontend architecture</b> across the Airtel website and Airtel Thanks app: <b>ARDS</b> (design system) for foundational UI components, the <b>Widget Library</b> for reusable composite components, and <b>Web Artist</b> for business logic and UI updates.</li>
+            <li>Developed the <b>Airtel UPI payment flow</b> in Airtel's payment web repo with seamless <b>VPA handling and intent/callback integration</b>, improving reliability across platforms.</li>
           </ul>
           <details class="more">
             <summary>Show 1 more</summary>
-            <ul class="bul"><li>Contributed to <b>air-widget-library</b> and <b>air-design-system</b>, Airtel's shared component architecture used across multiple products.</li></ul>
+            <ul class="bul"><li>Built a <b>SIM-binding check</b> for APB Wallet transactions, reducing wallet fraud and <b>improving success rate by 1%</b>.</li></ul>
           </details>
           <ul class="chips"><li class="chip">React Native</li><li class="chip">React</li><li class="chip">JavaScript</li><li class="chip">Payments</li><li class="chip">Design Systems</li></ul>
         </div>
@@ -748,7 +755,7 @@ footer{border-top:1px solid var(--line);padding-block:28px;color:var(--muted);fo
     <button class="pitch-x" type="button" aria-label="Close">&times;</button>
     <strong class="pitch-q">What are my strengths?</strong>
     <p class="pitch-a">Production frontend on web and mobile, with AI in the workflow.</p>
-    <ul class="pitch-l"><li><b>React, TypeScript, React Native</b> at scale</li><li>Performance: <b>20–30% faster pages</b> via memoization, code splitting, virtualization</li><li>Design systems (Spinny SPEED, Airtel) and accessibility</li><li>AI engineering: an agent that cuts <b>25 Sentry errors to 2 Jira tickets</b> a day</li></ul>
+    <ul class="pitch-l"><li><b>React, TypeScript, React Native</b> at scale</li><li>Performance: <b>15–20% better Core Web Vitals</b> via memoization, code splitting, virtualization</li><li>Design systems (Spinny SPEED, Airtel) and accessibility</li><li>AI engineering: an agent that cuts <b>25 Sentry errors to 2 Jira tickets</b> a day</li></ul>
     <a class="pitch-m" href="#faq">More answers →</a>
     <i class="pitch-bar" aria-hidden="true"></i>
   </aside>
