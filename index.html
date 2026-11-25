@@ -276,9 +276,9 @@ details.more .bul{margin-top:12px}
 .filters button[aria-pressed="true"]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
 .bento{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:18px}
 .tile{grid-column:span 4;padding:22px;display:flex;flex-direction:column;gap:14px;overflow:hidden}
-.tile.w7{grid-column:span 7}.tile.w5{grid-column:span 5}.tile.w12{grid-column:span 12}
-@media (max-width:1000px){.tile,.tile.w7,.tile.w5{grid-column:span 6}}
-@media (max-width:700px){.tile,.tile.w7,.tile.w5{grid-column:span 12}}
+.tile.w7{grid-column:span 7}.tile.w5{grid-column:span 5}.tile.w6{grid-column:span 6}.tile.w12{grid-column:span 12}
+@media (max-width:1000px){.tile,.tile.w7,.tile.w5,.tile.w6{grid-column:span 6}}
+@media (max-width:700px){.tile,.tile.w7,.tile.w5,.tile.w6{grid-column:span 12}}
 .vis{height:120px;border-radius:14px;background:var(--surface-2);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
 .tile-top{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
 .tag{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
@@ -295,6 +295,12 @@ details.more .bul{margin-top:12px}
 .wave{display:flex;gap:4px;align-items:center;height:100%}
 .wave i{display:block;width:4px;border-radius:3px;background:var(--accent);height:var(--h);animation:wv 1.2s ease-in-out infinite;animation-delay:var(--d)}
 @keyframes wv{50%{transform:scaleY(.35)}}
+.kmap{display:grid;grid-template-columns:repeat(12,1fr);gap:5px;width:78%;position:relative}
+.kmap i{display:block;height:22px;border-radius:4px;background:var(--accent);opacity:var(--s);animation:kfade 3.2s ease-in-out infinite;animation-delay:var(--d)}
+.kmap i.hi{background:var(--hot);opacity:1}
+@keyframes kfade{50%{opacity:calc(var(--s) * .45)}}
+.kpin{position:absolute;width:14px;height:14px;border-radius:50% 50% 50% 0;background:var(--hot);transform:rotate(-45deg);left:var(--x);top:var(--y);box-shadow:0 0 0 0 color-mix(in srgb,var(--hot) 55%,transparent);animation:kping 1.8s ease-out infinite}
+@keyframes kping{70%{box-shadow:0 0 0 12px transparent}100%{box-shadow:0 0 0 0 transparent}}
 .bars{display:flex;flex-direction:column;gap:9px;width:70%}
 .bars i{display:block;height:9px;border-radius:5px;background:var(--surface);position:relative;overflow:hidden}
 .bars i::after{content:"";position:absolute;inset:0;width:var(--w);background:var(--accent);border-radius:5px;animation:grow 1.6s cubic-bezier(.2,.8,.2,1) both}
@@ -585,13 +591,13 @@ footer{border-top:1px solid var(--line);padding-block:28px;color:var(--muted);fo
     </div>
     <div class="bento">
       <article class="card tile w7" data-k="web">
-        <div class="vis"><div class="wave" data-wave="30"></div></div>
-        <div class="tile-top"><h3>Interview Buddy</h3><span class="tag live">In progress · 2026</span></div>
-        <p class="sub">AI interview simulator for frontend engineers</p>
-        <p class="desc">Realistic frontend interview practice with an adaptive AI interviewer and live voice answers.</p>
-        <ul class="bul"><li>Round 1, Round 2 and System Design modes across three difficulty levels.</li><li>Gemini-powered interviewer that adapts follow-ups from structured state.</li><li>Voice answers with Gemini transcription, text-to-speech replies and a session timer.</li><li>Scorecards across technical depth, communication and problem-solving.</li></ul>
-        <ul class="chips"><li class="chip">React</li><li class="chip">TypeScript</li><li class="chip">Zustand</li><li class="chip">Express</li><li class="chip">Gemini</li><li class="chip">Firebase</li></ul>
-        <div class="plinks"><a href="https://github.com/Manasdangi/Interview-Buddy" target="_blank" rel="noopener">Source</a></div>
+        <div class="vis"><div class="kmap" aria-hidden="true"><i style="--s:0.45;--d:3.0s"></i><i style="--s:0.3;--d:1.2s"></i><i style="--s:0.18;--d:0.2s"></i><i style="--s:0.8;--d:0.3s"></i><i style="--s:0.45;--d:1.8s"></i><i style="--s:0.18;--d:2.9s"></i><i style="--s:0.8;--d:0.6s"></i><i style="--s:0.18;--d:0.2s"></i><i style="--s:0.6;--d:1.3s"></i><i style="--s:0.18;--d:0.7s"></i><i style="--s:0.18;--d:1.7s"></i><i style="--s:0.6;--d:0.1s"></i><i style="--s:0.8;--d:0.3s"></i><i style="--s:0.3;--d:2.0s"></i><i style="--s:0.8;--d:3.0s"></i><i style="--s:0.18;--d:1.8s"></i><i style="--s:0.8;--d:1.2s"></i><i class="hi" style="--s:1;--d:0s"></i><i style="--s:0.18;--d:0.7s"></i><i style="--s:0.18;--d:1.7s"></i><i style="--s:0.3;--d:0.9s"></i><i style="--s:0.6;--d:0.4s"></i><i style="--s:0.8;--d:0.3s"></i><i style="--s:0.8;--d:0.9s"></i><i style="--s:0.8;--d:2.6s"></i><i style="--s:0.3;--d:0.3s"></i><i style="--s:0.8;--d:1.8s"></i><i style="--s:0.3;--d:1.1s"></i><i style="--s:0.18;--d:1.7s"></i><i style="--s:0.18;--d:1.8s"></i><i class="hi" style="--s:1;--d:0s"></i><i style="--s:0.18;--d:1.9s"></i><i style="--s:0.3;--d:1.5s"></i><i style="--s:0.8;--d:1.3s"></i><i style="--s:0.45;--d:1.4s"></i><i style="--s:0.8;--d:2.9s"></i><span class="kpin" style="--x:44%;--y:30%"></span></div></div>
+        <div class="tile-top"><h3>Kahan Rahe</h3><span class="tag live">Live · 2026</span></div>
+        <p class="sub">Women-first sector finder for Gurgaon</p>
+        <p class="desc">Helps people, especially women, choose where to live in Gurgaon, ranking sectors on what actually matters day to day.</p>
+        <ul class="bul"><li>Ranks <b>145+ Gurgaon sectors</b> by safety, metro, commute and budget for 2 BHK and 3 BHK, with a <b>night-safety score</b>, nearest police station details and a flat-visit checklist.</li><li><b>Crowdsourced resident data</b> (safety polls, rent reports, reviews) on <b>Supabase Postgres</b> with Row Level Security and rate limiting, plus a <b>data-confidence label</b> on every sector so thin data is shown honestly.</li><li>Interactive map with a <b>3D city view</b>, news-based flood and water evidence, and an <b>AI assistant with voice input</b> that answers queries like “2BHK near Cyber Hub under 35k”.</li></ul>
+        <ul class="chips"><li class="chip">React</li><li class="chip">TypeScript</li><li class="chip">Vite</li><li class="chip">Supabase</li><li class="chip">Maps</li><li class="chip">LLM</li></ul>
+        <div class="plinks"><a href="https://www.kahanrahe.online" target="_blank" rel="noopener">Live site</a><a href="https://www.kahanrahe.online/rate" target="_blank" rel="noopener">Rate your sector</a></div>
       </article>
 
       <article class="card tile w5" data-k="web">
@@ -604,7 +610,27 @@ footer{border-top:1px solid var(--line);padding-block:28px;color:var(--muted);fo
         <div class="plinks"><a href="https://talentlens-gamma.vercel.app/" target="_blank" rel="noopener">Live demo</a><a href="https://github.com/Manasdangi/TalentLens" target="_blank" rel="noopener">Source</a></div>
       </article>
 
-      <article class="card tile" data-k="mobile">
+      <article class="card tile w7" data-k="web">
+        <div class="vis"><div class="wave" data-wave="30"></div></div>
+        <div class="tile-top"><h3>Interview Buddy</h3><span class="tag live">In progress · 2026</span></div>
+        <p class="sub">AI interview simulator for frontend engineers</p>
+        <p class="desc">Realistic frontend interview practice with an adaptive AI interviewer and live voice answers.</p>
+        <ul class="bul"><li>Round 1, Round 2 and System Design modes across three difficulty levels.</li><li>Gemini-powered interviewer that adapts follow-ups from structured state.</li><li>Voice answers with Gemini transcription, text-to-speech replies and a session timer.</li><li>Scorecards across technical depth, communication and problem-solving.</li></ul>
+        <ul class="chips"><li class="chip">React</li><li class="chip">TypeScript</li><li class="chip">Zustand</li><li class="chip">Express</li><li class="chip">Gemini</li><li class="chip">Firebase</li></ul>
+        <div class="plinks"><a href="https://github.com/Manasdangi/Interview-Buddy" target="_blank" rel="noopener">Source</a></div>
+      </article>
+
+      <article class="card tile w5" data-k="web">
+        <div class="vis"><div class="board"></div><span class="move"></span></div>
+        <div class="tile-top"><h3>Multiplayer Chess</h3><span class="tag">Personal</span></div>
+        <p class="sub">Real-time chess with rooms and match history</p>
+        <p class="desc">Create a private room, invite a friend and play live, with profiles and a history of past matches.</p>
+        <ul class="bul"><li>Real-time gameplay and game-state sync over Socket.IO.</li><li>Move logic for every piece written from scratch.</li><li>Custom-designed board UI with reworked login and room flows.</li></ul>
+        <ul class="chips"><li class="chip">React</li><li class="chip">Socket.IO</li><li class="chip">Firebase</li></ul>
+        <div class="plinks"><a href="https://chess-gamma-five.vercel.app/" target="_blank" rel="noopener">Live demo</a><a href="https://github.com/Manasdangi/chess" target="_blank" rel="noopener">Source</a></div>
+      </article>
+
+      <article class="card tile w6" data-k="mobile">
         <div class="vis"><div class="mq"><span>Discover</span><span>Search</span><span>Cart</span><span>Checkout</span><span>Orders</span><span>Addresses</span><span>Discover</span><span>Search</span><span>Cart</span><span>Checkout</span><span>Orders</span><span>Addresses</span></div></div>
         <div class="tile-top"><h3>Foodie</h3><span class="tag">React Native CLI</span></div>
         <p class="sub">Food ordering app for iOS and Android</p>
@@ -614,7 +640,7 @@ footer{border-top:1px solid var(--line);padding-block:28px;color:var(--muted);fo
         <div class="plinks"><a href="https://github.com/Manasdangi/foodie-app" target="_blank" rel="noopener">App source</a><a href="https://github.com/Manasdangi/foodie-app-restaurant-admin-portal" target="_blank" rel="noopener">Admin portal</a></div>
       </article>
 
-      <article class="card tile" data-k="mobile">
+      <article class="card tile w6" data-k="mobile">
         <div class="vis rings"><svg viewBox="0 0 104 104" aria-hidden="true"><circle class="t" cx="52" cy="52" r="44"/><circle class="a" cx="52" cy="52" r="44" style="--len:276;--off:70"/><circle class="t" cx="52" cy="52" r="32"/><circle class="a b" cx="52" cy="52" r="32" style="--len:201;--off:80"/><circle class="t" cx="52" cy="52" r="20"/><circle class="a c" cx="52" cy="52" r="20" style="--len:126;--off:50"/></svg></div>
         <div class="tile-top"><h3>DietBuddy</h3><span class="tag">Expo</span></div>
         <p class="sub">AI nutrition and workout companion</p>
@@ -622,16 +648,6 @@ footer{border-top:1px solid var(--line);padding-block:28px;color:var(--muted);fo
         <ul class="bul"><li>Meal capture from camera, photo library or a voice recording, analysed by Gemini 1.5 Flash.</li><li>Goal-based onboarding (bulking or cutting) that sets daily calorie, protein and carb targets.</li><li>Custom blurred bottom tab bar with a centre action button, and light and dark themes.</li></ul>
         <ul class="chips"><li class="chip">React Native</li><li class="chip">Expo</li><li class="chip">Gemini API</li><li class="chip">Zustand</li><li class="chip">React Navigation</li></ul>
         <div class="plinks"><a href="https://github.com/Manasdangi/DietBuddy-Frontend" target="_blank" rel="noopener">Source</a></div>
-      </article>
-
-      <article class="card tile" data-k="web">
-        <div class="vis"><div class="board"></div><span class="move"></span></div>
-        <div class="tile-top"><h3>Multiplayer Chess</h3><span class="tag">Personal</span></div>
-        <p class="sub">Real-time chess with rooms and match history</p>
-        <p class="desc">Create a private room, invite a friend and play live, with profiles and a history of past matches.</p>
-        <ul class="bul"><li>Real-time gameplay and game-state sync over Socket.IO.</li><li>Move logic for every piece written from scratch.</li><li>Custom-designed board UI with reworked login and room flows.</li></ul>
-        <ul class="chips"><li class="chip">React</li><li class="chip">Socket.IO</li><li class="chip">Firebase</li></ul>
-        <div class="plinks"><a href="https://chess-gamma-five.vercel.app/" target="_blank" rel="noopener">Live demo</a><a href="https://github.com/Manasdangi/chess" target="_blank" rel="noopener">Source</a></div>
       </article>
 
       <article class="card tile w12" data-k="web">
